@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Geronimo Records</title>
+  <meta name="description" content="Get in touch with Geronimo Records for bookings, press, sponsorships, and general inquiries." />
+  <link rel="canonical" href="https://geronimorecords.net/contact.html" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
+    <ul class="nav-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="collective.html">Collective</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="events.html">Events</a>
+    <a href="archive.html">Archive</a>
+    <a href="merch.html">Merch</a>
+    <a href="collective.html">Collective</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="section-label">Get in Touch</span>
+    <h1 class="section-title">Contact</h1>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section style="background: var(--dark);">
+
+    <!--
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    FORMSPREE SETUP — sends form submissions to treysonle11@gmail.com
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    STEP 1: Go to formspree.io and create a free account
+    STEP 2: Click "New Form" → name it "Geronimo Records Contact"
+    STEP 3: Set the notification email to: treysonle11@gmail.com
+    STEP 4: Copy your form's unique endpoint URL
+             (looks like: https://formspree.io/f/xyzabcde)
+    STEP 5: Replace YOUR_FORMSPREE_ID below with your form ID
+             (just the 8-character code after /f/)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    -->
+
+    <div class="contact-grid">
+
+      <!-- CONTACT FORM -->
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+        method="POST"
+      >
+        <!-- Hidden field so Formspree knows the reply-to address -->
+        <input type="hidden" name="_subject" value="New message — Geronimo Records" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="Jordan" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Smith" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="topic">I'm Reaching Out About</label>
+          <select id="topic" name="topic">
+            <option value="">Select a topic</option>
+            <option value="performing">Performing at an Event</option>
+            <option value="sponsorship">Sponsorship / Partnership</option>
+            <option value="vendor">Vendor / Designer Booth</option>
+            <option value="press">Press / Media</option>
+            <option value="general">General Inquiry</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what you have in mind..." required></textarea>
+        </div>
+
+        <!-- Honeypot field to block spam (hidden from real users) -->
+        <input type="text" name="_gotcha" style="display:none;" />
+
+        <button type="submit" class="btn-primary">Send Message</button>
+        <div class="form-success">Message received. We'll be in touch soon.</div>
+      </form>
+
+      <!-- CONTACT INFO -->
+      <div class="contact-info">
+
+        <div class="contact-block">
+          <span class="contact-block-label">Location</span>
+          <p>Las Vegas, Nevada<br>702 Area — We move through the whole city.</p>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">General</span>
+          <p><a href="mailto:hello@geronimorecords.net">hello@geronimorecords.net</a></p>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Bookings &amp; Press</span>
+          <p><a href="mailto:bookings@geronimorecords.net">bookings@geronimorecords.net</a></p>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Response Time</span>
+          <p style="font-size:14px;">We typically respond within 48–72 hours. For urgent event inquiries, include your date in the subject line.</p>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Follow</span>
+          <div class="social-links">
+            <!-- Replace # with your actual social URLs -->
+            <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="Twitter/X">X</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
+    <ul class="footer-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Store</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

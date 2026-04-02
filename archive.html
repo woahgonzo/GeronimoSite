@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive — Geronimo Records</title>
+  <meta name="description" content="A documented history of Geronimo Records events — concerts, fashion shows, and cultural moments in Las Vegas." />
+  <link rel="canonical" href="https://geronimorecords.net/archive.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Archive-page specific styles */
+    .archive-year-label {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      margin-bottom: 24px;
+      margin-top: 80px;
+      display: block;
+    }
+
+    .archive-year-label:first-of-type { margin-top: 0; }
+
+    /* Caption panel shown when hovering on desktop */
+    .archive-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.96) 0%, transparent 100%);
+      padding: 32px 24px 24px;
+      z-index: 4;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .archive-card:hover .archive-caption { transform: translateY(0); }
+
+    .archive-caption p {
+      font-family: var(--font-editorial);
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(245,245,240,0.7);
+      margin-top: 8px;
+    }
+
+    .archive-caption a {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      display: inline-block;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
+    <ul class="nav-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="collective.html">Collective</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="events.html">Events</a>
+    <a href="archive.html">Archive</a>
+    <a href="merch.html">Merch</a>
+    <a href="collective.html">Collective</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="section-label">Where We've Been</span>
+    <h1 class="section-title">The Archive</h1>
+    <div class="section-divider"></div>
+    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">Every event documented. Every moment preserved.</p>
+  </div>
+
+  <!-- ARCHIVE CONTENT -->
+  <section style="background: var(--black);">
+
+    <!-- 2024 -->
+    <span class="archive-year-label">— 2024</span>
+    <div class="archive-grid">
+
+      <div class="archive-card archive-large">
+        <!--
+          HOW TO ADD REAL PHOTOS:
+          Replace the bg-X div below with:
+          <img src="assets/images/fashion-show-002.jpg" alt="Geronimo Fashion Show 002" />
+          Place your photo files in the assets/images/ folder.
+        -->
+        <div class="archive-card-bg bg-1"></div>
+        <div class="archive-always">
+          <div class="archive-event-name">GERONIMO FASHION SHOW 002</div>
+          <div class="archive-event-date">November 2024 · The Arts District</div>
+        </div>
+        <div class="archive-caption">
+          <p>A night where Las Vegas fashion met underground sound. Designers, models, and musicians sharing one stage.</p>
+          <a href="#">View Gallery →</a>
+        </div>
+      </div>
+
+      <div class="archive-card">
+        <div class="archive-card-bg bg-2"></div>
+        <div class="archive-always">
+          <div class="archive-event-name">DESERT HEAT VOL. 2</div>
+          <div class="archive-event-date">August 2024</div>
+        </div>
+        <div class="archive-caption">
+          <p>The second installment of our flagship concert series.</p>
+          <a href="#">View Gallery →</a>
+        </div>
+      </div>
+
+      <div class="archive-card">
+        <div class="archive-card-bg bg-3"></div>
+        <div class="archive-always">
+          <div class="archive-event-name">CONCERT SERIES 001</div>
+          <div class="archive-event-date">May 2024</div>
+        </div>
+        <div class="archive-caption">
+          <p>Our first formal concert series. The blueprint.</p>
+          <a href="#">View Gallery →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2023 -->
+    <span class="archive-year-label">— 2023</span>
+    <div class="archive-grid">
+
+      <div class="archive-card">
+        <div class="archive-card-bg bg-4"></div>
+        <div class="archive-always">
+          <div class="archive-event-name">GERONIMO FASHION 001</div>
+          <div class="archive-event-date">December 2023</div>
+        </div>
+        <div class="archive-caption">
+          <p>The first fashion show. Where it all started.</p>
+          <a href="#">View Gallery →</a>
+        </div>
+      </div>
+
+      <div class="archive-card archive-large">
+        <div class="archive-card-bg bg-5"></div>
+        <div class="archive-always">
+          <div class="archive-event-name">DESERT HEAT VOL. 1</div>
+          <div class="archive-event-date">September 2023 · Las Vegas</div>
+        </div>
+        <div class="archive-caption">
+          <p>Volume one. The show that proved there was a scene here worth building.</p>
+          <a href="#">View Gallery →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2022 -->
+    <span class="archive-year-label">— 2022</span>
+    <div class="archive-grid">
+
+      <div class="archive-card archive-large">
+        <div class="archive-card-bg bg-6"></div>
+        <div class="archive-always">
+          <div class="archive-event-name">THE FIRST SHOW</div>
+          <div class="archive-event-date">2022 · Origin</div>
+        </div>
+        <div class="archive-caption">
+          <p>Before the brand. Before the name. Just the idea that Las Vegas deserved something different.</p>
+          <a href="#">View Gallery →</a>
+        </div>
+      </div>
+
+      <div class="archive-card">
+        <div class="archive-card-bg bg-1"></div>
+        <div class="archive-always">
+          <div class="archive-event-name">PLACEHOLDER</div>
+          <div class="archive-event-date">Add Your Event Here</div>
+        </div>
+        <div class="archive-caption">
+          <p>Replace this card with your event details and photo.</p>
+        </div>
+      </div>
+
+      <div class="archive-card">
+        <div class="archive-card-bg bg-2"></div>
+        <div class="archive-always">
+          <div class="archive-event-name">PLACEHOLDER</div>
+          <div class="archive-event-date">Add Your Event Here</div>
+        </div>
+        <div class="archive-caption">
+          <p>Replace this card with your event details and photo.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
+    <ul class="footer-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Store</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

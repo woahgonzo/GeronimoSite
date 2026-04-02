@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merch — Geronimo Records</title>
+  <meta name="description" content="Official Geronimo Records merchandise. Tees, hoodies, and limited event drops." />
+  <link rel="canonical" href="https://geronimorecords.net/merch.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Shopify Buy Button override styles ──────────────────
+       These ensure Shopify's injected iframes match our dark theme.
+       Shopify's Buy Button SDK respects some of these CSS variables
+       via its options object in the embed script. The JS comment
+       in each embed block below shows the recommended options to
+       pass for dark-theme styling.
+    ───────────────────────────────────────────────────────── */
+    .shopify-buy-frame { width: 100% !important; }
+
+    /* Merch page intro banner */
+    .merch-intro {
+      background: var(--dark);
+      padding: 30px 60px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .merch-intro p {
+      font-family: var(--font-editorial);
+      font-size: 16px;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .merch-intro-note {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Category tabs */
+    .merch-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .merch-tab {
+      padding: 14px 28px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      font-family: var(--font-body);
+      margin-bottom: -1px;
+    }
+
+    .merch-tab.active,
+    .merch-tab:hover {
+      color: var(--white);
+      border-bottom-color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
+    <ul class="nav-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="collective.html">Collective</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="events.html">Events</a>
+    <a href="archive.html">Archive</a>
+    <a href="merch.html">Merch</a>
+    <a href="collective.html">Collective</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="section-label">Official Store</span>
+    <h1 class="section-title">Merch</h1>
+  </div>
+
+  <!-- INTRO STRIP -->
+  <div class="merch-intro">
+    <p>Limited drops. Event exclusives. Wear what you rep.</p>
+    <span class="merch-intro-note">Powered by Shopify · Secure Checkout</span>
+  </div>
+
+  <!-- MAIN MERCH SECTION -->
+  <section style="background: var(--off-black);">
+
+    <!-- TABS (visual only — functionality can be added later) -->
+    <div class="merch-tabs">
+      <button class="merch-tab active">All</button>
+      <button class="merch-tab">Tees</button>
+      <button class="merch-tab">Hoodies</button>
+      <button class="merch-tab">Hats</button>
+      <button class="merch-tab">Event Drops</button>
+    </div>
+
+    <!--
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    SHOPIFY BUY BUTTON SETUP
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    STEP 1: Create a Shopify store at shopify.com
+    STEP 2: Add your products (tees, hoodies, etc.)
+    STEP 3: In Shopify Admin → Sales Channels → Buy Button
+    STEP 4: Create a "Collection" button to show all products at once
+    STEP 5: Customize colors to match:
+              Background:    #1a1a1a
+              Text:          #f5f5f0
+              Button color:  #c9a84c
+              Button text:   #080808
+    STEP 6: Copy the generated <script> embed code
+    STEP 7: Replace the placeholder div below with that script
+
+    The embed will look something like:
+    <div id="product-component-XXXXXXXXX"></div>
+    <script type="text/javascript">
+      (function () {
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        ...
+      })();
+    </script>
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    -->
+
+    <div class="shopify-embed-wrapper">
+      <!-- PLACEHOLDER: Replace this entire block with your Shopify Buy Button embed script -->
+      <div style="
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 80px 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      ">
+        <p style="font-family:var(--font-display); font-size:22px; letter-spacing:0.1em; color:var(--gold);">SHOPIFY STORE EMBED</p>
+        <p style="color:var(--muted); font-size:13px; max-width:480px; line-height:1.7;">
+          After setting up your Shopify store, paste the Buy Button collection embed script here.
+          Your products will appear directly on this page with Shopify's secure checkout.
+        </p>
+        <a href="https://shopify.com" target="_blank" rel="noopener" class="btn-ghost" style="font-size:10px;padding:10px 24px;">Set Up Shopify Store →</a>
+      </div>
+    </div>
+
+    <!-- PREVIEW GRID (remove this once Shopify embed is live) -->
+    <div style="margin-top: 48px;">
+      <p style="font-size:11px; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase; margin-bottom:32px;">Preview — replace with live Shopify products</p>
+      <div class="merch-grid">
+        <div class="merch-card">
+          <div class="merch-img"><div class="merch-img-bg bg-1"><div class="merch-label-large">GERI</div></div></div>
+          <div class="merch-info">
+            <div class="merch-name">Classic Logo Tee — Black</div>
+            <div class="merch-price">$38</div>
+          </div>
+        </div>
+        <div class="merch-card">
+          <div class="merch-img"><div class="merch-img-bg bg-2"><div class="merch-label-large">REC</div></div></div>
+          <div class="merch-info">
+            <div class="merch-name">Desert Heavyweight Hoodie</div>
+            <div class="merch-price">$78</div>
+          </div>
+        </div>
+        <div class="merch-card">
+          <div class="merch-img"><div class="merch-img-bg bg-5"><div class="merch-label-large">702</div></div></div>
+          <div class="merch-info">
+            <div class="merch-name">702 Crewneck</div>
+            <div class="merch-price">$62</div>
+            <div class="merch-sold-out">Low Stock</div>
+          </div>
+        </div>
+        <div class="merch-card">
+          <div class="merch-img"><div class="merch-img-bg bg-3"><div class="merch-label-large">LV</div></div></div>
+          <div class="merch-info">
+            <div class="merch-name">Film Fest 2026 Tee</div>
+            <div class="merch-price">$42</div>
+          </div>
+        </div>
+        <div class="merch-card">
+          <div class="merch-img"><div class="merch-img-bg bg-4"><div class="merch-label-large">GR</div></div></div>
+          <div class="merch-info">
+            <div class="merch-name">Snapback — Black/Gold</div>
+            <div class="merch-price">$34</div>
+          </div>
+        </div>
+        <div class="merch-card">
+          <div class="merch-img"><div class="merch-img-bg bg-6"><div class="merch-label-large">NV</div></div></div>
+          <div class="merch-info">
+            <div class="merch-name">Desert Tee — Sand</div>
+            <div class="merch-price">$38</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
+    <ul class="footer-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Store</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

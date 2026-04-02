@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — Geronimo Records</title>
+  <meta name="description" content="Upcoming concerts, fashion shows, film festivals, and events from Geronimo Records in Las Vegas." />
+  <link rel="canonical" href="https://geronimorecords.net/events.html" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
+    <ul class="nav-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="collective.html">Collective</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="events.html">Events</a>
+    <a href="archive.html">Archive</a>
+    <a href="merch.html">Merch</a>
+    <a href="collective.html">Collective</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="section-label">On the Calendar</span>
+    <h1 class="section-title">Upcoming<br>Events</h1>
+  </div>
+
+  <!-- EVENTS LIST -->
+  <section style="background: var(--off-black); padding-top: 60px;">
+    <div class="events-grid">
+
+      <!-- EVENT 01 — Featured -->
+      <div class="event-row event-featured" style="cursor:default;">
+        <div class="event-num">01</div>
+        <div class="event-info">
+          <div class="event-title-text">GERONIMO FILM FESTIVAL</div>
+          <div class="event-meta">Downtown Las Vegas · Screenings + Q&A + Afterparty · All Ages</div>
+        </div>
+        <div class="event-date">May 17, 2026</div>
+        <!--
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          TICKET TAILOR SETUP (Event 01)
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          1. Go to tickettailor.com and create your event
+          2. From your event dashboard, click "Embed" → "Buy Button"
+          3. Copy the <script> embed code and replace this comment
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        -->
+        <button class="event-ticket" onclick="document.getElementById('tt-film-fest').scrollIntoView({behavior:'smooth'})">Buy Tickets</button>
+      </div>
+
+      <!-- EVENT 02 -->
+      <div class="event-row" style="cursor:default;">
+        <div class="event-num">02</div>
+        <div class="event-info">
+          <div class="event-title-text">DESERT HEAT VOL. 3</div>
+          <div class="event-meta">The Venue LV · Hip-Hop Concert Series · 18+</div>
+        </div>
+        <div class="event-date">Jun 7, 2026</div>
+        <button class="event-ticket" onclick="document.getElementById('tt-desert-heat').scrollIntoView({behavior:'smooth'})">Buy Tickets</button>
+      </div>
+
+      <!-- EVENT 03 -->
+      <div class="event-row" style="cursor:default;">
+        <div class="event-num">03</div>
+        <div class="event-info">
+          <div class="event-title-text">RUNWAYS &amp; RECORDS</div>
+          <div class="event-meta">The Arts District · Fashion × Music Showcase · All Ages</div>
+        </div>
+        <div class="event-date">Jul 19, 2026</div>
+        <button class="event-ticket" onclick="document.getElementById('tt-runways').scrollIntoView({behavior:'smooth'})">Buy Tickets</button>
+      </div>
+
+      <!-- EVENT 04 — TBA -->
+      <div class="event-row" style="cursor:default; opacity:0.5;">
+        <div class="event-num">04</div>
+        <div class="event-info">
+          <div class="event-title-text">TBA — FALL SERIES</div>
+          <div class="event-meta">Location TBD · Announcement coming soon</div>
+        </div>
+        <div class="event-date">Fall 2026</div>
+        <button class="event-ticket" disabled style="opacity:0.5;cursor:default;">Coming Soon</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────────
+       TICKET TAILOR EMBEDS
+       Each section below maps to one event above.
+       Replace each <!-- TT EMBED --> comment with the
+       <script> tag from your Ticket Tailor dashboard.
+  ───────────────────────────────────────────────────────────── -->
+
+  <!-- FILM FESTIVAL TICKETS -->
+  <section id="tt-film-fest" style="background: var(--dark); padding: 80px 60px;">
+    <span class="section-label">Geronimo Film Festival — May 17, 2026</span>
+    <h2 class="section-title" style="font-size:clamp(28px,4vw,48px); margin-bottom:40px;">Get Your Tickets</h2>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         PASTE TICKET TAILOR EMBED SCRIPT HERE (Film Fest)
+         Example of what it will look like:
+         <script src="https://web.tickettailor.com/js/widget-embed.js"></script>
+         <div class="tt-widget" data-url="https://www.tickettailor.com/events/geronimorecords/..."></div>
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="tickettailor-embed">
+      <p style="color:var(--gold); font-family:var(--font-display); font-size:20px; letter-spacing:0.1em;">TICKET TAILOR EMBED</p>
+      <p>After creating your event at tickettailor.com,<br>replace this block with the embed script from your dashboard.</p>
+      <a href="https://tickettailor.com" target="_blank" rel="noopener" class="btn-ghost" style="font-size:10px;padding:10px 24px;">Set Up on Ticket Tailor →</a>
+    </div>
+  </section>
+
+  <!-- DESERT HEAT TICKETS -->
+  <section id="tt-desert-heat" style="background: var(--off-black); padding: 80px 60px;">
+    <span class="section-label">Desert Heat Vol. 3 — Jun 7, 2026</span>
+    <h2 class="section-title" style="font-size:clamp(28px,4vw,48px); margin-bottom:40px;">Get Your Tickets</h2>
+    <!-- PASTE TICKET TAILOR EMBED SCRIPT HERE (Desert Heat) -->
+    <div class="tickettailor-embed">
+      <p style="color:var(--gold); font-family:var(--font-display); font-size:20px; letter-spacing:0.1em;">TICKET TAILOR EMBED</p>
+      <p>Paste your Ticket Tailor embed script here.</p>
+    </div>
+  </section>
+
+  <!-- RUNWAYS & RECORDS TICKETS -->
+  <section id="tt-runways" style="background: var(--dark); padding: 80px 60px;">
+    <span class="section-label">Runways &amp; Records — Jul 19, 2026</span>
+    <h2 class="section-title" style="font-size:clamp(28px,4vw,48px); margin-bottom:40px;">Get Your Tickets</h2>
+    <!-- PASTE TICKET TAILOR EMBED SCRIPT HERE (Runways & Records) -->
+    <div class="tickettailor-embed">
+      <p style="color:var(--gold); font-family:var(--font-display); font-size:20px; letter-spacing:0.1em;">TICKET TAILOR EMBED</p>
+      <p>Paste your Ticket Tailor embed script here.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
+    <ul class="footer-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Store</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
