@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>New Beginnings — Geronimo Records Archive</title>
-  <meta name="description" content="New Beginnings @ The Bottega Exchange — Geronimo Records concert, January 23, 2025." />
+  <meta name="description" content="New Beginnings @ The Bottega Exchange — Geronimo Records concert, January 23, 2026." />
   <link rel="canonical" href="https://geronimorecords.net/archive-new-beginnings.html" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
@@ -202,6 +202,225 @@
       border: 1px dashed rgba(201,168,76,0.12);
     }
 
+    .gallery-slider {
+      margin: 48px auto 0;
+      display: grid;
+      gap: 18px;
+      max-width: 1100px;
+    }
+
+    .gallery-slides {
+      position: relative;
+      min-height: 480px;
+      touch-action: pan-y;
+    }
+
+    .gallery-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-slide:hover img {
+      transform: scale(1.02);
+    }
+
+    .gallery-slide .gallery-placeholder-slot {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(201,168,76,0.4);
+      border: 1px dashed rgba(201,168,76,0.18);
+      text-align: center;
+      padding: 20px;
+      background: rgba(8, 8, 8, 0.55);
+    }
+
+    .gallery-slide.missing-image .gallery-placeholder-slot {
+      display: flex;
+    }
+
+    .gallery-slide.missing-image img {
+      display: none;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 16px 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8,8,8,0.72) 100%);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-nav {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8,8,8,0.8);
+      color: var(--gold);
+      font-size: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-nav:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    .gallery-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .gallery-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .gallery-dot.active {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0,0,0,0.92);
+    }
+
+    .gallery-modal.open {
+      display: flex;
+    }
+
+    .gallery-modal-content {
+      position: relative;
+      width: min(1080px, 100%);
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .gallery-modal-content img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 22px;
+      background: #111;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .gallery-modal-caption {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      gap: 12px;
+    }
+
+    .gallery-modal-close,
+    .gallery-modal-prev,
+    .gallery-modal-next {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-modal-close:hover,
+    .gallery-modal-prev:hover,
+    .gallery-modal-next:hover {
+      background: rgba(255,255,255,0.16);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .gallery-slides { min-height: 320px; }
+      .gallery-caption { padding: 14px 18px; font-size: 12px; }
+      .gallery-nav { width: 42px; height: 42px; }
+      .gallery-modal { padding: 16px; }
+      .gallery-modal-caption { font-size: 12px; }
+      .gallery-modal-close,
+      .gallery-modal-prev,
+      .gallery-modal-next { width: 42px; height: 42px; }
+    }
+
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -221,6 +440,9 @@
       .lineup-grid { grid-template-columns: 1fr 1fr; }
       .vendor-grid { grid-template-columns: 1fr 1fr; }
       .event-gallery-grid { columns: 2; }
+      .gallery-slides { min-height: 280px; }
+      .gallery-caption { font-size: 12px; padding: 12px 16px; }
+      .gallery-controls { flex-wrap: wrap; gap: 10px; }
     }
   </style>
 </head>
@@ -252,10 +474,10 @@
   <!-- PAGE HERO -->
   <div class="page-hero">
     <a href="archive.html" class="back-link">← Back to Archive</a>
-    <span class="section-label">January 23, 2025 · The Bottega Exchange · Las Vegas</span>
+    <span class="section-label">January 23, 2026 · The Bottega Exchange · Las Vegas</span>
     <h1 class="section-title">New Beginnings</h1>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">Concert.</p>
+    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">Geronimo Productions presents their third concert.</p>
 
     <!--
       POSTER IMAGE:
@@ -266,7 +488,7 @@
       </div>
     -->
     <div class="event-poster">
-      <div class="event-poster-placeholder">POSTER<br/>assets/images/posters/<br/>new-beginnings.jpg</div>
+      <img src="assets/images/posters/new-beginnings.jpg" alt="New Beginnings Poster" />
     </div>
   </div>
 
@@ -275,7 +497,7 @@
     <div class="event-meta-bar">
       <div>
         <span class="meta-item-label">Date</span>
-        <div class="meta-item-value">January 23, 2025</div>
+        <div class="meta-item-value">January 23, 2026</div>
       </div>
       <div>
         <span class="meta-item-label">Venue</span>
@@ -291,7 +513,7 @@
       </div>
     </div>
     <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.8; color:rgba(245,245,240,0.75); max-width:680px;">
-      A new year, a new venue, and a new chapter for Geronimo Records. New Beginnings at The Bottega Exchange was the collective's first event of 2025, setting the tone for everything that would follow.
+      A new year, a new venue, and a new chapter for Geronimo Records. New Beginnings at The Bottega Exchange was the collective's first event of 2026, setting the tone for everything that would follow.
     </p>
   </section>
 
@@ -360,37 +582,147 @@
   <!-- PHOTO GALLERY -->
   <section style="background: var(--black);">
     <span class="section-label">Captured Moments</span>
-    <h2 class="section-title">Photos</h2>
+    <h2 class="section-title">View New Beginnings</h2>
     <div class="section-divider"></div>
     <p style="font-family:var(--font-editorial); font-size:16px; font-style:italic; color:var(--muted); margin-bottom:0;">
-      Drop event photos into <code style="font-style:normal; font-size:13px; color:var(--gold);">assets/images/events/new-beginnings/</code> and replace the placeholder slots below.
+      Take a look at some photos from our event New Beginnings.
     </p>
 
-    <div class="event-gallery-grid">
-      <!-- SLOT 01: assets/images/events/new-beginnings/photo-01.jpg -->
-      <div class="event-gallery-item event-gallery-item--tall">
-        <div class="gallery-placeholder-slot">photo-01.jpg</div>
+    <div class="gallery-slider">
+      <div class="gallery-slides">
+        <div class="gallery-slide active" data-index="1" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-01.jpg" alt="New Beginnings photo 1" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-01.jpg</div>
+          <div class="gallery-caption">1 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="2" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-02.jpg" alt="New Beginnings photo 2" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-02.jpg</div>
+          <div class="gallery-caption">2 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="3" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-03.jpg" alt="New Beginnings photo 3" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-03.jpg</div>
+          <div class="gallery-caption">3 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="4" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-04.jpg" alt="New Beginnings photo 4" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-04.jpg</div>
+          <div class="gallery-caption">4 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="5" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-05.jpg" alt="New Beginnings photo 5" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-05.jpg</div>
+          <div class="gallery-caption">5 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="6" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-06.jpg" alt="New Beginnings photo 6" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-06.jpg</div>
+          <div class="gallery-caption">6 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="7" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-07.jpg" alt="New Beginnings photo 7" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-07.jpg</div>
+          <div class="gallery-caption">7 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="8" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-08.jpg" alt="New Beginnings photo 8" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-08.jpg</div>
+          <div class="gallery-caption">8 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="9" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-09.jpg" alt="New Beginnings photo 9" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-09.jpg</div>
+          <div class="gallery-caption">9 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="10" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-10.jpg" alt="New Beginnings photo 10" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-10.jpg</div>
+          <div class="gallery-caption">10 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="11" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-11.jpg" alt="New Beginnings photo 11" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-11.jpg</div>
+          <div class="gallery-caption">11 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="12" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-12.jpg" alt="New Beginnings photo 12" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-12.jpg</div>
+          <div class="gallery-caption">12 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="13" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-13.jpg" alt="New Beginnings photo 13" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-13.jpg</div>
+          <div class="gallery-caption">13 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="14" role="button" tabindex="0">
+          <img src="assets/images/events/new-beginnings/photo-14.jpg" alt="New Beginnings photo 14" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-14.jpg</div>
+          <div class="gallery-caption">14 / 14</div>
+        </div>
       </div>
-      <!-- SLOT 02: assets/images/events/new-beginnings/photo-02.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-02.jpg</div>
+      <div class="gallery-controls">
+        <button class="gallery-nav gallery-nav-prev" type="button" aria-label="Previous photo">‹</button>
+        <div class="gallery-dots">
+          <button class="gallery-dot active" type="button" data-index="1" aria-label="Go to photo 1"></button>
+          <button class="gallery-dot" type="button" data-index="2" aria-label="Go to photo 2"></button>
+          <button class="gallery-dot" type="button" data-index="3" aria-label="Go to photo 3"></button>
+          <button class="gallery-dot" type="button" data-index="4" aria-label="Go to photo 4"></button>
+          <button class="gallery-dot" type="button" data-index="5" aria-label="Go to photo 5"></button>
+          <button class="gallery-dot" type="button" data-index="6" aria-label="Go to photo 6"></button>
+          <button class="gallery-dot" type="button" data-index="7" aria-label="Go to photo 7"></button>
+          <button class="gallery-dot" type="button" data-index="8" aria-label="Go to photo 8"></button>
+          <button class="gallery-dot" type="button" data-index="9" aria-label="Go to photo 9"></button>
+          <button class="gallery-dot" type="button" data-index="10" aria-label="Go to photo 10"></button>
+          <button class="gallery-dot" type="button" data-index="11" aria-label="Go to photo 11"></button>
+          <button class="gallery-dot" type="button" data-index="12" aria-label="Go to photo 12"></button>
+          <button class="gallery-dot" type="button" data-index="13" aria-label="Go to photo 13"></button>
+          <button class="gallery-dot" type="button" data-index="14" aria-label="Go to photo 14"></button>
+        </div>
+        <button class="gallery-nav gallery-nav-next" type="button" aria-label="Next photo">›</button>
       </div>
-      <!-- SLOT 03: assets/images/events/new-beginnings/photo-03.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-03.jpg</div>
+    </div>
+    <div class="gallery-modal" aria-hidden="true">
+      <div class="gallery-modal-content">
+        <button class="gallery-modal-close" type="button" aria-label="Close gallery">×</button>
+        <img src="" alt="" />
+        <div class="gallery-modal-caption">
+          <span class="modal-caption-text"></span>
+          <span class="modal-caption-order"></span>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-modal-prev" type="button" aria-label="Previous photo">‹</button>
+          <button class="gallery-modal-next" type="button" aria-label="Next photo">›</button>
+        </div>
       </div>
-      <!-- SLOT 04: assets/images/events/new-beginnings/photo-04.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-04.jpg</div>
-      </div>
-      <!-- SLOT 05: assets/images/events/new-beginnings/photo-05.jpg -->
-      <div class="event-gallery-item event-gallery-item--tall">
-        <div class="gallery-placeholder-slot">photo-05.jpg</div>
-      </div>
-      <!-- SLOT 06: assets/images/events/new-beginnings/photo-06.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-06.jpg</div>
-      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO LINKS -->
+  <section style="background: var(--off-black);">
+    <span class="section-label">Video</span>
+    <h2 class="section-title">Watch New Beginnings</h2>
+    <div class="section-divider"></div>
+    <p style="font-family:var(--font-editorial); font-size:16px; color:rgba(245,245,240,0.85); max-width:620px;">
+      Watch any and all videos related to New Beginnings.
+    </p>
+    <div style="display:grid; gap:20px; max-width:860px; margin-top:24px;">
+      <a href="https://www.youtube.com/watch?v=F9Z8nKUidto" class="showcase-card" target="_blank" rel="noopener" style="max-width:420px;">
+        <div style="border-radius:16px; overflow:hidden; background:#111; margin-bottom:18px; aspect-ratio:16/9;">
+          <img src="https://i.ytimg.com/vi/F9Z8nKUidto/hqdefault.jpg" alt="New Beginnings presented by Quinn Anthony thumbnail" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <span class="showcase-label">YouTube</span>
+        <div class="showcase-name">New Beginnings presented by Quinn Anthony - A Geronimo Records Production</div>
+        <div class="showcase-handle">Geronimo Records</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=CKmCyjBgWok" class="showcase-card" target="_blank" rel="noopener" style="max-width:420px;">
+        <div style="border-radius:16px; overflow:hidden; background:#111; margin-bottom:18px; aspect-ratio:16/9;">
+          <img src="https://i.ytimg.com/vi/CKmCyjBgWok/hqdefault.jpg" alt="Behind The Scenes of New Beginnings thumbnail" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <span class="showcase-label">YouTube</span>
+        <div class="showcase-name">Behind The Scenes of New Beginnings | New Beginnings presented by Quinn Anthony</div>
+        <div class="showcase-handle">Geronimo Records</div>
+      </a>
     </div>
   </section>
 

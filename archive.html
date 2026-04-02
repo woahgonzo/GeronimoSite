@@ -121,13 +121,10 @@
     <span class="archive-year-label">— 2026</span>
     <div class="archive-grid">
 
-      <div class="archive-card archive-large">
-        <!--
-          POSTER IMAGE: Drop assets/images/posters/fashion-show-2026.jpg
-          Then replace the bg div below with:
-          <img src="assets/images/posters/fashion-show-2026.jpg" alt="The Fashion Show 2026 Poster" />
-        -->
-        <div class="archive-card-bg bg-1"></div>
+      <div class="archive-card">
+        <div class="archive-card-bg bg-1">
+          <img id="fashion-show-archive-photo" src="assets/images/events/fashion-show/photo-01.jpg" alt="The Fashion Show photo 1" loading="lazy" />
+        </div>
         <div class="archive-always">
           <div class="archive-type-badge">Fashion Show</div>
           <div class="archive-event-name">THE FASHION SHOW</div>
@@ -140,8 +137,24 @@
         <a href="archive-fashion-show.html" class="archive-card-link" aria-label="View The Fashion Show"></a>
       </div>
 
-      <!-- Spacer column for layout balance -->
-      <div class="archive-card" style="visibility:hidden; pointer-events:none;"></div>
+      <div class="archive-card archive-large">
+        <!--
+          POSTER IMAGE: Drop assets/images/posters/new-beginnings.jpg
+          Then replace the bg div with:
+          <img src="assets/images/posters/new-beginnings.jpg" alt="New Beginnings Poster" />
+        -->
+        <div class="archive-card-bg bg-4"></div>
+        <div class="archive-always">
+          <div class="archive-type-badge">Concert</div>
+          <div class="archive-event-name">NEW BEGINNINGS</div>
+          <div class="archive-event-date">January 23, 2026 · The Bottega Exchange</div>
+        </div>
+        <div class="archive-caption">
+          <p>A new year, a new venue, and a new chapter for the collective.</p>
+          <a href="archive-new-beginnings.html">View Event →</a>
+        </div>
+        <a href="archive-new-beginnings.html" class="archive-card-link" aria-label="View New Beginnings"></a>
+      </div>
 
     </div>
 
@@ -187,25 +200,6 @@
         <a href="archive-pilot-programs.html" class="archive-card-link" aria-label="View Pilot Programs"></a>
       </div>
 
-      <div class="archive-card">
-        <!--
-          POSTER IMAGE: Drop assets/images/posters/new-beginnings.jpg
-          Then replace the bg div with:
-          <img src="assets/images/posters/new-beginnings.jpg" alt="New Beginnings Poster" />
-        -->
-        <div class="archive-card-bg bg-4"></div>
-        <div class="archive-always">
-          <div class="archive-type-badge">Concert</div>
-          <div class="archive-event-name">NEW BEGINNINGS</div>
-          <div class="archive-event-date">January 23, 2025 · The Bottega Exchange</div>
-        </div>
-        <div class="archive-caption">
-          <p>A new year, a new venue, and a new chapter for the collective.</p>
-          <a href="archive-new-beginnings.html">View Event →</a>
-        </div>
-        <a href="archive-new-beginnings.html" class="archive-card-link" aria-label="View New Beginnings"></a>
-      </div>
-
     </div>
 
   </section>
@@ -222,6 +216,18 @@
     </ul>
   </footer>
 
+  <script>
+    (function() {
+      var photoCount = 14;
+      var index = Math.floor(Math.random() * photoCount) + 1;
+      var photoNumber = String(index).padStart(2, '0');
+      var image = document.getElementById('fashion-show-archive-photo');
+      if (image) {
+        image.src = 'assets/images/events/fashion-show/photo-' + photoNumber + '.jpg';
+        image.alt = 'The Fashion Show photo ' + index;
+      }
+    })();
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
