@@ -1,19 +1,17 @@
 # Geronimo Records — geronimorecords.net
 
-Las Vegas creative collective. Concerts · Fashion Shows · Film Festivals.
-
 ---
 
 ## Stack
 
-Plain HTML / CSS / JS — no build step required. Open any `.html` file in a browser to preview locally.
+Plain HTML / CSS / JS — Open any `.html` file in a browser to preview locally.
 
 | Layer       | Service                         |
 |-------------|----------------------------------|
 | Hosting     | Netlify (free) via GitHub repo   |
 | Ticketing   | Ticket Tailor                    |
 | Merch Store | Shopify Buy Button               |
-| Contact Form| Formspree → treysonle11@gmail.com|
+| Contact Form| Formspree → USER EMAIL           |
 | Domain      | geronimorecords.net              |
 
 ---
@@ -40,30 +38,27 @@ geronimo-records/
 
 ## Setup Checklist
 
-### 1. GitHub Repo
-- [ ] Create a new repo at github.com (name it `geronimo-records`)
-- [ ] Drag this folder into the repo or use `git init` in VS Code
 
-### 2. Netlify Hosting (Free)
+### 1. Netlify Hosting (Free)
 - [ ] Go to [netlify.com](https://netlify.com) → "Add new site" → "Import from GitHub"
 - [ ] Select the repo, leave build settings blank, click Deploy
 - [ ] In Netlify: Site Settings → Domain → Add custom domain → `geronimorecords.net`
 - [ ] Update your domain's DNS nameservers to Netlify's (they give you the values)
 - [ ] Every push to GitHub auto-deploys to geronimorecords.net in ~30 seconds
 
-### 3. Formspree (Contact Form)
+### 2. Formspree (Contact Form)
 - [ ] Go to [formspree.io](https://formspree.io) → Create free account
-- [ ] Create new form → "Geronimo Records Contact" → set email to `treysonle11@gmail.com`
+- [ ] Create new form → "Geronimo Records Contact" → set email to `Email it should go to`
 - [ ] Copy your form ID (8 characters, e.g. `xyzabcde`)
 - [ ] In `contact.html`, replace `YOUR_FORMSPREE_ID` with your actual ID
 
-### 4. Ticket Tailor (Events)
+### 3. Ticket Tailor (Events)
 - [ ] Go to [tickettailor.com](https://tickettailor.com) → Create account
-- [ ] Create each event (Film Fest, Desert Heat, Runways & Records)
+- [ ] Create each event (New Beginnings, Phantom Frequencies, Fashion Show, etc)
 - [ ] For each event: Dashboard → Embed → Buy Button → copy `<script>` tag
 - [ ] In `events.html`, find the matching `<!-- PASTE TICKET TAILOR EMBED -->` comment and replace it
 
-### 5. Shopify Buy Button (Merch)
+### 4. Shopify Buy Button (Merch)
 - [ ] Go to [shopify.com](https://shopify.com) → Start free trial
 - [ ] Add your products with photos, prices, variants
 - [ ] In Shopify Admin: Sales Channels → Buy Button Channel
@@ -72,7 +67,7 @@ geronimo-records/
 - [ ] In `merch.html`, replace the `<!-- PLACEHOLDER -->` block with the script
 - [ ] Once live, delete the preview `.merch-grid` below the embed
 
-### 6. Add Real Photos
+### 5. Add Real Photos
 - [ ] Drop event/product photos into `assets/images/`
 - [ ] In `archive.html`, replace `<div class="archive-card-bg bg-X">` with:
   ```html
@@ -103,8 +98,3 @@ To update the color scheme or fonts globally, edit the `:root` block at the top 
   ...
 }
 ```
-
----
-
-## Questions?
-Contact: treysonle11@gmail.com
