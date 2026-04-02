@@ -14,7 +14,7 @@
   <nav>
     <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
     <ul class="nav-links">
-      <li><a href="events.html">Events</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
       <li><a href="archive.html">Archive</a></li>
       <li><a href="merch.html">Merch</a></li>
       <li><a href="collective.html">Collective</a></li>
@@ -47,102 +47,108 @@
       <div class="event-row event-featured" style="cursor:default;">
         <div class="event-num">01</div>
         <div class="event-info">
-          <div class="event-title-text">GERONIMO FILM FESTIVAL</div>
-          <div class="event-meta">Downtown Las Vegas · Screenings + Q&A + Afterparty · All Ages</div>
+          <div class="event-title-text">THE FIRST ANNUAL SHORT FILM FESTIVAL</div>
+          <div class="event-meta">West Charleston Library · Competing Teams · Cash Prize · Audience Voting · All Ages</div>
         </div>
-        <div class="event-date">May 17, 2026</div>
-        <!--
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          TICKET TAILOR SETUP (Event 01)
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          1. Go to tickettailor.com and create your event
-          2. From your event dashboard, click "Embed" → "Buy Button"
-          3. Copy the <script> embed code and replace this comment
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        -->
-        <button class="event-ticket" onclick="document.getElementById('tt-film-fest').scrollIntoView({behavior:'smooth'})">Buy Tickets</button>
+        <div class="event-date">May 6, 2026</div>
+        <a
+          href="https://www.eventbrite.com/e/the-first-annual-geronimo-short-film-festival-tickets-1984930504572?aff=oddtdtcreator&keep_tld=true"
+          target="_blank"
+          rel="noopener"
+          class="event-ticket"
+          onclick="event.stopPropagation()"
+        >Buy Tickets</a>
       </div>
 
-      <!-- EVENT 02 -->
-      <div class="event-row" style="cursor:default;">
+      <!-- COMING SOON -->
+      <div class="event-row" style="cursor:default; opacity:0.4;">
         <div class="event-num">02</div>
         <div class="event-info">
-          <div class="event-title-text">DESERT HEAT VOL. 3</div>
-          <div class="event-meta">The Venue LV · Hip-Hop Concert Series · 18+</div>
+          <div class="event-title-text">TBA — MORE COMING SOON</div>
+          <div class="event-meta">Stay tuned · Follow @geronimo.records for announcements</div>
         </div>
-        <div class="event-date">Jun 7, 2026</div>
-        <button class="event-ticket" onclick="document.getElementById('tt-desert-heat').scrollIntoView({behavior:'smooth'})">Buy Tickets</button>
-      </div>
-
-      <!-- EVENT 03 -->
-      <div class="event-row" style="cursor:default;">
-        <div class="event-num">03</div>
-        <div class="event-info">
-          <div class="event-title-text">RUNWAYS &amp; RECORDS</div>
-          <div class="event-meta">The Arts District · Fashion × Music Showcase · All Ages</div>
-        </div>
-        <div class="event-date">Jul 19, 2026</div>
-        <button class="event-ticket" onclick="document.getElementById('tt-runways').scrollIntoView({behavior:'smooth'})">Buy Tickets</button>
-      </div>
-
-      <!-- EVENT 04 — TBA -->
-      <div class="event-row" style="cursor:default; opacity:0.5;">
-        <div class="event-num">04</div>
-        <div class="event-info">
-          <div class="event-title-text">TBA — FALL SERIES</div>
-          <div class="event-meta">Location TBD · Announcement coming soon</div>
-        </div>
-        <div class="event-date">Fall 2026</div>
-        <button class="event-ticket" disabled style="opacity:0.5;cursor:default;">Coming Soon</button>
+        <div class="event-date">2026</div>
+        <button class="event-ticket" disabled style="opacity:0.5; cursor:default;">Coming Soon</button>
       </div>
 
     </div>
   </section>
 
-  <!-- ─────────────────────────────────────────────────────────
-       TICKET TAILOR EMBEDS
-       Each section below maps to one event above.
-       Replace each <!-- TT EMBED --> comment with the
-       <script> tag from your Ticket Tailor dashboard.
-  ───────────────────────────────────────────────────────────── -->
+  <!-- SHORT FILM FESTIVAL DETAILS -->
+  <section id="short-film-festival" style="background: var(--dark); padding: 80px 60px;">
+    <span class="section-label">The First Annual Geronimo Short Film Festival — May 6, 2026</span>
+    <h2 class="section-title" style="font-size:clamp(28px,4vw,56px); margin-bottom:32px;">Get Your Tickets</h2>
+    <div class="section-divider"></div>
 
-  <!-- FILM FESTIVAL TICKETS -->
-  <section id="tt-film-fest" style="background: var(--dark); padding: 80px 60px;">
-    <span class="section-label">Geronimo Film Festival — May 17, 2026</span>
-    <h2 class="section-title" style="font-size:clamp(28px,4vw,48px); margin-bottom:40px;">Get Your Tickets</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 48px; align-items: start;">
 
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         PASTE TICKET TAILOR EMBED SCRIPT HERE (Film Fest)
-         Example of what it will look like:
-         <script src="https://web.tickettailor.com/js/widget-embed.js"></script>
-         <div class="tt-widget" data-url="https://www.tickettailor.com/events/geronimorecords/..."></div>
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <div class="tickettailor-embed">
-      <p style="color:var(--gold); font-family:var(--font-display); font-size:20px; letter-spacing:0.1em;">TICKET TAILOR EMBED</p>
-      <p>After creating your event at tickettailor.com,<br>replace this block with the embed script from your dashboard.</p>
-      <a href="https://tickettailor.com" target="_blank" rel="noopener" class="btn-ghost" style="font-size:10px;padding:10px 24px;">Set Up on Ticket Tailor →</a>
-    </div>
-  </section>
+      <!-- Description -->
+      <div>
+        <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.85; color:rgba(245,245,240,0.8); margin-bottom:28px;">
+          The First Annual Geronimo Short Film Festival! A chance to show off your creativity and skills, competing against other teams for a cash prize.
+        </p>
 
-  <!-- DESERT HEAT TICKETS -->
-  <section id="tt-desert-heat" style="background: var(--off-black); padding: 80px 60px;">
-    <span class="section-label">Desert Heat Vol. 3 — Jun 7, 2026</span>
-    <h2 class="section-title" style="font-size:clamp(28px,4vw,48px); margin-bottom:40px;">Get Your Tickets</h2>
-    <!-- PASTE TICKET TAILOR EMBED SCRIPT HERE (Desert Heat) -->
-    <div class="tickettailor-embed">
-      <p style="color:var(--gold); font-family:var(--font-display); font-size:20px; letter-spacing:0.1em;">TICKET TAILOR EMBED</p>
-      <p>Paste your Ticket Tailor embed script here.</p>
-    </div>
-  </section>
+        <div style="display:flex; flex-direction:column; gap:20px; margin-bottom:40px;">
+          <div style="display:flex; gap:20px; align-items:flex-start; border-left:2px solid var(--gold); padding-left:20px;">
+            <div>
+              <div style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:6px;">Team Slots</div>
+              <div style="font-family:var(--font-display); font-size:20px;">15 Teams Maximum</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:20px; align-items:flex-start; border-left:2px solid var(--gold); padding-left:20px;">
+            <div>
+              <div style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:6px;">Entry Fee</div>
+              <div style="font-family:var(--font-display); font-size:20px;">$40 Per Team</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:20px; align-items:flex-start; border-left:2px solid var(--gold); padding-left:20px;">
+            <div>
+              <div style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:6px;">Audience Tickets</div>
+              <div style="font-family:var(--font-display); font-size:20px;">Sold Separately</div>
+              <div style="font-size:12px; color:var(--muted); margin-top:4px;">Entered teams have free access</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:20px; align-items:flex-start; border-left:2px solid var(--gold); padding-left:20px;">
+            <div>
+              <div style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:6px;">Voting</div>
+              <div style="font-family:var(--font-display); font-size:20px;">Audience Vote — Winner Takes All</div>
+              <div style="font-size:12px; color:var(--muted); margin-top:4px;">Voting takes place right after all films are shown</div>
+            </div>
+          </div>
+        </div>
 
-  <!-- RUNWAYS & RECORDS TICKETS -->
-  <section id="tt-runways" style="background: var(--dark); padding: 80px 60px;">
-    <span class="section-label">Runways &amp; Records — Jul 19, 2026</span>
-    <h2 class="section-title" style="font-size:clamp(28px,4vw,48px); margin-bottom:40px;">Get Your Tickets</h2>
-    <!-- PASTE TICKET TAILOR EMBED SCRIPT HERE (Runways & Records) -->
-    <div class="tickettailor-embed">
-      <p style="color:var(--gold); font-family:var(--font-display); font-size:20px; letter-spacing:0.1em;">TICKET TAILOR EMBED</p>
-      <p>Paste your Ticket Tailor embed script here.</p>
+        <p style="font-family:var(--font-editorial); font-size:17px; line-height:1.8; color:rgba(245,245,240,0.6); font-style:italic;">
+          Tell your friends, tell your family, and come prepared to win. For questions or more information, visit our Instagram and feel free to reach out.
+        </p>
+      </div>
+
+      <!-- Ticket CTA -->
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <div style="background:var(--card); border:1px solid var(--border); padding:40px;">
+          <div style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:16px;">Date &amp; Location</div>
+          <div style="font-family:var(--font-display); font-size:28px; margin-bottom:8px;">May 6, 2026</div>
+          <div style="font-family:var(--font-editorial); font-size:17px; color:var(--muted); font-style:italic; margin-bottom:32px;">West Charleston Library · Las Vegas, NV</div>
+
+          <a
+            href="https://www.eventbrite.com/e/the-first-annual-geronimo-short-film-festival-tickets-1984930504572?aff=oddtdtcreator&keep_tld=true"
+            target="_blank"
+            rel="noopener"
+            class="btn-primary"
+            style="display:block; text-align:center; width:100%; padding:18px 32px; font-size:12px;"
+          >Get Tickets on Eventbrite →</a>
+
+          <div style="margin-top:24px; padding-top:24px; border-top:1px solid var(--border);">
+            <a
+              href="https://www.instagram.com/geronimo.records/"
+              target="_blank"
+              rel="noopener"
+              class="btn-ghost"
+              style="display:block; text-align:center; width:100%; padding:14px 32px; font-size:11px;"
+            >Follow for Updates @geronimo.records</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 

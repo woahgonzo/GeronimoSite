@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phantom Frequencies — Geronimo Records Archive</title>
+  <meta name="description" content="Phantom Frequencies @ The Alamo — Geronimo Records concert, October 17, 2025." />
+  <link rel="canonical" href="https://geronimorecords.net/archive-phantom-frequencies.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .event-poster {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 3/4;
+      background: var(--card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .event-poster img { width: 100%; height: 100%; object-fit: cover; }
+
+    .event-poster-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 18px;
+      letter-spacing: 0.3em;
+      color: rgba(201,168,76,0.3);
+      border: 1px dashed rgba(201,168,76,0.2);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .event-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 60px;
+    }
+
+    .meta-item-label {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .meta-item-value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .lineup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .artist-card {
+      background: var(--card);
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .artist-card:hover { background: #222; }
+
+    .artist-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.4s;
+    }
+
+    .artist-card:hover::after { width: 100%; }
+
+    .artist-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .artist-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+    .artist-photo span {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--gold);
+    }
+
+    .artist-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .artist-handle {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .artist-handle:hover { color: var(--gold-light); }
+
+    .vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .vendor-card {
+      background: var(--card);
+      padding: 28px 24px;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: var(--white);
+      display: block;
+    }
+
+    .vendor-card:hover { background: #222; }
+
+    .vendor-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .vendor-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    .event-gallery-grid {
+      columns: 3;
+      column-gap: 4px;
+      margin-top: 48px;
+    }
+
+    .event-gallery-item {
+      break-inside: avoid;
+      margin-bottom: 4px;
+      overflow: hidden;
+      background: var(--card);
+      cursor: pointer;
+    }
+
+    .event-gallery-item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .event-gallery-item:hover img { transform: scale(1.04); }
+
+    .event-gallery-item--tall { aspect-ratio: 2/3; }
+    .event-gallery-item:not(.event-gallery-item--tall) { aspect-ratio: 4/3; }
+
+    .gallery-placeholder-slot {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(201,168,76,0.2);
+      border: 1px dashed rgba(201,168,76,0.12);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      .lineup-grid { grid-template-columns: 1fr 1fr; }
+      .vendor-grid { grid-template-columns: 1fr 1fr; }
+      .event-gallery-grid { columns: 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
+    <ul class="nav-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="archive.html" class="active">Archive</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="collective.html">Collective</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="events.html">Events</a>
+    <a href="archive.html">Archive</a>
+    <a href="merch.html">Merch</a>
+    <a href="collective.html">Collective</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <a href="archive.html" class="back-link">← Back to Archive</a>
+    <span class="section-label">October 17, 2025 · The Alamo · Las Vegas</span>
+    <h1 class="section-title">Phantom Frequencies</h1>
+    <div class="section-divider"></div>
+    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">Concert.</p>
+
+    <!--
+      POSTER IMAGE:
+      Add the event flyer/poster: assets/images/posters/phantom-frequencies.jpg
+      Then replace the placeholder div below with:
+      <div class="event-poster">
+        <img src="assets/images/posters/phantom-frequencies.jpg" alt="Phantom Frequencies Poster" />
+      </div>
+    -->
+    <div class="event-poster">
+      <div class="event-poster-placeholder">POSTER<br/>assets/images/posters/<br/>phantom-frequencies.jpg</div>
+    </div>
+  </div>
+
+  <!-- EVENT META -->
+  <section style="background: var(--dark);">
+    <div class="event-meta-bar">
+      <div>
+        <span class="meta-item-label">Date</span>
+        <div class="meta-item-value">October 17, 2025</div>
+      </div>
+      <div>
+        <span class="meta-item-label">Venue</span>
+        <div class="meta-item-value">The Alamo</div>
+      </div>
+      <div>
+        <span class="meta-item-label">City</span>
+        <div class="meta-item-value">Las Vegas, NV</div>
+      </div>
+      <div>
+        <span class="meta-item-label">Type</span>
+        <div class="meta-item-value">Concert</div>
+      </div>
+    </div>
+    <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.8; color:rgba(245,245,240,0.75); max-width:680px;">
+      Phantom Frequencies brought five artists together for a night of live music at The Alamo. Building on the energy of Pilot Programs, the collective continued to grow its presence in Las Vegas with another standout show.
+    </p>
+  </section>
+
+  <!-- ARTIST LINEUP -->
+  <section style="background: var(--black);">
+    <span class="section-label">On the Bill</span>
+    <h2 class="section-title">Lineup</h2>
+    <div class="section-divider"></div>
+
+    <div class="lineup-grid">
+
+      <div class="artist-card">
+        <!--
+          ARTIST PHOTO: assets/images/artists/jcg.jpg
+          Replace <span> inside .artist-photo with:
+          <img src="assets/images/artists/jcg.jpg" alt="JCG" />
+        -->
+        <div class="artist-photo"><span>JCG</span></div>
+        <div class="artist-name">JCG</div>
+        <a href="https://www.instagram.com/realjcg/" class="artist-handle" target="_blank" rel="noopener">@realjcg</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>A</span></div>
+        <div class="artist-name">ADRIEL</div>
+        <a href="https://www.instagram.com/joey.adriel/" class="artist-handle" target="_blank" rel="noopener">@joey.adriel</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>D</span></div>
+        <div class="artist-name">DI SI</div>
+        <a href="https://www.instagram.com/702disi/" class="artist-handle" target="_blank" rel="noopener">@702disi</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>AY</span></div>
+        <div class="artist-name">AYLA</div>
+        <a href="https://www.instagram.com/kiittyluvr420/" class="artist-handle" target="_blank" rel="noopener">@kiittyluvr420</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>ML</span></div>
+        <div class="artist-name">MUSES LOUNGE</div>
+        <a href="https://www.instagram.com/brybe_/" class="artist-handle" target="_blank" rel="noopener">@brybe_</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VENDORS -->
+  <section style="background: var(--off-black);">
+    <span class="section-label">At the Show</span>
+    <h2 class="section-title">Vendors</h2>
+    <div class="section-divider"></div>
+
+    <div class="vendor-grid">
+
+      <a href="https://quinnanthony.shop/" class="vendor-card" target="_blank" rel="noopener">
+        <span class="vendor-label">Fashion &amp; Apparel</span>
+        <div class="vendor-name">QUINN ANTHONY</div>
+      </a>
+
+      <a href="https://www.instagram.com/thebravestbrand/" class="vendor-card" target="_blank" rel="noopener">
+        <span class="vendor-label">Fashion &amp; Apparel</span>
+        <div class="vendor-name">THEBRAVESTBRAND</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section style="background: var(--black);">
+    <span class="section-label">Captured Moments</span>
+    <h2 class="section-title">Photos</h2>
+    <div class="section-divider"></div>
+    <p style="font-family:var(--font-editorial); font-size:16px; font-style:italic; color:var(--muted); margin-bottom:0;">
+      Drop event photos into <code style="font-style:normal; font-size:13px; color:var(--gold);">assets/images/events/phantom-frequencies/</code> and replace the placeholder slots below.
+    </p>
+
+    <div class="event-gallery-grid">
+      <!-- SLOT 01: assets/images/events/phantom-frequencies/photo-01.jpg -->
+      <div class="event-gallery-item event-gallery-item--tall">
+        <div class="gallery-placeholder-slot">photo-01.jpg</div>
+      </div>
+      <!-- SLOT 02: assets/images/events/phantom-frequencies/photo-02.jpg -->
+      <div class="event-gallery-item">
+        <div class="gallery-placeholder-slot">photo-02.jpg</div>
+      </div>
+      <!-- SLOT 03: assets/images/events/phantom-frequencies/photo-03.jpg -->
+      <div class="event-gallery-item">
+        <div class="gallery-placeholder-slot">photo-03.jpg</div>
+      </div>
+      <!-- SLOT 04: assets/images/events/phantom-frequencies/photo-04.jpg -->
+      <div class="event-gallery-item">
+        <div class="gallery-placeholder-slot">photo-04.jpg</div>
+      </div>
+      <!-- SLOT 05: assets/images/events/phantom-frequencies/photo-05.jpg -->
+      <div class="event-gallery-item event-gallery-item--tall">
+        <div class="gallery-placeholder-slot">photo-05.jpg</div>
+      </div>
+      <!-- SLOT 06: assets/images/events/phantom-frequencies/photo-06.jpg -->
+      <div class="event-gallery-item">
+        <div class="gallery-placeholder-slot">photo-06.jpg</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
+    <ul class="footer-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Store</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

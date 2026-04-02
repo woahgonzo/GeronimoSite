@@ -8,7 +8,6 @@
   <link rel="canonical" href="https://geronimorecords.net/archive.html" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* Archive-page specific styles */
     .archive-year-label {
       font-family: var(--font-display);
       font-size: 13px;
@@ -21,7 +20,6 @@
 
     .archive-year-label:first-of-type { margin-top: 0; }
 
-    /* Caption panel shown when hovering on desktop */
     .archive-caption {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -54,6 +52,33 @@
       border-bottom: 1px solid var(--gold);
       padding-bottom: 2px;
     }
+
+    /* Make archive cards fully clickable */
+    .archive-card-link {
+      display: block;
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+    }
+
+    .archive-type-badge {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 3px 8px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* Poster image fill */
+    .archive-card-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -63,7 +88,7 @@
     <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
     <ul class="nav-links">
       <li><a href="events.html">Events</a></li>
-      <li><a href="archive.html">Archive</a></li>
+      <li><a href="archive.html" class="active">Archive</a></li>
       <li><a href="merch.html">Merch</a></li>
       <li><a href="collective.html">Collective</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -92,120 +117,93 @@
   <!-- ARCHIVE CONTENT -->
   <section style="background: var(--black);">
 
-    <!-- 2024 -->
-    <span class="archive-year-label">— 2024</span>
+    <!-- ── 2026 ── -->
+    <span class="archive-year-label">— 2026</span>
     <div class="archive-grid">
 
       <div class="archive-card archive-large">
         <!--
-          HOW TO ADD REAL PHOTOS:
-          Replace the bg-X div below with:
-          <img src="assets/images/fashion-show-002.jpg" alt="Geronimo Fashion Show 002" />
-          Place your photo files in the assets/images/ folder.
+          POSTER IMAGE: Drop assets/images/posters/fashion-show-2026.jpg
+          Then replace the bg div below with:
+          <img src="assets/images/posters/fashion-show-2026.jpg" alt="The Fashion Show 2026 Poster" />
         -->
         <div class="archive-card-bg bg-1"></div>
         <div class="archive-always">
-          <div class="archive-event-name">GERONIMO FASHION SHOW 002</div>
-          <div class="archive-event-date">November 2024 · The Arts District</div>
+          <div class="archive-type-badge">Fashion Show</div>
+          <div class="archive-event-name">THE FASHION SHOW</div>
+          <div class="archive-event-date">February 28, 2026 · The Alamo</div>
         </div>
         <div class="archive-caption">
-          <p>A night where Las Vegas fashion met underground sound. Designers, models, and musicians sharing one stage.</p>
-          <a href="#">View Gallery →</a>
+          <p>Art, clothes, models, prints, and live music. All from the heart of Las Vegas. Presented by Quinn Anthony.</p>
+          <a href="archive-fashion-show.html">View Event →</a>
         </div>
+        <a href="archive-fashion-show.html" class="archive-card-link" aria-label="View The Fashion Show"></a>
       </div>
 
-      <div class="archive-card">
+      <!-- Spacer column for layout balance -->
+      <div class="archive-card" style="visibility:hidden; pointer-events:none;"></div>
+
+    </div>
+
+    <!-- ── 2025 ── -->
+    <span class="archive-year-label">— 2025</span>
+    <div class="archive-grid">
+
+      <div class="archive-card archive-large">
+        <!--
+          POSTER IMAGE: Drop assets/images/posters/phantom-frequencies.jpg
+          Then replace the bg div with:
+          <img src="assets/images/posters/phantom-frequencies.jpg" alt="Phantom Frequencies Poster" />
+        -->
         <div class="archive-card-bg bg-2"></div>
         <div class="archive-always">
-          <div class="archive-event-name">DESERT HEAT VOL. 2</div>
-          <div class="archive-event-date">August 2024</div>
+          <div class="archive-type-badge">Concert</div>
+          <div class="archive-event-name">PHANTOM FREQUENCIES</div>
+          <div class="archive-event-date">October 17, 2025 · The Alamo</div>
         </div>
         <div class="archive-caption">
-          <p>The second installment of our flagship concert series.</p>
-          <a href="#">View Gallery →</a>
+          <p>Five artists. One stage. A night that proved the Las Vegas scene was only getting stronger.</p>
+          <a href="archive-phantom-frequencies.html">View Event →</a>
         </div>
+        <a href="archive-phantom-frequencies.html" class="archive-card-link" aria-label="View Phantom Frequencies"></a>
       </div>
 
       <div class="archive-card">
+        <!--
+          POSTER IMAGE: Drop assets/images/posters/pilot-programs.jpg
+          Then replace the bg div with:
+          <img src="assets/images/posters/pilot-programs.jpg" alt="Pilot Programs Poster" />
+        -->
         <div class="archive-card-bg bg-3"></div>
         <div class="archive-always">
-          <div class="archive-event-name">CONCERT SERIES 001</div>
-          <div class="archive-event-date">May 2024</div>
+          <div class="archive-type-badge">Concert</div>
+          <div class="archive-event-name">PILOT PROGRAMS</div>
+          <div class="archive-event-date">August 16, 2025 · The Alamo</div>
         </div>
         <div class="archive-caption">
-          <p>Our first formal concert series. The blueprint.</p>
-          <a href="#">View Gallery →</a>
+          <p>The debut show. Where Geronimo Records made its first mark on Las Vegas.</p>
+          <a href="archive-pilot-programs.html">View Event →</a>
         </div>
+        <a href="archive-pilot-programs.html" class="archive-card-link" aria-label="View Pilot Programs"></a>
       </div>
 
-    </div>
-
-    <!-- 2023 -->
-    <span class="archive-year-label">— 2023</span>
-    <div class="archive-grid">
-
       <div class="archive-card">
+        <!--
+          POSTER IMAGE: Drop assets/images/posters/new-beginnings.jpg
+          Then replace the bg div with:
+          <img src="assets/images/posters/new-beginnings.jpg" alt="New Beginnings Poster" />
+        -->
         <div class="archive-card-bg bg-4"></div>
         <div class="archive-always">
-          <div class="archive-event-name">GERONIMO FASHION 001</div>
-          <div class="archive-event-date">December 2023</div>
+          <div class="archive-type-badge">Concert</div>
+          <div class="archive-event-name">NEW BEGINNINGS</div>
+          <div class="archive-event-date">January 23, 2025 · The Bottega Exchange</div>
         </div>
         <div class="archive-caption">
-          <p>The first fashion show. Where it all started.</p>
-          <a href="#">View Gallery →</a>
+          <p>A new year, a new venue, and a new chapter for the collective.</p>
+          <a href="archive-new-beginnings.html">View Event →</a>
         </div>
-      </div>
-
-      <div class="archive-card archive-large">
-        <div class="archive-card-bg bg-5"></div>
-        <div class="archive-always">
-          <div class="archive-event-name">DESERT HEAT VOL. 1</div>
-          <div class="archive-event-date">September 2023 · Las Vegas</div>
-        </div>
-        <div class="archive-caption">
-          <p>Volume one. The show that proved there was a scene here worth building.</p>
-          <a href="#">View Gallery →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- 2022 -->
-    <span class="archive-year-label">— 2022</span>
-    <div class="archive-grid">
-
-      <div class="archive-card archive-large">
-        <div class="archive-card-bg bg-6"></div>
-        <div class="archive-always">
-          <div class="archive-event-name">THE FIRST SHOW</div>
-          <div class="archive-event-date">2022 · Origin</div>
-        </div>
-        <div class="archive-caption">
-          <p>Before the brand. Before the name. Just the idea that Las Vegas deserved something different.</p>
-          <a href="#">View Gallery →</a>
-        </div>
-      </div>
-
-      <div class="archive-card">
-        <div class="archive-card-bg bg-1"></div>
-        <div class="archive-always">
-          <div class="archive-event-name">PLACEHOLDER</div>
-          <div class="archive-event-date">Add Your Event Here</div>
-        </div>
-        <div class="archive-caption">
-          <p>Replace this card with your event details and photo.</p>
-        </div>
-      </div>
-
-      <div class="archive-card">
-        <div class="archive-card-bg bg-2"></div>
-        <div class="archive-always">
-          <div class="archive-event-name">PLACEHOLDER</div>
-          <div class="archive-event-date">Add Your Event Here</div>
-        </div>
-        <div class="archive-caption">
-          <p>Replace this card with your event details and photo.</p>
-        </div>
+        <a href="archive-new-beginnings.html" class="archive-card-link" aria-label="View New Beginnings"></a>
       </div>
 
     </div>

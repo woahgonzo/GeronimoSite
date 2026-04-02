@@ -1,207 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geronimo Records — Las Vegas</title>
-  <meta name="description" content="Geronimo Records is a Las Vegas creative collective producing concerts, fashion shows, film festivals, and culture-first events." />
-  <meta property="og:title" content="Geronimo Records — Las Vegas" />
-  <meta property="og:description" content="We don't just throw events — we build culture in the desert." />
-  <meta property="og:url" content="https://geronimorecords.net" />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://geronimorecords.net" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geronimo Records — Las Vegas</title>
+    <meta
+      name="description"
+      content="Geronimo Records is a Las Vegas creative collective producing concerts, fashion shows, film festivals, and culture-first events."
+    />
+    <meta property="og:title" content="Geronimo Records — Las Vegas" />
+    <meta
+      property="og:description"
+      content="We don't just throw events — we build culture."
+    />
+    <meta property="og:url" content="https://geronimorecords.net" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://geronimorecords.net" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a class="nav-logo" href="index.html"
+        ><span>G</span>ERONIMO <span>REC.</span></a
+      >
+      <ul class="nav-links">
+        <li><a href="events.html">Events</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="collective.html">Collective</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
-    <ul class="nav-links">
-      <li><a href="events.html">Events</a></li>
-      <li><a href="archive.html">Archive</a></li>
-      <li><a href="merch.html">Merch</a></li>
-      <li><a href="collective.html">Collective</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
-    </ul>
-    <button class="nav-hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- MOBILE NAV -->
-  <div class="nav-mobile">
-    <a href="events.html">Events</a>
-    <a href="archive.html">Archive</a>
-    <a href="merch.html">Merch</a>
-    <a href="collective.html">Collective</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-tag">Las Vegas · Est. 2021</div>
-    <h1 class="hero-title">
-      GERO<br>
-      <span class="outline">NIMO</span>
-    </h1>
-    <p class="hero-sub">We don't just throw events — we build culture in the desert.</p>
-    <div class="hero-actions">
-      <a href="events.html" class="btn-primary">Upcoming Events</a>
-      <a href="archive.html" class="btn-ghost">View Archive</a>
+    <!-- MOBILE NAV -->
+    <div class="nav-mobile">
+      <a href="events.html">Events</a>
+      <a href="archive.html">Archive</a>
+      <a href="merch.html">Merch</a>
+      <a href="collective.html">Collective</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <div class="hero-scroll">Scroll</div>
-  </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span>CONCERTS</span><span class="marquee-dot">✦</span>
-      <span>FASHION SHOWS</span><span class="marquee-dot">✦</span>
-      <span>FILM FESTIVAL</span><span class="marquee-dot">✦</span>
-      <span>LAS VEGAS</span><span class="marquee-dot">✦</span>
-      <span>LIVE MUSIC</span><span class="marquee-dot">✦</span>
-      <span>COMMUNITY</span><span class="marquee-dot">✦</span>
-      <!-- Duplicate for seamless loop -->
-      <span>CONCERTS</span><span class="marquee-dot">✦</span>
-      <span>FASHION SHOWS</span><span class="marquee-dot">✦</span>
-      <span>FILM FESTIVAL</span><span class="marquee-dot">✦</span>
-      <span>LAS VEGAS</span><span class="marquee-dot">✦</span>
-      <span>LIVE MUSIC</span><span class="marquee-dot">✦</span>
-      <span>COMMUNITY</span><span class="marquee-dot">✦</span>
-    </div>
-  </div>
-
-  <!-- UPCOMING EVENTS (preview) -->
-  <section id="events" style="background: var(--off-black);">
-    <div class="events-header">
-      <div>
-        <span class="section-label">On the Calendar</span>
-        <h2 class="section-title">Upcoming<br>Events</h2>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-tag">Las Vegas · Est. 2021</div>
+      <h1 class="hero-title">
+        GERO<br />
+        <span class="outline">NIMO</span>
+      </h1>
+      <p class="hero-sub">
+        We don't just throw events — we build culture in the desert.
+      </p>
+      <div class="hero-actions">
+        <a href="events.html" class="btn-primary">Upcoming Events</a>
+        <a href="archive.html" class="btn-ghost">View Archive</a>
       </div>
-      <a href="events.html" class="btn-ghost">All Events →</a>
-    </div>
-    <div class="events-grid">
-      <a href="events.html" class="event-row event-featured">
-        <div class="event-num">01</div>
-        <div class="event-info">
-          <div class="event-title-text">GERONIMO FILM FESTIVAL</div>
-          <div class="event-meta">Downtown Las Vegas · Screenings + Q&A + Afterparty</div>
-        </div>
-        <div class="event-date">May 17, 2026</div>
-        <button class="event-ticket">Buy Tickets</button>
-      </a>
-      <a href="events.html" class="event-row">
-        <div class="event-num">02</div>
-        <div class="event-info">
-          <div class="event-title-text">DESERT HEAT VOL. 3</div>
-          <div class="event-meta">The Venue LV · Hip-Hop Concert Series</div>
-        </div>
-        <div class="event-date">Jun 7, 2026</div>
-        <button class="event-ticket">Buy Tickets</button>
-      </a>
-      <a href="events.html" class="event-row">
-        <div class="event-num">03</div>
-        <div class="event-info">
-          <div class="event-title-text">RUNWAYS &amp; RECORDS</div>
-          <div class="event-meta">The Arts District · Fashion × Music Showcase</div>
-        </div>
-        <div class="event-date">Jul 19, 2026</div>
-        <button class="event-ticket">Buy Tickets</button>
-      </a>
-    </div>
-  </section>
+      <div class="hero-scroll">Scroll</div>
+    </section>
 
-  <!-- ARCHIVE PREVIEW -->
-  <section id="archive" style="background: var(--black);">
-    <span class="section-label">Where We've Been</span>
-    <h2 class="section-title">The Archive</h2>
-    <div class="section-divider"></div>
-    <div class="archive-grid">
-      <div class="archive-card archive-large">
-        <div class="archive-card-bg bg-1"></div>
-        <div class="archive-always">
-          <div class="archive-event-name">GERONIMO FASHION SHOW 002</div>
-          <div class="archive-event-date">November 2024 · The Arts District</div>
-        </div>
-      </div>
-      <div class="archive-card">
-        <div class="archive-card-bg bg-2"></div>
-        <div class="archive-always">
-          <div class="archive-event-name">DESERT HEAT VOL. 2</div>
-          <div class="archive-event-date">August 2024</div>
-        </div>
-      </div>
-      <div class="archive-card">
-        <div class="archive-card-bg bg-3"></div>
-        <div class="archive-always">
-          <div class="archive-event-name">CONCERT SERIES 001</div>
-          <div class="archive-event-date">May 2024</div>
-        </div>
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span>CONCERTS</span><span class="marquee-dot">✦</span>
+        <span>FASHION SHOWS</span><span class="marquee-dot">✦</span>
+        <span>FILM FESTIVAL</span><span class="marquee-dot">✦</span>
+        <span>LAS VEGAS</span><span class="marquee-dot">✦</span>
+        <span>LIVE MUSIC</span><span class="marquee-dot">✦</span>
+        <span>COMMUNITY</span><span class="marquee-dot">✦</span>
+        <!-- Duplicate for seamless loop -->
+        <span>CONCERTS</span><span class="marquee-dot">✦</span>
+        <span>FASHION SHOWS</span><span class="marquee-dot">✦</span>
+        <span>FILM FESTIVAL</span><span class="marquee-dot">✦</span>
+        <span>LAS VEGAS</span><span class="marquee-dot">✦</span>
+        <span>LIVE MUSIC</span><span class="marquee-dot">✦</span>
+        <span>COMMUNITY</span><span class="marquee-dot">✦</span>
       </div>
     </div>
-    <div style="margin-top:40px;">
-      <a href="archive.html" class="btn-ghost">Full Archive →</a>
-    </div>
-  </section>
 
-  <!-- MERCH PREVIEW -->
-  <section id="merch" style="background: var(--off-black);">
-    <div class="merch-header">
-      <div>
-        <span class="section-label">Official Store</span>
-        <h2 class="section-title">Merch</h2>
+    <!-- UPCOMING EVENTS (preview) -->
+    <section id="events" style="background: var(--off-black)">
+      <div class="events-header">
+        <div>
+          <span class="section-label">On the Calendar</span>
+          <h2 class="section-title">Upcoming<br />Events</h2>
+        </div>
+        <a href="events.html" class="btn-ghost">All Events →</a>
       </div>
-      <a href="merch.html" class="btn-ghost">Shop All →</a>
-    </div>
-    <div class="merch-grid">
-      <a class="merch-card" href="merch.html">
-        <div class="merch-img"><div class="merch-img-bg bg-1"><div class="merch-label-large">GERI</div></div></div>
-        <div class="merch-info">
-          <div class="merch-name">Classic Logo Tee — Black</div>
-          <div class="merch-price">$38</div>
-        </div>
-      </a>
-      <a class="merch-card" href="merch.html">
-        <div class="merch-img"><div class="merch-img-bg bg-2"><div class="merch-label-large">REC</div></div></div>
-        <div class="merch-info">
-          <div class="merch-name">Desert Heavyweight Hoodie</div>
-          <div class="merch-price">$78</div>
-        </div>
-      </a>
-      <a class="merch-card" href="merch.html">
-        <div class="merch-img"><div class="merch-img-bg bg-5"><div class="merch-label-large">702</div></div></div>
-        <div class="merch-info">
-          <div class="merch-name">702 Crewneck</div>
-          <div class="merch-price">$62</div>
-          <div class="merch-sold-out">Low Stock</div>
-        </div>
-      </a>
-      <a class="merch-card" href="merch.html">
-        <div class="merch-img"><div class="merch-img-bg bg-3"><div class="merch-label-large">LV</div></div></div>
-        <div class="merch-info">
-          <div class="merch-name">Film Fest 2026 Tee</div>
-          <div class="merch-price">$42</div>
-        </div>
-      </a>
-    </div>
-  </section>
+      <div class="events-grid">
+        <a
+          href="https://www.eventbrite.com/e/the-first-annual-geronimo-short-film-festival-tickets-1984930504572?aff=oddtdtcreator&keep_tld=true"
+          class="event-row event-featured"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="event-num">01</div>
+          <div class="event-info">
+            <div class="event-title-text">THE FIRST ANNUAL SHORT FILM FESTIVAL</div>
+            <div class="event-meta">
+              West Charleston Library · Competing Teams · Cash Prize · Audience Voting
+            </div>
+          </div>
+          <div class="event-date">May 6, 2026</div>
+          <button class="event-ticket">Buy Tickets</button>
+        </a>
+        <a href="events.html" class="event-row" style="opacity:0.45; pointer-events:none;">
+          <div class="event-num">02</div>
+          <div class="event-info">
+            <div class="event-title-text">MORE EVENTS COMING SOON</div>
+            <div class="event-meta">Follow @geronimo.records for announcements</div>
+          </div>
+          <div class="event-date">2026</div>
+          <button class="event-ticket" disabled>Coming Soon</button>
+        </a>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
-    <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
-    <ul class="footer-links">
-      <li><a href="events.html">Events</a></li>
-      <li><a href="merch.html">Store</a></li>
-      <li><a href="archive.html">Archive</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </footer>
+    <!-- ARCHIVE PREVIEW -->
+    <section id="archive" style="background: var(--black)">
+      <span class="section-label">Where We've Been</span>
+      <h2 class="section-title">The Archive</h2>
+      <div class="section-divider"></div>
+      <div class="archive-grid">
+        <a href="archive-fashion-show.html" class="archive-card archive-large" style="text-decoration:none; color:inherit;">
+          <!--
+            POSTER: assets/images/posters/fashion-show-2026.jpg
+            Replace bg div with: <img src="assets/images/posters/fashion-show-2026.jpg" alt="The Fashion Show" />
+          -->
+          <div class="archive-card-bg bg-1"></div>
+          <div class="archive-always">
+            <div class="archive-event-name">THE FASHION SHOW</div>
+            <div class="archive-event-date">February 2026 · The Alamo</div>
+          </div>
+        </a>
+        <a href="archive-phantom-frequencies.html" class="archive-card" style="text-decoration:none; color:inherit;">
+          <!--
+            POSTER: assets/images/posters/phantom-frequencies.jpg
+          -->
+          <div class="archive-card-bg bg-2"></div>
+          <div class="archive-always">
+            <div class="archive-event-name">PHANTOM FREQUENCIES</div>
+            <div class="archive-event-date">October 2025 · The Alamo</div>
+          </div>
+        </a>
+        <a href="archive-pilot-programs.html" class="archive-card" style="text-decoration:none; color:inherit;">
+          <!--
+            POSTER: assets/images/posters/pilot-programs.jpg
+          -->
+          <div class="archive-card-bg bg-3"></div>
+          <div class="archive-always">
+            <div class="archive-event-name">PILOT PROGRAMS</div>
+            <div class="archive-event-date">August 2025 · The Alamo</div>
+          </div>
+        </a>
+      </div>
+      <div style="margin-top: 40px">
+        <a href="archive.html" class="btn-ghost">Full Archive →</a>
+      </div>
+    </section>
 
-  <script src="js/main.js"></script>
-</body>
+    <!-- PHOTO GALLERY -->
+    <section id="gallery" style="background: var(--black)">
+      <div class="gallery-header">
+        <div>
+          <span class="section-label">Captured Moments</span>
+          <h2 class="section-title">Gallery</h2>
+        </div>
+        <a href="archive.html" class="btn-ghost">Full Archive →</a>
+      </div>
+      <div class="section-divider"></div>
+
+      <!--
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        HOW TO ADD PHOTOS:
+
+        Folder structure:
+          assets/images/posters/              ← event flyers/posters
+          assets/images/events/fashion-show/  ← event photos
+          assets/images/events/phantom-frequencies/
+          assets/images/events/pilot-programs/
+          assets/images/events/new-beginnings/
+          assets/images/gallery/              ← general/highlight photos
+
+        Replace each placeholder div below with:
+          <div class="gallery-item">
+            <img src="assets/images/gallery/photo-01.jpg"
+                 alt="Description" loading="lazy" />
+          </div>
+
+        Use gallery-item--tall for portrait/vertical photos.
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      -->
+
+      <div class="gallery-grid">
+
+        <!-- SLOT 01: assets/images/gallery/photo-01.jpg -->
+        <div class="gallery-item gallery-item--tall">
+          <div class="gallery-placeholder">PHOTO 01</div>
+        </div>
+
+        <!-- SLOT 02: assets/images/gallery/photo-02.jpg -->
+        <div class="gallery-item">
+          <div class="gallery-placeholder">PHOTO 02</div>
+        </div>
+
+        <!-- SLOT 03: assets/images/gallery/photo-03.jpg -->
+        <div class="gallery-item">
+          <div class="gallery-placeholder">PHOTO 03</div>
+        </div>
+
+        <!-- SLOT 04: assets/images/gallery/photo-04.jpg -->
+        <div class="gallery-item">
+          <div class="gallery-placeholder">PHOTO 04</div>
+        </div>
+
+        <!-- SLOT 05: assets/images/gallery/photo-05.jpg -->
+        <div class="gallery-item gallery-item--tall">
+          <div class="gallery-placeholder">PHOTO 05</div>
+        </div>
+
+        <!-- SLOT 06: assets/images/gallery/photo-06.jpg -->
+        <div class="gallery-item">
+          <div class="gallery-placeholder">PHOTO 06</div>
+        </div>
+
+        <!-- SLOT 07: assets/images/gallery/photo-07.jpg -->
+        <div class="gallery-item">
+          <div class="gallery-placeholder">PHOTO 07</div>
+        </div>
+
+        <!-- SLOT 08: assets/images/gallery/photo-08.jpg -->
+        <div class="gallery-item">
+          <div class="gallery-placeholder">PHOTO 08</div>
+        </div>
+
+        <!-- SLOT 09: assets/images/gallery/photo-09.jpg -->
+        <div class="gallery-item">
+          <div class="gallery-placeholder">PHOTO 09</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MERCH PREVIEW -->
+    <section id="merch" style="background: var(--off-black)">
+      <div class="merch-header">
+        <div>
+          <span class="section-label">Official Store</span>
+          <h2 class="section-title">Merch</h2>
+        </div>
+        <a href="merch.html" class="btn-ghost">Shop All →</a>
+      </div>
+      <div class="merch-grid">
+        <a class="merch-card" href="merch.html">
+          <div class="merch-img">
+            <div class="merch-img-bg bg-1">
+              <div class="merch-label-large">GERI</div>
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name">Classic Logo Tee — Black</div>
+            <div class="merch-price">$38</div>
+          </div>
+        </a>
+        <a class="merch-card" href="merch.html">
+          <div class="merch-img">
+            <div class="merch-img-bg bg-2">
+              <div class="merch-label-large">REC</div>
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name">Desert Heavyweight Hoodie</div>
+            <div class="merch-price">$78</div>
+          </div>
+        </a>
+        <a class="merch-card" href="merch.html">
+          <div class="merch-img">
+            <div class="merch-img-bg bg-5">
+              <div class="merch-label-large">702</div>
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name">702 Crewneck</div>
+            <div class="merch-price">$62</div>
+            <div class="merch-sold-out">Low Stock</div>
+          </div>
+        </a>
+        <a class="merch-card" href="merch.html">
+          <div class="merch-img">
+            <div class="merch-img-bg bg-3">
+              <div class="merch-label-large">LV</div>
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name">Film Fest 2026 Tee</div>
+            <div class="merch-price">$42</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <a class="footer-logo" href="index.html"
+        ><span>G</span>ERONIMO <span>RECORDS</span></a
+      >
+      <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
+      <ul class="footer-links">
+        <li><a href="events.html">Events</a></li>
+        <li><a href="merch.html">Store</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>
