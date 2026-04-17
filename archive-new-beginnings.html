@@ -161,6 +161,62 @@
       letter-spacing: 0.05em;
     }
 
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .showcase-card {
+      background: var(--card);
+      padding: 40px 32px;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: var(--white);
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-card:hover { background: #222; }
+
+    .showcase-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.4s;
+    }
+
+    .showcase-card:hover::after { width: 100%; }
+
+    .showcase-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .showcase-name {
+      font-family: var(--font-display);
+      font-size: 32px;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .showcase-handle {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
     .event-gallery-grid {
       columns: 3;
       column-gap: 4px;
@@ -212,6 +268,7 @@
     .gallery-slides {
       position: relative;
       min-height: 480px;
+      aspect-ratio: 16 / 10;
       touch-action: pan-y;
     }
 
@@ -241,7 +298,8 @@
     .gallery-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background: #111;
       transition: transform 0.45s ease;
     }
 
@@ -436,9 +494,66 @@
 
     .back-link:hover { color: var(--white); }
 
+    .merch-variant-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .merch-variant-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .merch-variant-options {
+      display: flex;
+      gap: 8px;
+    }
+
+    .merch-variant-btn {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.24);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .merch-variant-btn:hover,
+    .merch-variant-btn.is-active {
+      transform: scale(1.08);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(201,168,76,0.2);
+    }
+
+    .merch-variant-btn[data-color="Blue"] { background: linear-gradient(135deg, #0b2f63 0%, #3170d4 100%); }
+    .merch-variant-btn[data-color="White"] { background: linear-gradient(135deg, #f5f5f0 0%, #d7d7d2 100%); }
+    .merch-variant-btn[data-color="Red"] { background: linear-gradient(135deg, #4a0d16 0%, #b81f33 100%); }
+    .merch-variant-btn[data-color="Pearl"] {
+      background: linear-gradient(135deg, #f2efe6 0%, #d7d1c2 55%, #b6b0a3 100%);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .merch-variant-btn[data-color="Cream"] {
+      background: linear-gradient(135deg, #f6f0e4 0%, #e4dac8 55%, #cfc2ad 100%);
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    .merch-keychain-blue { background: linear-gradient(135deg, #071018 0%, #102f57 58%, #1f5aac 100%); }
+    .merch-keychain-red { background: #080808; }
+    .merch-keychain-pearl { background: #080808; }
+    .merch-tote-blue { background: linear-gradient(135deg, #071018 0%, #102f57 58%, #1f5aac 100%); }
+    .merch-tote-cream { background: #080808; }
+
     @media (max-width: 900px) {
       .lineup-grid { grid-template-columns: 1fr 1fr; }
       .vendor-grid { grid-template-columns: 1fr 1fr; }
+      .showcase-grid { grid-template-columns: 1fr; }
       .event-gallery-grid { columns: 2; }
       .gallery-slides { min-height: 280px; }
       .gallery-caption { font-size: 12px; padding: 12px 16px; }
@@ -576,6 +691,16 @@
         <div class="vendor-name">THEBRAVESTBRAND</div>
       </a>
 
+      <a href="https://mfumeapparel.co/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAQ75wpleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAachS0lrEmdiPV5GLejVnOkBWLB7NlSVc3FO_kH6mlS0XgQJ6EusAcYsAUl7fw_aem_aCoXlyMjauRDaLHVq-2WCw" class="vendor-card" target="_blank" rel="noopener">
+        <span class="vendor-label">Fashion &amp; Apparel</span>
+        <div class="vendor-name">MFUME</div>
+      </a>
+
+      <a href="https://www.instagram.com/theakcreationsco?igsh=MXAycW1sanFrcmYyYw==" class="vendor-card" target="_blank" rel="noopener">
+        <span class="vendor-label">Fashion &amp; Apparel</span>
+        <div class="vendor-name">A &amp; K CREATIONS CO</div>
+      </a>
+
     </div>
   </section>
 
@@ -706,8 +831,8 @@
     <p style="font-family:var(--font-editorial); font-size:16px; color:rgba(245,245,240,0.85); max-width:620px;">
       Watch any and all videos related to New Beginnings.
     </p>
-    <div style="display:grid; gap:20px; max-width:860px; margin-top:24px;">
-      <a href="https://www.youtube.com/watch?v=F9Z8nKUidto" class="showcase-card" target="_blank" rel="noopener" style="max-width:420px;">
+    <div class="showcase-grid" style="max-width:1320px; margin-top:24px; grid-template-columns:repeat(3, minmax(0, 1fr));">
+      <a href="https://www.youtube.com/watch?v=F9Z8nKUidto" class="showcase-card" target="_blank" rel="noopener">
         <div style="border-radius:16px; overflow:hidden; background:#111; margin-bottom:18px; aspect-ratio:16/9;">
           <img src="https://i.ytimg.com/vi/F9Z8nKUidto/hqdefault.jpg" alt="New Beginnings presented by Quinn Anthony thumbnail" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
@@ -715,7 +840,7 @@
         <div class="showcase-name">New Beginnings presented by Quinn Anthony - A Geronimo Records Production</div>
         <div class="showcase-handle">Geronimo Records</div>
       </a>
-      <a href="https://www.youtube.com/watch?v=CKmCyjBgWok" class="showcase-card" target="_blank" rel="noopener" style="max-width:420px;">
+      <a href="https://www.youtube.com/watch?v=CKmCyjBgWok" class="showcase-card" target="_blank" rel="noopener">
         <div style="border-radius:16px; overflow:hidden; background:#111; margin-bottom:18px; aspect-ratio:16/9;">
           <img src="https://i.ytimg.com/vi/CKmCyjBgWok/hqdefault.jpg" alt="Behind The Scenes of New Beginnings thumbnail" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
@@ -723,6 +848,86 @@
         <div class="showcase-name">Behind The Scenes of New Beginnings | New Beginnings presented by Quinn Anthony</div>
         <div class="showcase-handle">Geronimo Records</div>
       </a>
+      <a href="https://youtu.be/646HgN5EuMk?si=6Av-1sXntjXzGeiz" class="showcase-card" target="_blank" rel="noopener">
+        <div style="border-radius:16px; overflow:hidden; background:#111; margin-bottom:18px; aspect-ratio:16/9;">
+          <img src="https://i.ytimg.com/vi/646HgN5EuMk/hqdefault.jpg" alt="The Road To New Beginnings thumbnail" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <span class="showcase-label">YouTube</span>
+        <div class="showcase-name">The Road To New Beginnings</div>
+        <div class="showcase-handle">Geronimo Records</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section style="background: var(--black);">
+    <div class="merch-header">
+      <div>
+        <span class="section-label">Official Store</span>
+        <h2 class="section-title">Shop New Beginnings</h2>
+      </div>
+      <a href="merch.html" class="btn-ghost">Shop All →</a>
+    </div>
+    <div class="merch-grid">
+      <a class="merch-card" href="merch.html#tees">
+        <div class="merch-img">
+          <div class="merch-img-bg bg-1">
+            <img src="assets/images/merch/new-beginnings/tee-blue-front.png" alt="New Beginnings Tee - Blue front" data-hover-image data-front-src="assets/images/merch/new-beginnings/tee-blue-front.png" data-back-src="assets/images/merch/new-beginnings/tee-blue-back.png" data-front-alt="New Beginnings Tee - Blue front" data-back-alt="New Beginnings Tee - Blue back" />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name">New Beginnings Tee - Blue</div>
+          <div class="merch-price">$15</div>
+        </div>
+      </a>
+      <a class="merch-card" href="merch.html#tees">
+        <div class="merch-img">
+          <div class="merch-img-bg bg-2">
+            <img src="assets/images/merch/new-beginnings/tee-white-front.png" alt="New Beginnings Tee - White front" data-hover-image data-front-src="assets/images/merch/new-beginnings/tee-white-front.png" data-back-src="assets/images/merch/new-beginnings/tee-white-back.png" data-front-alt="New Beginnings Tee - White front" data-back-alt="New Beginnings Tee - White back" />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name">New Beginnings Tee - White</div>
+          <div class="merch-price">$15</div>
+        </div>
+      </a>
+      <div class="merch-card merch-card-static" data-keychain-card data-merch-link="merch.html#keychains">
+        <div class="merch-img">
+          <div class="merch-img-bg merch-keychain-blue" data-keychain-visual>
+            <img src="assets/images/merch/new-beginnings/keychain-blue.png" alt="New Beginnings Keychain - Blue" data-keychain-image />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name" data-keychain-name>New Beginnings Keychain - Blue</div>
+          <div class="merch-price">$5</div>
+          <div class="merch-variant-row">
+            <span class="merch-variant-label" data-keychain-label>Color: Blue</span>
+            <div class="merch-variant-options" aria-label="New Beginnings keychain colors">
+              <button class="merch-variant-btn is-active" type="button" data-keychain-option data-color="Blue" data-class="merch-keychain-blue" data-image="assets/images/merch/new-beginnings/keychain-blue.png" aria-label="Show blue keychain"></button>
+              <button class="merch-variant-btn" type="button" data-keychain-option data-color="Red" data-class="merch-keychain-red" data-image="assets/images/merch/new-beginnings/keychain-red.png" aria-label="Show red keychain"></button>
+              <button class="merch-variant-btn" type="button" data-keychain-option data-color="Pearl" data-class="merch-keychain-pearl" data-image="assets/images/merch/new-beginnings/keychain-pearl.png" aria-label="Show pearl keychain"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="merch-card merch-card-static" data-tote-card data-merch-link="merch.html#tote-bags">
+        <div class="merch-img">
+          <div class="merch-img-bg merch-tote-blue" data-tote-visual>
+            <img src="assets/images/merch/new-beginnings/tote-blue.png" alt="New Beginnings Tote Bag - Blue" data-tote-image />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name" data-tote-name>New Beginnings Tote Bag - Blue</div>
+          <div class="merch-price">$20</div>
+          <div class="merch-variant-row">
+            <span class="merch-variant-label" data-tote-label>Color: Blue</span>
+            <div class="merch-variant-options" aria-label="New Beginnings tote bag colors">
+              <button class="merch-variant-btn is-active" type="button" data-tote-option data-color="Blue" data-class="merch-tote-blue" data-image="assets/images/merch/new-beginnings/tote-blue.png" aria-label="Show blue tote bag"></button>
+              <button class="merch-variant-btn" type="button" data-tote-option data-color="Cream" data-class="merch-tote-cream" data-image="assets/images/merch/new-beginnings/tote-cream.png" aria-label="Show cream tote bag"></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -739,5 +944,116 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var images = Array.prototype.slice.call(document.querySelectorAll('[data-hover-image]'));
+      images.forEach(function(image) {
+        var card = image.closest('.merch-card');
+        if (!card) return;
+
+        function showBack() {
+          image.src = image.getAttribute('data-back-src');
+          image.alt = image.getAttribute('data-back-alt');
+        }
+
+        function showFront() {
+          image.src = image.getAttribute('data-front-src');
+          image.alt = image.getAttribute('data-front-alt');
+        }
+
+        card.addEventListener('mouseenter', showBack);
+        card.addEventListener('mouseleave', showFront);
+        card.addEventListener('focusin', showBack);
+        card.addEventListener('focusout', showFront);
+      });
+    })();
+
+    (function() {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('[data-merch-link]'));
+      cards.forEach(function(card) {
+        card.addEventListener('click', function(event) {
+          if (event.target.closest('button')) return;
+          var href = card.getAttribute('data-merch-link');
+          if (!href) return;
+          window.location.href = href;
+        });
+
+        card.addEventListener('keydown', function(event) {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          var href = card.getAttribute('data-merch-link');
+          if (!href) return;
+          event.preventDefault();
+          window.location.href = href;
+        });
+
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'link');
+      });
+    })();
+
+    (function() {
+      var card = document.querySelector('[data-keychain-card]');
+      if (!card) return;
+
+      var visual = card.querySelector('[data-keychain-visual]');
+      var image = card.querySelector('[data-keychain-image]');
+      var name = card.querySelector('[data-keychain-name]');
+      var label = card.querySelector('[data-keychain-label]');
+      var options = Array.prototype.slice.call(card.querySelectorAll('[data-keychain-option]'));
+
+      options.forEach(function(option) {
+        option.addEventListener('click', function() {
+          var color = option.getAttribute('data-color');
+          var className = option.getAttribute('data-class');
+          var imageSrc = option.getAttribute('data-image');
+
+          options.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === option);
+          });
+
+          visual.classList.remove('merch-keychain-blue', 'merch-keychain-red', 'merch-keychain-pearl');
+          visual.classList.add(className);
+          if (image && imageSrc) {
+            image.src = imageSrc;
+            image.alt = 'New Beginnings Keychain - ' + color;
+          }
+          name.textContent = 'New Beginnings Keychain - ' + color;
+          label.textContent = 'Color: ' + color;
+        });
+      });
+    })();
+
+    (function() {
+      var card = document.querySelector('[data-tote-card]');
+      if (!card) return;
+
+      var visual = card.querySelector('[data-tote-visual]');
+      var image = card.querySelector('[data-tote-image]');
+      var name = card.querySelector('[data-tote-name]');
+      var label = card.querySelector('[data-tote-label]');
+      var options = Array.prototype.slice.call(card.querySelectorAll('[data-tote-option]'));
+
+      options.forEach(function(option) {
+        option.addEventListener('click', function() {
+          var color = option.getAttribute('data-color');
+          var className = option.getAttribute('data-class');
+          var imageSrc = option.getAttribute('data-image');
+
+          options.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === option);
+          });
+
+          visual.classList.remove('merch-tote-blue', 'merch-tote-cream');
+          visual.classList.add(className);
+          if (image && imageSrc) {
+            image.src = imageSrc;
+            image.alt = 'New Beginnings Tote Bag - ' + color;
+          }
+          name.textContent = 'New Beginnings Tote Bag - ' + color;
+          label.textContent = 'Color: ' + color;
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -26,88 +26,25 @@
       font-style: italic;
     }
 
-    .team-section {
-      margin-top: 100px;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
+    /* Partners / community section */
+    .community-group {
       margin-top: 48px;
     }
 
-    .team-card {
-      background: var(--card);
-      padding: 32px 24px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-
-    .team-card:hover { background: #222; }
-
-    .team-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold);
-      transition: width 0.4s;
-    }
-
-    .team-card:hover::after { width: 100%; }
-
-    .team-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--dark);
-      border: 1px solid var(--border);
-      margin-bottom: 20px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .team-avatar span {
+    .community-subhead {
       font-family: var(--font-display);
-      font-size: 24px;
-      color: var(--gold);
-      letter-spacing: 0.05em;
-    }
-
-    .team-name {
-      font-family: var(--font-display);
-      font-size: 22px;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-
-    .team-role {
-      font-size: 10px;
-      letter-spacing: 0.25em;
+      font-size: 18px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 16px;
-      display: block;
     }
 
-    .team-bio {
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-
-    /* Partners / community section */
     .partners-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: var(--border);
-      margin-top: 48px;
+      margin-top: 20px;
     }
 
     .partner-cell {
@@ -144,9 +81,23 @@
     .partner-cell:hover .partner-avatar-sm { border-color: var(--gold); }
 
     .partner-avatar-sm img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
+      display: block;
       object-fit: cover;
+      object-position: center center;
       border-radius: 50%;
+    }
+
+    .partner-avatar-sm img.avatar-zoom-ak {
+      transform: scale(1.28);
+      transform-origin: center center;
+    }
+
+    .partner-avatar-sm img.avatar-zoom-mfume {
+      transform: scale(1.42);
+      transform-origin: center center;
+      object-position: center 48%;
     }
 
     .partner-name {
@@ -160,8 +111,48 @@
 
     .partner-cell:hover .partner-name { color: var(--white); }
 
+    .artist-community-card {
+      position: relative;
+      align-items: center;
+    }
+
+    .partner-actions {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      gap: 8px;
+      z-index: 1;
+    }
+
+    .partner-action {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .partner-action:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.12);
+      border-color: var(--gold);
+    }
+
+    .partner-action svg {
+      width: 14px;
+      height: 14px;
+      display: block;
+      fill: currentColor;
+    }
+
     @media (max-width: 900px) {
-      .team-grid { grid-template-columns: 1fr 1fr; }
       .partners-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -211,109 +202,191 @@
     </div>
   </section>
 
-  <!-- TEAM -->
-  <section style="background: var(--off-black);">
-    <div class="team-section">
-      <span class="section-label">The People</span>
-      <h2 class="section-title">Meet the Team</h2>
-      <div class="section-divider"></div>
-      <div class="team-grid">
-
-        <!--
-          HOW TO UPDATE TEAM CARDS:
-          - Replace "YOUR NAME" with the person's name
-          - Replace initials in the avatar with their initials
-          - Update the role and bio
-          - To add a real photo: replace <span> inside .team-avatar
-            with <img src="assets/images/artists/name.jpg" alt="Name" />
-        -->
-
-        <div class="team-card">
-          <!--
-            PHOTO: assets/images/artists/jcg.jpg
-            Replace <span> with <img src="assets/images/artists/jcg.jpg" alt="Jacob (JCG)" />
-          -->
-          <div class="team-avatar"><span>JCG</span></div>
-          <div class="team-name">JACOB</div>
-          <span class="team-role">Founder · Creative Director</span>
-          <p class="team-bio">Jacob is the founder of Geronimo Records and the driving creative force behind the collective's events, vision, and identity in Las Vegas.</p>
-          <a href="https://www.instagram.com/realjcg/" target="_blank" rel="noopener" style="display:inline-block; margin-top:12px; font-size:10px; letter-spacing:0.15em; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px;">@realjcg</a>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar"><span>YN</span></div>
-          <div class="team-name">YOUR NAME</div>
-          <span class="team-role">Events &amp; Production</span>
-          <p class="team-bio">Add a short bio here. 1–2 sentences about this person's role and background.</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar"><span>YN</span></div>
-          <div class="team-name">YOUR NAME</div>
-          <span class="team-role">Visual Direction</span>
-          <p class="team-bio">Add a short bio here. 1–2 sentences about this person's role and background.</p>
-        </div>
-
-        <div class="team-card">
-          <div class="team-avatar"><span>YN</span></div>
-          <div class="team-name">YOUR NAME</div>
-          <span class="team-role">Music Curation</span>
-          <p class="team-bio">Add a short bio here. 1–2 sentences about this person's role and background.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- COMMUNITY / PARTNERS -->
   <section style="background: var(--dark);">
     <span class="section-label">The Network</span>
     <h2 class="section-title">Community</h2>
     <div class="section-divider"></div>
     <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-bottom:0;">Artists, designers, venues, and brands we've worked with and stand behind.</p>
-    <div class="partners-grid">
+    <div class="community-group">
+      <h3 class="community-subhead">Artists</h3>
+      <div class="partners-grid">
 
-      <!--
-        HOW TO ADD PHOTOS:
-        Replace <span> inside .partner-avatar-sm with:
-        <img src="assets/images/artists/[name].jpg" alt="[Name]" />
-      -->
+        <!--
+          HOW TO ADD PHOTOS:
+          Replace <span> inside .partner-avatar-sm with:
+          <img src="assets/images/artists/[name].jpg" alt="[Name]" />
+        -->
 
-      <a href="https://www.instagram.com/realjcg/" class="partner-cell" target="_blank" rel="noopener">
-        <div class="partner-avatar-sm"><span>JCG</span></div>
-        <div class="partner-name">JCG</div>
-      </a>
+        <div class="partner-cell artist-community-card">
+          <div class="partner-actions">
+            <a href="https://www.instagram.com/realjcg/" class="partner-action" target="_blank" rel="noopener" aria-label="JCG on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75A4 4 0 0 0 3.75 7.75v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5Zm8.94 1.31a1.19 1.19 0 1 1 0 2.38 1.19 1.19 0 0 1 0-2.38ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.75A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25Z"/>
+              </svg>
+            </a>
+            <a href="https://music.apple.com/us/artist/jcg/1558262741" class="partner-action" target="_blank" rel="noopener" aria-label="JCG on Apple Music">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.85 3.5a3.62 3.62 0 0 1-.86 2.33 3.53 3.53 0 0 1-2.2 1.2 3.13 3.13 0 0 1 .88-2.24 3.74 3.74 0 0 1 2.18-1.29ZM19.8 17.33c-.42.97-.62 1.4-1.16 2.28-.75 1.22-1.82 2.74-3.15 2.75-1.18.01-1.49-.76-3.09-.75-1.6.01-1.95.77-3.14.76-1.33-.01-2.34-1.38-3.1-2.6C4.02 16.3 3.8 12.29 5.1 10.1c.92-1.55 2.37-2.46 3.74-2.46 1.39 0 2.27.77 3.42.77 1.12 0 1.8-.77 3.4-.77 1.21 0 2.5.66 3.42 1.8-3 1.65-2.52 6 .72 7.89Z"/>
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/artist/67vdtDFw84lDPEOPp3urU1?si=WhBXp98VRMidrmRb_JcuuQ" class="partner-action" target="_blank" rel="noopener" aria-label="JCG on Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 1.75a10.25 10.25 0 1 0 10.25 10.25A10.26 10.26 0 0 0 12 1.75Zm4.7 14.79a.98.98 0 0 1-1.34.33c-3.67-2.24-8.28-2.74-13.69-1.49a.98.98 0 1 1-.44-1.91c5.94-1.37 11.08-.79 15.15 1.69a.98.98 0 0 1 .32 1.38Zm1.91-3.11a1.22 1.22 0 0 1-1.67.41c-4.2-2.58-10.61-3.33-15.57-1.82a1.22 1.22 0 0 1-.71-2.34c5.67-1.72 12.72-.88 17.56 2.09a1.22 1.22 0 0 1 .39 1.66Zm.16-3.24C13.74 7.2 5.4 6.92.84 8.3A1.46 1.46 0 1 1 0 5.5c5.24-1.6 14.29-1.29 20.28 2.27a1.46 1.46 0 0 1-1.51 2.42Z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="partner-avatar-sm"><img src="assets/images/community/JCG pfp.JPEG" alt="JCG" /></div>
+          <div class="partner-name">JCG</div>
+        </div>
 
-      <a href="https://www.instagram.com/702disi/" class="partner-cell" target="_blank" rel="noopener">
-        <div class="partner-avatar-sm"><span>D</span></div>
-        <div class="partner-name">DI SI</div>
-      </a>
+        <div class="partner-cell artist-community-card">
+          <div class="partner-actions">
+            <a href="https://www.instagram.com/702disi/" class="partner-action" target="_blank" rel="noopener" aria-label="DI SI on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75A4 4 0 0 0 3.75 7.75v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5Zm8.94 1.31a1.19 1.19 0 1 1 0 2.38 1.19 1.19 0 0 1 0-2.38ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.75A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25Z"/>
+              </svg>
+            </a>
+            <a href="https://music.apple.com/us/artist/di-si/1558074241" class="partner-action" target="_blank" rel="noopener" aria-label="DI SI on Apple Music">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.85 3.5a3.62 3.62 0 0 1-.86 2.33 3.53 3.53 0 0 1-2.2 1.2 3.13 3.13 0 0 1 .88-2.24 3.74 3.74 0 0 1 2.18-1.29ZM19.8 17.33c-.42.97-.62 1.4-1.16 2.28-.75 1.22-1.82 2.74-3.15 2.75-1.18.01-1.49-.76-3.09-.75-1.6.01-1.95.77-3.14.76-1.33-.01-2.34-1.38-3.1-2.6C4.02 16.3 3.8 12.29 5.1 10.1c.92-1.55 2.37-2.46 3.74-2.46 1.39 0 2.27.77 3.42.77 1.12 0 1.8-.77 3.4-.77 1.21 0 2.5.66 3.42 1.8-3 1.65-2.52 6 .72 7.89Z"/>
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/artist/5YzuBLD7oRArVczr6g66HL?si=-zJiVQUvSWenZ8epzSjhVA" class="partner-action" target="_blank" rel="noopener" aria-label="DI SI on Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 1.75a10.25 10.25 0 1 0 10.25 10.25A10.26 10.26 0 0 0 12 1.75Zm4.7 14.79a.98.98 0 0 1-1.34.33c-3.67-2.24-8.28-2.74-13.69-1.49a.98.98 0 1 1-.44-1.91c5.94-1.37 11.08-.79 15.15 1.69a.98.98 0 0 1 .32 1.38Zm1.91-3.11a1.22 1.22 0 0 1-1.67.41c-4.2-2.58-10.61-3.33-15.57-1.82a1.22 1.22 0 0 1-.71-2.34c5.67-1.72 12.72-.88 17.56 2.09a1.22 1.22 0 0 1 .39 1.66Zm.16-3.24C13.74 7.2 5.4 6.92.84 8.3A1.46 1.46 0 1 1 0 5.5c5.24-1.6 14.29-1.29 20.28 2.27a1.46 1.46 0 0 1-1.51 2.42Z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="partner-avatar-sm"><img src="assets/images/community/IMG_9349.JPG" alt="DI SI" /></div>
+          <div class="partner-name">DI SI</div>
+        </div>
 
-      <a href="https://www.instagram.com/joey.adriel/" class="partner-cell" target="_blank" rel="noopener">
-        <div class="partner-avatar-sm"><span>A</span></div>
-        <div class="partner-name">ADRIEL</div>
-      </a>
+        <div class="partner-cell artist-community-card">
+          <div class="partner-actions">
+            <a href="https://www.instagram.com/joey.adriel/" class="partner-action" target="_blank" rel="noopener" aria-label="ADRIEL on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75A4 4 0 0 0 3.75 7.75v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5Zm8.94 1.31a1.19 1.19 0 1 1 0 2.38 1.19 1.19 0 0 1 0-2.38ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.75A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25Z"/>
+              </svg>
+            </a>
+            <a href="https://music.apple.com/us/artist/adriel/1557367953" class="partner-action" target="_blank" rel="noopener" aria-label="ADRIEL on Apple Music">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.85 3.5a3.62 3.62 0 0 1-.86 2.33 3.53 3.53 0 0 1-2.2 1.2 3.13 3.13 0 0 1 .88-2.24 3.74 3.74 0 0 1 2.18-1.29ZM19.8 17.33c-.42.97-.62 1.4-1.16 2.28-.75 1.22-1.82 2.74-3.15 2.75-1.18.01-1.49-.76-3.09-.75-1.6.01-1.95.77-3.14.76-1.33-.01-2.34-1.38-3.1-2.6C4.02 16.3 3.8 12.29 5.1 10.1c.92-1.55 2.37-2.46 3.74-2.46 1.39 0 2.27.77 3.42.77 1.12 0 1.8-.77 3.4-.77 1.21 0 2.5.66 3.42 1.8-3 1.65-2.52 6 .72 7.89Z"/>
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/artist/0WZ9Vyc2aKrtfyBafAXgyo?si=EM3JgRD0R2-P6kjhpZiQrA" class="partner-action" target="_blank" rel="noopener" aria-label="ADRIEL on Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 1.75a10.25 10.25 0 1 0 10.25 10.25A10.26 10.26 0 0 0 12 1.75Zm4.7 14.79a.98.98 0 0 1-1.34.33c-3.67-2.24-8.28-2.74-13.69-1.49a.98.98 0 1 1-.44-1.91c5.94-1.37 11.08-.79 15.15 1.69a.98.98 0 0 1 .32 1.38Zm1.91-3.11a1.22 1.22 0 0 1-1.67.41c-4.2-2.58-10.61-3.33-15.57-1.82a1.22 1.22 0 0 1-.71-2.34c5.67-1.72 12.72-.88 17.56 2.09a1.22 1.22 0 0 1 .39 1.66Zm.16-3.24C13.74 7.2 5.4 6.92.84 8.3A1.46 1.46 0 1 1 0 5.5c5.24-1.6 14.29-1.29 20.28 2.27a1.46 1.46 0 0 1-1.51 2.42Z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="partner-avatar-sm"><img src="assets/images/community/IMG_8153.jpeg" alt="ADRIEL" /></div>
+          <div class="partner-name">ADRIEL</div>
+        </div>
 
-      <a href="https://www.instagram.com/kiittyluvr420/" class="partner-cell" target="_blank" rel="noopener">
-        <div class="partner-avatar-sm"><span>AY</span></div>
-        <div class="partner-name">AYLA</div>
-      </a>
+        <div class="partner-cell artist-community-card">
+          <div class="partner-actions">
+            <a href="https://www.instagram.com/itismemoretti/" class="partner-action" target="_blank" rel="noopener" aria-label="MORETTI on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75A4 4 0 0 0 3.75 7.75v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5Zm8.94 1.31a1.19 1.19 0 1 1 0 2.38 1.19 1.19 0 0 1 0-2.38ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.75A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25Z"/>
+              </svg>
+            </a>
+            <a href="https://music.apple.com/us/artist/moretti/1612737579" class="partner-action" target="_blank" rel="noopener" aria-label="MORETTI on Apple Music">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.85 3.5a3.62 3.62 0 0 1-.86 2.33 3.53 3.53 0 0 1-2.2 1.2 3.13 3.13 0 0 1 .88-2.24 3.74 3.74 0 0 1 2.18-1.29ZM19.8 17.33c-.42.97-.62 1.4-1.16 2.28-.75 1.22-1.82 2.74-3.15 2.75-1.18.01-1.49-.76-3.09-.75-1.6.01-1.95.77-3.14.76-1.33-.01-2.34-1.38-3.1-2.6C4.02 16.3 3.8 12.29 5.1 10.1c.92-1.55 2.37-2.46 3.74-2.46 1.39 0 2.27.77 3.42.77 1.12 0 1.8-.77 3.4-.77 1.21 0 2.5.66 3.42 1.8-3 1.65-2.52 6 .72 7.89Z"/>
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/artist/4yNWeQQjSrGDZkIkyEymel?si=m9zXF6aVR9GJz9Uvqntlyw" class="partner-action" target="_blank" rel="noopener" aria-label="MORETTI on Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 1.75a10.25 10.25 0 1 0 10.25 10.25A10.26 10.26 0 0 0 12 1.75Zm4.7 14.79a.98.98 0 0 1-1.34.33c-3.67-2.24-8.28-2.74-13.69-1.49a.98.98 0 1 1-.44-1.91c5.94-1.37 11.08-.79 15.15 1.69a.98.98 0 0 1 .32 1.38Zm1.91-3.11a1.22 1.22 0 0 1-1.67.41c-4.2-2.58-10.61-3.33-15.57-1.82a1.22 1.22 0 0 1-.71-2.34c5.67-1.72 12.72-.88 17.56 2.09a1.22 1.22 0 0 1 .39 1.66Zm.16-3.24C13.74 7.2 5.4 6.92.84 8.3A1.46 1.46 0 1 1 0 5.5c5.24-1.6 14.29-1.29 20.28 2.27a1.46 1.46 0 0 1-1.51 2.42Z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="partner-avatar-sm"><img src="assets/images/community/Screenshot 2026-04-07 at 1.26.57 PM.png" alt="MORETTI" /></div>
+          <div class="partner-name">MORETTI</div>
+        </div>
 
-      <a href="https://www.instagram.com/itismemoretti/" class="partner-cell" target="_blank" rel="noopener">
-        <div class="partner-avatar-sm"><span>M</span></div>
-        <div class="partner-name">MORETTI</div>
-      </a>
+        <div class="partner-cell artist-community-card">
+          <div class="partner-actions">
+            <a href="https://www.instagram.com/roads2heavenn/" class="partner-action" target="_blank" rel="noopener" aria-label="ROADS2HEAVEN on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75A4 4 0 0 0 3.75 7.75v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5Zm8.94 1.31a1.19 1.19 0 1 1 0 2.38 1.19 1.19 0 0 1 0-2.38ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.75A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25Z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="partner-avatar-sm"><img src="assets/images/community/photo 10 pp.JPG" alt="ROADS2HEAVEN" /></div>
+          <div class="partner-name">ROADS2HEAVEN</div>
+        </div>
 
-      <a href="https://www.instagram.com/roads2heavenn/" class="partner-cell" target="_blank" rel="noopener">
-        <div class="partner-avatar-sm"><span>R</span></div>
-        <div class="partner-name">ROADS2HEAVEN</div>
-      </a>
+        <div class="partner-cell artist-community-card">
+          <div class="partner-actions">
+            <a href="https://www.instagram.com/otuwa_/" class="partner-action" target="_blank" rel="noopener" aria-label="OTUWA on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75A4 4 0 0 0 3.75 7.75v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5Zm8.94 1.31a1.19 1.19 0 1 1 0 2.38 1.19 1.19 0 0 1 0-2.38ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.75A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25Z"/>
+              </svg>
+            </a>
+            <a href="https://music.apple.com/us/artist/otuwa/1683077942" class="partner-action" target="_blank" rel="noopener" aria-label="OTUWA on Apple Music">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.85 3.5a3.62 3.62 0 0 1-.86 2.33 3.53 3.53 0 0 1-2.2 1.2 3.13 3.13 0 0 1 .88-2.24 3.74 3.74 0 0 1 2.18-1.29ZM19.8 17.33c-.42.97-.62 1.4-1.16 2.28-.75 1.22-1.82 2.74-3.15 2.75-1.18.01-1.49-.76-3.09-.75-1.6.01-1.95.77-3.14.76-1.33-.01-2.34-1.38-3.1-2.6C4.02 16.3 3.8 12.29 5.1 10.1c.92-1.55 2.37-2.46 3.74-2.46 1.39 0 2.27.77 3.42.77 1.12 0 1.8-.77 3.4-.77 1.21 0 2.5.66 3.42 1.8-3 1.65-2.52 6 .72 7.89Z"/>
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/artist/7o6wreoYsDFsm6R4LMt3Kp?si=sUIuWqbJRKqfuw-Di6C-ow" class="partner-action" target="_blank" rel="noopener" aria-label="OTUWA on Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 1.75a10.25 10.25 0 1 0 10.25 10.25A10.26 10.26 0 0 0 12 1.75Zm4.7 14.79a.98.98 0 0 1-1.34.33c-3.67-2.24-8.28-2.74-13.69-1.49a.98.98 0 1 1-.44-1.91c5.94-1.37 11.08-.79 15.15 1.69a.98.98 0 0 1 .32 1.38Zm1.91-3.11a1.22 1.22 0 0 1-1.67.41c-4.2-2.58-10.61-3.33-15.57-1.82a1.22 1.22 0 0 1-.71-2.34c5.67-1.72 12.72-.88 17.56 2.09a1.22 1.22 0 0 1 .39 1.66Zm.16-3.24C13.74 7.2 5.4 6.92.84 8.3A1.46 1.46 0 1 1 0 5.5c5.24-1.6 14.29-1.29 20.28 2.27a1.46 1.46 0 0 1-1.51 2.42Z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="partner-avatar-sm"><img src="assets/images/community/photo-8 nb.JPEG" alt="OTUWA" /></div>
+          <div class="partner-name">OTUWA</div>
+        </div>
 
-      <a href="https://quinnanthony.shop/" class="partner-cell" target="_blank" rel="noopener">
-        <div class="partner-avatar-sm"><span>QA</span></div>
-        <div class="partner-name">QUINN ANTHONY</div>
-      </a>
+        <div class="partner-cell artist-community-card">
+          <div class="partner-actions">
+            <a href="https://www.instagram.com/drais20o4/" class="partner-action" target="_blank" rel="noopener" aria-label="DRA!S on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75A4 4 0 0 0 3.75 7.75v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5Zm8.94 1.31a1.19 1.19 0 1 1 0 2.38 1.19 1.19 0 0 1 0-2.38ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.75A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25Z"/>
+              </svg>
+            </a>
+            <a href="https://music.apple.com/us/artist/dra-s/1684566661" class="partner-action" target="_blank" rel="noopener" aria-label="DRA!S on Apple Music">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.85 3.5a3.62 3.62 0 0 1-.86 2.33 3.53 3.53 0 0 1-2.2 1.2 3.13 3.13 0 0 1 .88-2.24 3.74 3.74 0 0 1 2.18-1.29ZM19.8 17.33c-.42.97-.62 1.4-1.16 2.28-.75 1.22-1.82 2.74-3.15 2.75-1.18.01-1.49-.76-3.09-.75-1.6.01-1.95.77-3.14.76-1.33-.01-2.34-1.38-3.1-2.6C4.02 16.3 3.8 12.29 5.1 10.1c.92-1.55 2.37-2.46 3.74-2.46 1.39 0 2.27.77 3.42.77 1.12 0 1.8-.77 3.4-.77 1.21 0 2.5.66 3.42 1.8-3 1.65-2.52 6 .72 7.89Z"/>
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/artist/5fWLVo9kFIiq2dlBtxTSXU?si=C05B7eVBTiSa-7P8CvTIvw" class="partner-action" target="_blank" rel="noopener" aria-label="DRA!S on Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 1.75a10.25 10.25 0 1 0 10.25 10.25A10.26 10.26 0 0 0 12 1.75Zm4.7 14.79a.98.98 0 0 1-1.34.33c-3.67-2.24-8.28-2.74-13.69-1.49a.98.98 0 1 1-.44-1.91c5.94-1.37 11.08-.79 15.15 1.69a.98.98 0 0 1 .32 1.38Zm1.91-3.11a1.22 1.22 0 0 1-1.67.41c-4.2-2.58-10.61-3.33-15.57-1.82a1.22 1.22 0 0 1-.71-2.34c5.67-1.72 12.72-.88 17.56 2.09a1.22 1.22 0 0 1 .39 1.66Zm.16-3.24C13.74 7.2 5.4 6.92.84 8.3A1.46 1.46 0 1 1 0 5.5c5.24-1.6 14.29-1.29 20.28 2.27a1.46 1.46 0 0 1-1.51 2.42Z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="partner-avatar-sm"><img src="assets/images/community/photo-10 nb.JPEG" alt="DRA!S" /></div>
+          <div class="partner-name">DRA!S</div>
+        </div>
+      </div>
+    </div>
 
+    <div class="community-group">
+      <h3 class="community-subhead">Vendors</h3>
+      <div class="partners-grid">
+        <a href="https://quinnanthony.shop/" class="partner-cell" target="_blank" rel="noopener">
+          <div class="partner-avatar-sm"><img src="assets/images/community/IMG_4110.PNG" alt="QUINN ANTHONY" /></div>
+          <div class="partner-name">QUINN ANTHONY</div>
+        </a>
+
+        <a href="https://www.instagram.com/thebravestbrand/" class="partner-cell" target="_blank" rel="noopener">
+          <div class="partner-avatar-sm"><img src="assets/images/community/DP Hat Front Print 2.png" alt="THEBRAVESTBRAND" /></div>
+          <div class="partner-name">THEBRAVESTBRAND</div>
+        </a>
+
+        <a href="https://www.instagram.com/theakcreationsco?igsh=MXAycW1sanFrcmYyYw==" class="partner-cell" target="_blank" rel="noopener">
+          <div class="partner-avatar-sm"><img class="avatar-zoom-ak" src="assets/images/community/Untitled design (2).png" alt="A &amp; K CREATIONS CO" /></div>
+          <div class="partner-name">A &amp; K CREATIONS CO</div>
+        </a>
+
+        <a href="https://mfumeapparel.co/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAQ75wpleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAachS0lrEmdiPV5GLejVnOkBWLB7NlSVc3FO_kH6mlS0XgQJ6EusAcYsAUl7fw_aem_aCoXlyMjauRDaLHVq-2WCw" class="partner-cell" target="_blank" rel="noopener">
+          <div class="partner-avatar-sm"><img class="avatar-zoom-mfume" src="assets/images/community/Untitled design (3).png" alt="MFUME" /></div>
+          <div class="partner-name">MFUME</div>
+        </a>
+      </div>
     </div>
   </section>
 

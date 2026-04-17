@@ -72,6 +72,85 @@
       color: var(--white);
       border-bottom-color: var(--gold);
     }
+
+    .merch-card.is-hidden {
+      display: none;
+    }
+
+    .merch-card-static {
+      cursor: default;
+    }
+
+    .merch-card-static:hover {
+      transform: none;
+    }
+
+    .merch-variant-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .merch-variant-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .merch-variant-options {
+      display: flex;
+      gap: 8px;
+    }
+
+    .merch-variant-btn {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.24);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .merch-variant-btn:hover,
+    .merch-variant-btn.is-active {
+      transform: scale(1.08);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(201,168,76,0.2);
+    }
+
+    .merch-variant-btn[data-color="Clear"] {
+      background: linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(212,224,231,0.62) 55%, rgba(168,185,194,0.42) 100%);
+      border-color: rgba(255,255,255,0.56);
+    }
+
+    .merch-variant-btn[data-color="Blue"] { background: linear-gradient(135deg, #0b2f63 0%, #3170d4 100%); }
+    .merch-variant-btn[data-color="Red"] { background: linear-gradient(135deg, #4a0d16 0%, #b81f33 100%); }
+    .merch-variant-btn[data-color="Black"] { background: linear-gradient(135deg, #050505 0%, #2a2a2a 100%); }
+
+    .merch-variant-btn[data-color="Pearl"] {
+      background: linear-gradient(135deg, #f2efe6 0%, #d7d1c2 55%, #b6b0a3 100%);
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    .merch-variant-btn[data-color="Cream"] {
+      background: linear-gradient(135deg, #f6f0e4 0%, #e4dac8 55%, #cfc2ad 100%);
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    .merch-keychain-clear { background: #080808; }
+    .merch-keychain-blue { background: linear-gradient(135deg, #071018 0%, #102f57 58%, #1f5aac 100%); }
+    .merch-keychain-red { background: #080808; }
+    .merch-keychain-black { background: linear-gradient(135deg, #040404 0%, #171717 50%, #313131 100%); }
+    .merch-keychain-pearl { background: #080808; }
+
+    .merch-tote-blue { background: linear-gradient(135deg, #071018 0%, #102f57 58%, #1f5aac 100%); }
+    .merch-tote-black { background: linear-gradient(135deg, #050505 0%, #1b1b1b 52%, #303030 100%); }
+    .merch-tote-cream { background: #080808; }
   </style>
 </head>
 <body>
@@ -114,13 +193,14 @@
   <!-- MAIN MERCH SECTION -->
   <section style="background: var(--off-black);">
 
-    <!-- TABS (visual only — functionality can be added later) -->
     <div class="merch-tabs">
-      <button class="merch-tab active">All</button>
-      <button class="merch-tab">Tees</button>
-      <button class="merch-tab">Hoodies</button>
-      <button class="merch-tab">Hats</button>
-      <button class="merch-tab">Event Drops</button>
+      <button class="merch-tab active" type="button" data-filter="all">All</button>
+      <button class="merch-tab" type="button" data-filter="tees">Tees</button>
+      <button class="merch-tab" type="button" data-filter="hoodies">Hoodies</button>
+      <button class="merch-tab" type="button" data-filter="hats">Hats</button>
+      <button class="merch-tab" type="button" data-filter="tote-bags">Tote Bags</button>
+      <button class="merch-tab" type="button" data-filter="keychains">Keychains</button>
+      <button class="merch-tab" type="button" data-filter="event-drops">Event Drops</button>
     </div>
 
     <!--
@@ -172,24 +252,38 @@
     </div>
 
     <!-- PREVIEW GRID (remove this once Shopify embed is live) -->
-    <div style="margin-top: 48px;">
+    <div id="merch-preview" style="margin-top: 48px;">
       <p style="font-size:11px; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase; margin-bottom:32px;">Preview — replace with live Shopify products</p>
       <div class="merch-grid">
-        <div class="merch-card">
-          <div class="merch-img"><div class="merch-img-bg bg-1"><div class="merch-label-large">GERI</div></div></div>
+        <div class="merch-card" data-category="tees event-drops">
+          <div class="merch-img"><div class="merch-img-bg bg-1"><img src="assets/images/merch/pilot-programs/tee-black-front.png" alt="Pilot Programs Tee - Black front" data-hover-image data-front-src="assets/images/merch/pilot-programs/tee-black-front.png" data-back-src="assets/images/merch/pilot-programs/tee-black-back.png" data-front-alt="Pilot Programs Tee - Black front" data-back-alt="Pilot Programs Tee - Black back" /></div></div>
           <div class="merch-info">
-            <div class="merch-name">Classic Logo Tee — Black</div>
-            <div class="merch-price">$38</div>
+            <div class="merch-name">Pilot Programs Tee - Black</div>
+            <div class="merch-price">$15</div>
           </div>
         </div>
-        <div class="merch-card">
-          <div class="merch-img"><div class="merch-img-bg bg-2"><div class="merch-label-large">REC</div></div></div>
+        <div class="merch-card" data-category="tees event-drops">
+          <div class="merch-img"><div class="merch-img-bg bg-2"><img src="assets/images/merch/pilot-programs/tee-white-front.png" alt="Pilot Programs Tee - White front" data-hover-image data-front-src="assets/images/merch/pilot-programs/tee-white-front.png" data-back-src="assets/images/merch/pilot-programs/tee-white-back.png" data-front-alt="Pilot Programs Tee - White front" data-back-alt="Pilot Programs Tee - White back" /></div></div>
           <div class="merch-info">
-            <div class="merch-name">Desert Heavyweight Hoodie</div>
-            <div class="merch-price">$78</div>
+            <div class="merch-name">Pilot Programs Tee - White</div>
+            <div class="merch-price">$15</div>
           </div>
         </div>
-        <div class="merch-card">
+        <div class="merch-card" data-category="tees event-drops">
+          <div class="merch-img"><div class="merch-img-bg bg-1"><img src="assets/images/merch/new-beginnings/tee-blue-front.png" alt="New Beginnings Tee - Blue front" data-hover-image data-front-src="assets/images/merch/new-beginnings/tee-blue-front.png" data-back-src="assets/images/merch/new-beginnings/tee-blue-back.png" data-front-alt="New Beginnings Tee - Blue front" data-back-alt="New Beginnings Tee - Blue back" /></div></div>
+          <div class="merch-info">
+            <div class="merch-name">New Beginnings Tee - Blue</div>
+            <div class="merch-price">$15</div>
+          </div>
+        </div>
+        <div class="merch-card" data-category="tees event-drops">
+          <div class="merch-img"><div class="merch-img-bg bg-2"><img src="assets/images/merch/new-beginnings/tee-white-front.png" alt="New Beginnings Tee - White front" data-hover-image data-front-src="assets/images/merch/new-beginnings/tee-white-front.png" data-back-src="assets/images/merch/new-beginnings/tee-white-back.png" data-front-alt="New Beginnings Tee - White front" data-back-alt="New Beginnings Tee - White back" /></div></div>
+          <div class="merch-info">
+            <div class="merch-name">New Beginnings Tee - White</div>
+            <div class="merch-price">$15</div>
+          </div>
+        </div>
+        <div class="merch-card" data-category="hoodies">
           <div class="merch-img"><div class="merch-img-bg bg-5"><div class="merch-label-large">702</div></div></div>
           <div class="merch-info">
             <div class="merch-name">702 Crewneck</div>
@@ -197,21 +291,125 @@
             <div class="merch-sold-out">Low Stock</div>
           </div>
         </div>
-        <div class="merch-card">
+        <div class="merch-card" data-category="tees event-drops">
           <div class="merch-img"><div class="merch-img-bg bg-3"><div class="merch-label-large">LV</div></div></div>
           <div class="merch-info">
             <div class="merch-name">Film Fest 2026 Tee</div>
             <div class="merch-price">$42</div>
           </div>
         </div>
-        <div class="merch-card">
+        <div class="merch-card" data-category="hats">
           <div class="merch-img"><div class="merch-img-bg bg-4"><div class="merch-label-large">GR</div></div></div>
           <div class="merch-info">
             <div class="merch-name">Snapback — Black/Gold</div>
             <div class="merch-price">$34</div>
           </div>
         </div>
-        <div class="merch-card">
+        <div class="merch-card merch-card-static" data-category="tote-bags event-drops" data-tote-card>
+          <div class="merch-img">
+            <div class="merch-img-bg merch-tote-black" data-tote-visual>
+              <img src="assets/images/merch/pilot-programs/tote-black.png" alt="Pilot Programs Tote Bag - Black" data-tote-image />
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name" data-tote-name>Pilot Programs Tote Bag - Black</div>
+            <div class="merch-price">$20</div>
+            <div class="merch-variant-row">
+              <span class="merch-variant-label" data-tote-label>Color: Black</span>
+              <div class="merch-variant-options" aria-label="Pilot Programs tote bag colors">
+                <button class="merch-variant-btn is-active" type="button" data-tote-option data-color="Black" data-class="merch-tote-black" data-image="assets/images/merch/pilot-programs/tote-black.png" aria-label="Show black tote bag"></button>
+                <button class="merch-variant-btn" type="button" data-tote-option data-color="Cream" data-class="merch-tote-cream" data-image="assets/images/merch/pilot-programs/tote-cream.png" aria-label="Show cream tote bag"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="merch-card merch-card-static" data-category="tote-bags event-drops" data-tote-card>
+          <div class="merch-img">
+            <div class="merch-img-bg merch-tote-blue" data-tote-visual>
+              <img src="assets/images/merch/new-beginnings/tote-blue.png" alt="New Beginnings Tote Bag - Blue" data-tote-image />
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name" data-tote-name>New Beginnings Tote Bag - Blue</div>
+            <div class="merch-price">$20</div>
+            <div class="merch-variant-row">
+              <span class="merch-variant-label" data-tote-label>Color: Blue</span>
+              <div class="merch-variant-options" aria-label="New Beginnings tote bag colors">
+                <button class="merch-variant-btn is-active" type="button" data-tote-option data-color="Blue" data-class="merch-tote-blue" data-image="assets/images/merch/new-beginnings/tote-blue.png" aria-label="Show blue tote bag"></button>
+                <button class="merch-variant-btn" type="button" data-tote-option data-color="Cream" data-class="merch-tote-cream" data-image="assets/images/merch/new-beginnings/tote-cream.png" aria-label="Show cream tote bag"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="merch-card" data-category="tote-bags event-drops">
+          <div class="merch-img">
+            <div class="merch-img-bg merch-tote-black">
+              <img src="assets/images/merch/phantom-frequencies/tote-black.png" alt="Phantom Frequencies Tote Bag - Black" />
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name">Phantom Frequencies Tote Bag - Black</div>
+            <div class="merch-price">$20</div>
+          </div>
+        </div>
+        <div class="merch-card merch-card-static" data-category="keychains event-drops" data-keychain-card>
+          <div class="merch-img">
+            <div class="merch-img-bg merch-keychain-blue" data-keychain-visual>
+              <img src="assets/images/merch/new-beginnings/keychain-blue.png" alt="New Beginnings Keychain - Blue" data-keychain-image />
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name" data-keychain-name>New Beginnings Keychain - Blue</div>
+            <div class="merch-price">$5</div>
+            <div class="merch-variant-row">
+              <span class="merch-variant-label" data-keychain-label>Color: Blue</span>
+              <div class="merch-variant-options" aria-label="New Beginnings keychain colors">
+                <button class="merch-variant-btn is-active" type="button" data-keychain-option data-color="Blue" data-class="merch-keychain-blue" data-image="assets/images/merch/new-beginnings/keychain-blue.png" aria-label="Show blue keychain"></button>
+                <button class="merch-variant-btn" type="button" data-keychain-option data-color="Red" data-class="merch-keychain-red" data-image="assets/images/merch/new-beginnings/keychain-red.png" aria-label="Show red keychain"></button>
+                <button class="merch-variant-btn" type="button" data-keychain-option data-color="Pearl" data-class="merch-keychain-pearl" data-image="assets/images/merch/new-beginnings/keychain-pearl.png" aria-label="Show pearl keychain"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="merch-card merch-card-static" data-category="keychains event-drops" data-keychain-card>
+          <div class="merch-img">
+            <div class="merch-img-bg merch-keychain-clear" data-keychain-visual>
+              <img src="assets/images/merch/pilot-programs/keychain-clear.png" alt="Pilot Programs Keychain - Clear" data-keychain-image />
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name" data-keychain-name>Pilot Programs Keychain - Clear</div>
+            <div class="merch-price">$5</div>
+            <div class="merch-variant-row">
+              <span class="merch-variant-label" data-keychain-label>Color: Clear</span>
+              <div class="merch-variant-options" aria-label="Pilot Programs keychain colors">
+                <button class="merch-variant-btn is-active" type="button" data-keychain-option data-color="Clear" data-class="merch-keychain-clear" data-image="assets/images/merch/pilot-programs/keychain-clear.png" aria-label="Show clear keychain"></button>
+                <button class="merch-variant-btn" type="button" data-keychain-option data-color="Black" data-class="merch-keychain-black" data-image="assets/images/merch/pilot-programs/keychain-black.png" aria-label="Show black keychain"></button>
+                <button class="merch-variant-btn" type="button" data-keychain-option data-color="Pearl" data-class="merch-keychain-pearl" data-image="assets/images/merch/pilot-programs/keychain-pearl.png" aria-label="Show pearl keychain"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="merch-card merch-card-static" data-category="keychains event-drops" data-keychain-card>
+          <div class="merch-img">
+            <div class="merch-img-bg merch-keychain-red" data-keychain-visual>
+              <img src="assets/images/merch/phantom-frequencies/keychain-red.png" alt="Phantom Frequencies Keychain - Red" data-keychain-image />
+            </div>
+          </div>
+          <div class="merch-info">
+            <div class="merch-name" data-keychain-name>Phantom Frequencies Keychain - Red</div>
+            <div class="merch-price">$5</div>
+            <div class="merch-variant-row">
+              <span class="merch-variant-label" data-keychain-label>Color: Red</span>
+              <div class="merch-variant-options" aria-label="Phantom Frequencies keychain colors">
+                <button class="merch-variant-btn is-active" type="button" data-keychain-option data-color="Red" data-class="merch-keychain-red" data-image="assets/images/merch/phantom-frequencies/keychain-red.png" aria-label="Show red keychain"></button>
+                <button class="merch-variant-btn" type="button" data-keychain-option data-color="Black" data-class="merch-keychain-black" data-image="assets/images/merch/phantom-frequencies/keychain-black.png" aria-label="Show black keychain"></button>
+                <button class="merch-variant-btn" type="button" data-keychain-option data-color="Pearl" data-class="merch-keychain-pearl" data-image="assets/images/merch/phantom-frequencies/keychain-pearl-fixed.png" aria-label="Show pearl keychain"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="merch-card" data-category="tees">
           <div class="merch-img"><div class="merch-img-bg bg-6"><div class="merch-label-large">NV</div></div></div>
           <div class="merch-info">
             <div class="merch-name">Desert Tee — Sand</div>
@@ -236,5 +434,144 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var images = Array.prototype.slice.call(document.querySelectorAll('[data-hover-image]'));
+      images.forEach(function(image) {
+        var card = image.closest('.merch-card');
+        if (!card) return;
+
+        function showBack() {
+          image.src = image.getAttribute('data-back-src');
+          image.alt = image.getAttribute('data-back-alt');
+        }
+
+        function showFront() {
+          image.src = image.getAttribute('data-front-src');
+          image.alt = image.getAttribute('data-front-alt');
+        }
+
+        card.addEventListener('mouseenter', showBack);
+        card.addEventListener('mouseleave', showFront);
+        card.addEventListener('focusin', showBack);
+        card.addEventListener('focusout', showFront);
+      });
+    })();
+
+    (function() {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.merch-tab[data-filter]'));
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.merch-card[data-category]'));
+      var preview = document.getElementById('merch-preview');
+      if (!tabs.length || !cards.length) return;
+
+      function normalizeHash() {
+        return window.location.hash.replace(/^#/, '');
+      }
+
+      function applyFilter(filter) {
+        tabs.forEach(function(tab) {
+          tab.classList.toggle('active', tab.getAttribute('data-filter') === filter);
+        });
+
+        cards.forEach(function(card) {
+          var categories = (card.getAttribute('data-category') || '').split(/\s+/);
+          var show = filter === 'all' || categories.indexOf(filter) !== -1;
+          card.classList.toggle('is-hidden', !show);
+        });
+      }
+
+      function syncFromHash(scrollToPreview) {
+        var hash = normalizeHash();
+        var valid = tabs.some(function(tab) {
+          return tab.getAttribute('data-filter') === hash;
+        });
+        var filter = valid ? hash : 'all';
+        applyFilter(filter);
+        if (scrollToPreview && preview && valid) {
+          preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var filter = tab.getAttribute('data-filter');
+          applyFilter(filter);
+          window.location.hash = filter;
+        });
+      });
+
+      window.addEventListener('hashchange', function() {
+        syncFromHash(false);
+      });
+
+      syncFromHash(Boolean(normalizeHash()));
+    })();
+
+    (function() {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('[data-keychain-card]'));
+      cards.forEach(function(card) {
+        var visual = card.querySelector('[data-keychain-visual]');
+        var image = card.querySelector('[data-keychain-image]');
+        var name = card.querySelector('[data-keychain-name]');
+        var label = card.querySelector('[data-keychain-label]');
+        var options = Array.prototype.slice.call(card.querySelectorAll('[data-keychain-option]'));
+        var baseName = (name ? name.textContent : '').split(' - ')[0];
+
+        options.forEach(function(option) {
+          option.addEventListener('click', function() {
+            var color = option.getAttribute('data-color');
+            var className = option.getAttribute('data-class');
+            var imageSrc = option.getAttribute('data-image');
+
+            options.forEach(function(btn) {
+              btn.classList.toggle('is-active', btn === option);
+            });
+
+            visual.classList.remove('merch-keychain-clear', 'merch-keychain-blue', 'merch-keychain-red', 'merch-keychain-black', 'merch-keychain-pearl');
+            visual.classList.add(className);
+            if (image && imageSrc) {
+              image.src = imageSrc;
+              image.alt = baseName + ' - ' + color;
+            }
+            name.textContent = baseName + ' - ' + color;
+            label.textContent = 'Color: ' + color;
+          });
+        });
+      });
+    })();
+
+    (function() {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('[data-tote-card]'));
+      cards.forEach(function(card) {
+        var visual = card.querySelector('[data-tote-visual]');
+        var image = card.querySelector('[data-tote-image]');
+        var name = card.querySelector('[data-tote-name]');
+        var label = card.querySelector('[data-tote-label]');
+        var options = Array.prototype.slice.call(card.querySelectorAll('[data-tote-option]'));
+        var baseName = (name ? name.textContent : '').split(' - ')[0];
+
+        options.forEach(function(option) {
+          option.addEventListener('click', function() {
+            var color = option.getAttribute('data-color');
+            var className = option.getAttribute('data-class');
+            var imageSrc = option.getAttribute('data-image');
+
+            options.forEach(function(btn) {
+              btn.classList.toggle('is-active', btn === option);
+            });
+
+            visual.classList.remove('merch-tote-blue', 'merch-tote-black', 'merch-tote-cream');
+            visual.classList.add(className);
+            if (image && imageSrc) {
+              image.src = imageSrc;
+              image.alt = baseName + ' - ' + color;
+            }
+            name.textContent = baseName + ' - ' + color;
+            label.textContent = 'Color: ' + color;
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

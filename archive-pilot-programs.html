@@ -169,34 +169,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* Photo gallery */
-    .event-gallery-grid {
-      columns: 3;
-      column-gap: 4px;
-      margin-top: 48px;
-    }
-
-    .event-gallery-item {
-      break-inside: avoid;
-      margin-bottom: 4px;
-      overflow: hidden;
-      background: var(--card);
-      cursor: pointer;
-    }
-
-    .event-gallery-item img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-
-    .event-gallery-item:hover img { transform: scale(1.04); }
-
-    .event-gallery-item--tall { aspect-ratio: 2/3; }
-    .event-gallery-item:not(.event-gallery-item--tall) { aspect-ratio: 4/3; }
-
     .gallery-placeholder-slot {
       width: 100%;
       height: 100%;
@@ -209,6 +181,227 @@
       letter-spacing: 0.2em;
       color: rgba(201,168,76,0.2);
       border: 1px dashed rgba(201,168,76,0.12);
+    }
+
+    .gallery-slider {
+      margin: 48px auto 0;
+      display: grid;
+      gap: 18px;
+      max-width: 1100px;
+    }
+
+    .gallery-slides {
+      position: relative;
+      min-height: 480px;
+      aspect-ratio: 16 / 10;
+      touch-action: pan-y;
+    }
+
+    .gallery-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #111;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-slide:hover img {
+      transform: scale(1.02);
+    }
+
+    .gallery-slide .gallery-placeholder-slot {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(201,168,76,0.4);
+      border: 1px dashed rgba(201,168,76,0.18);
+      text-align: center;
+      padding: 20px;
+      background: rgba(8, 8, 8, 0.55);
+    }
+
+    .gallery-slide.missing-image .gallery-placeholder-slot {
+      display: flex;
+    }
+
+    .gallery-slide.missing-image img {
+      display: none;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 16px 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8,8,8,0.72) 100%);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-nav {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8,8,8,0.8);
+      color: var(--gold);
+      font-size: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-nav:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    .gallery-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .gallery-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .gallery-dot.active {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0,0,0,0.92);
+    }
+
+    .gallery-modal.open {
+      display: flex;
+    }
+
+    .gallery-modal-content {
+      position: relative;
+      width: min(1080px, 100%);
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .gallery-modal-content img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 22px;
+      background: #111;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .gallery-modal-caption {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      gap: 12px;
+    }
+
+    .gallery-modal-close,
+    .gallery-modal-prev,
+    .gallery-modal-next {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-modal-close:hover,
+    .gallery-modal-prev:hover,
+    .gallery-modal-next:hover {
+      background: rgba(255,255,255,0.16);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .gallery-slides { min-height: 320px; }
+      .gallery-caption { padding: 14px 18px; font-size: 12px; }
+      .gallery-nav { width: 42px; height: 42px; }
+      .gallery-modal { padding: 16px; }
+      .gallery-modal-caption { font-size: 12px; }
+      .gallery-modal-close,
+      .gallery-modal-prev,
+      .gallery-modal-next { width: 42px; height: 42px; }
     }
 
     .back-link {
@@ -226,10 +419,90 @@
 
     .back-link:hover { color: var(--white); }
 
+    .merch-card-static {
+      cursor: default;
+    }
+
+    .merch-card-static:hover {
+      transform: none;
+    }
+
+    .merch-variant-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .merch-variant-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .merch-variant-options {
+      display: flex;
+      gap: 8px;
+    }
+
+    .merch-variant-btn {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.24);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .merch-variant-btn:hover,
+    .merch-variant-btn.is-active {
+      transform: scale(1.08);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(201,168,76,0.2);
+    }
+
+    .merch-variant-btn[data-color="Clear"] {
+      background: linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(212,224,231,0.62) 55%, rgba(168,185,194,0.42) 100%);
+      border-color: rgba(255,255,255,0.56);
+    }
+    .merch-variant-btn[data-color="Black"] { background: linear-gradient(135deg, #050505 0%, #2a2a2a 100%); }
+    .merch-variant-btn[data-color="Pearl"] {
+      background: linear-gradient(135deg, #f2efe6 0%, #d7d1c2 55%, #b6b0a3 100%);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .merch-variant-btn[data-color="Cream"] {
+      background: linear-gradient(135deg, #f6f0e4 0%, #e4dac8 55%, #cfc2ad 100%);
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    .merch-keychain-clear { background: #080808; }
+    .merch-keychain-black { background: linear-gradient(135deg, #040404 0%, #171717 50%, #313131 100%); }
+    .merch-keychain-pearl { background: #080808; }
+
+    .merch-keychain-clear .merch-label-large,
+    .merch-keychain-pearl .merch-label-large {
+      color: #111;
+      opacity: 0.12;
+    }
+
+    .merch-tote-black { background: linear-gradient(135deg, #050505 0%, #1b1b1b 52%, #303030 100%); }
+    .merch-tote-cream { background: #080808; }
+
+    .merch-tote-cream .merch-label-large {
+      color: #111;
+      opacity: 0.12;
+    }
+
     @media (max-width: 900px) {
       .lineup-grid { grid-template-columns: 1fr 1fr; }
       .vendor-grid { grid-template-columns: 1fr 1fr; }
-      .event-gallery-grid { columns: 2; }
+      .gallery-slides { min-height: 280px; }
+      .gallery-caption { font-size: 12px; padding: 12px 16px; }
+      .gallery-controls { flex-wrap: wrap; gap: 10px; }
     }
   </style>
 </head>
@@ -266,16 +539,8 @@
     <div class="section-divider"></div>
     <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">THE DEBUT SHOW.</p>
 
-    <!--
-      POSTER IMAGE:
-      Add the event flyer/poster: assets/images/posters/pilot-programs.jpg
-      Then replace the placeholder div below with:
-      <div class="event-poster">
-        <img src="assets/images/posters/pilot-programs.jpg" alt="Pilot Programs Poster" />
-      </div>
-    -->
     <div class="event-poster">
-      <div class="event-poster-placeholder">POSTER<br/>assets/images/posters/<br/>pilot-programs.jpg</div>
+      <img src="assets/images/posters/Pilot Programs.PNG" alt="Pilot Programs Poster" />
     </div>
   </div>
 
@@ -300,7 +565,7 @@
       </div>
     </div>
     <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.8; color:rgba(245,245,240,0.75); max-width:680px;">
-      The debut show from Geronimo Records. Pilot Programs marked the moment the collective stepped onto a stage and introduced Las Vegas to what they had been building. Five artists. One night. The beginning of everything.
+      Pilot Programs was the first live chapter of Geronimo Productions. Held at The Alamo, the night introduced the collective's vision to Las Vegas with five artists, one stage, and the energy that would shape everything that followed.
     </p>
   </section>
 
@@ -313,26 +578,9 @@
     <div class="lineup-grid">
 
       <div class="artist-card">
-        <!--
-          ARTIST PHOTO: assets/images/artists/moretti.jpg
-          Replace <span> inside .artist-photo with:
-          <img src="assets/images/artists/moretti.jpg" alt="Moretti" />
-        -->
-        <div class="artist-photo"><span>M</span></div>
-        <div class="artist-name">MORETTI</div>
-        <a href="https://www.instagram.com/itismemoretti/" class="artist-handle" target="_blank" rel="noopener">@itismemoretti</a>
-      </div>
-
-      <div class="artist-card">
-        <div class="artist-photo"><span>R</span></div>
-        <div class="artist-name">ROADS2HEAVEN</div>
-        <a href="https://www.instagram.com/roads2heavenn/" class="artist-handle" target="_blank" rel="noopener">@roads2heavenn</a>
-      </div>
-
-      <div class="artist-card">
-        <div class="artist-photo"><span>ML</span></div>
-        <div class="artist-name">MUSES LOUNGE</div>
-        <a href="https://www.instagram.com/brybe_/" class="artist-handle" target="_blank" rel="noopener">@brybe_</a>
+        <div class="artist-photo"><span>JCG</span></div>
+        <div class="artist-name">JCG</div>
+        <a href="https://www.instagram.com/realjcg/" class="artist-handle" target="_blank" rel="noopener">@realjcg</a>
       </div>
 
       <div class="artist-card">
@@ -342,9 +590,26 @@
       </div>
 
       <div class="artist-card">
-        <div class="artist-photo"><span>JCG</span></div>
-        <div class="artist-name">JCG</div>
-        <a href="https://www.instagram.com/realjcg/" class="artist-handle" target="_blank" rel="noopener">@realjcg</a>
+        <div class="artist-photo"><span>ML</span></div>
+        <div class="artist-name">MUSES LOUNGE</div>
+        <a href="https://www.instagram.com/brybe_/" class="artist-handle" target="_blank" rel="noopener">@brybe_</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>R</span></div>
+        <div class="artist-name">ROADS2HEAVEN</div>
+        <a href="https://www.instagram.com/roads2heavenn/" class="artist-handle" target="_blank" rel="noopener">@roads2heavenn</a>
+      </div>
+
+      <div class="artist-card">
+        <!--
+          ARTIST PHOTO: assets/images/artists/moretti.jpg
+          Replace <span> inside .artist-photo with:
+          <img src="assets/images/artists/moretti.jpg" alt="Moretti" />
+        -->
+        <div class="artist-photo"><span>M</span></div>
+        <div class="artist-name">MORETTI</div>
+        <a href="https://www.instagram.com/itismemoretti/" class="artist-handle" target="_blank" rel="noopener">@itismemoretti</a>
       </div>
 
     </div>
@@ -358,14 +623,14 @@
 
     <div class="vendor-grid">
 
-      <a href="https://quinnanthony.shop/" class="vendor-card" target="_blank" rel="noopener">
-        <span class="vendor-label">Fashion &amp; Apparel</span>
-        <div class="vendor-name">QUINN ANTHONY</div>
-      </a>
-
       <a href="https://www.instagram.com/thebravestbrand/" class="vendor-card" target="_blank" rel="noopener">
         <span class="vendor-label">Fashion &amp; Apparel</span>
         <div class="vendor-name">THEBRAVESTBRAND</div>
+      </a>
+
+      <a href="https://www.instagram.com/theakcreationsco?igsh=MXAycW1sanFrcmYyYw==" class="vendor-card" target="_blank" rel="noopener">
+        <span class="vendor-label">Fashion &amp; Apparel</span>
+        <div class="vendor-name">A &amp; K CREATIONS CO</div>
       </a>
 
     </div>
@@ -374,53 +639,191 @@
   <!-- PHOTO GALLERY -->
   <section style="background: var(--black);">
     <span class="section-label">Captured Moments</span>
-    <h2 class="section-title">Photos</h2>
+    <h2 class="section-title">View Pilot Programs</h2>
     <div class="section-divider"></div>
     <p style="font-family:var(--font-editorial); font-size:16px; font-style:italic; color:var(--muted); margin-bottom:0;">
-      Drop event photos into <code style="font-style:normal; font-size:13px; color:var(--gold);">assets/images/events/pilot-programs/</code> and replace the placeholder slots below.
+      Take a look at some photos from our event Pilot Programs.
     </p>
 
-    <div class="event-gallery-grid">
-      <!--
-        HOW TO ADD PHOTOS:
-        Replace each placeholder div below with:
-        <div class="event-gallery-item">
-          <img src="assets/images/events/pilot-programs/photo-01.jpg" alt="Pilot Programs" loading="lazy" />
+    <div class="gallery-slider">
+      <div class="gallery-slides">
+        <div class="gallery-slide active" data-index="1" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-01.jpg" alt="Pilot Programs photo 1" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-01.jpg</div>
+          <div class="gallery-caption">1 / 14</div>
         </div>
-        Use event-gallery-item--tall for portrait/vertical photos.
-      -->
-
-      <!-- SLOT 01: assets/images/events/pilot-programs/photo-01.jpg -->
-      <div class="event-gallery-item event-gallery-item--tall">
-        <div class="gallery-placeholder-slot">photo-01.jpg</div>
+        <div class="gallery-slide" data-index="2" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-02.jpg" alt="Pilot Programs photo 2" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-02.jpg</div>
+          <div class="gallery-caption">2 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="3" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-03.jpg" alt="Pilot Programs photo 3" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-03.jpg</div>
+          <div class="gallery-caption">3 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="4" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-04.jpg" alt="Pilot Programs photo 4" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-04.jpg</div>
+          <div class="gallery-caption">4 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="5" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-05.jpg" alt="Pilot Programs photo 5" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-05.jpg</div>
+          <div class="gallery-caption">5 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="6" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-06.jpg" alt="Pilot Programs photo 6" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-06.jpg</div>
+          <div class="gallery-caption">6 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="7" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-07.jpg" alt="Pilot Programs photo 7" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-07.jpg</div>
+          <div class="gallery-caption">7 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="8" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-08.jpg" alt="Pilot Programs photo 8" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-08.jpg</div>
+          <div class="gallery-caption">8 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="9" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-09.jpg" alt="Pilot Programs photo 9" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-09.jpg</div>
+          <div class="gallery-caption">9 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="10" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-10.jpg" alt="Pilot Programs photo 10" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-10.jpg</div>
+          <div class="gallery-caption">10 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="11" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-11.jpg" alt="Pilot Programs photo 11" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-11.jpg</div>
+          <div class="gallery-caption">11 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="12" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-12.jpg" alt="Pilot Programs photo 12" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-12.jpg</div>
+          <div class="gallery-caption">12 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="13" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-13.jpg" alt="Pilot Programs photo 13" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-13.jpg</div>
+          <div class="gallery-caption">13 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="14" role="button" tabindex="0">
+          <img src="assets/images/events/pilot-programs/photo-14.jpg" alt="Pilot Programs photo 14" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-14.jpg</div>
+          <div class="gallery-caption">14 / 14</div>
+        </div>
       </div>
-
-      <!-- SLOT 02: assets/images/events/pilot-programs/photo-02.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-02.jpg</div>
+      <div class="gallery-controls">
+        <button class="gallery-nav gallery-nav-prev" type="button" aria-label="Previous photo">‹</button>
+        <div class="gallery-dots">
+          <button class="gallery-dot active" type="button" data-index="1" aria-label="Go to photo 1"></button>
+          <button class="gallery-dot" type="button" data-index="2" aria-label="Go to photo 2"></button>
+          <button class="gallery-dot" type="button" data-index="3" aria-label="Go to photo 3"></button>
+          <button class="gallery-dot" type="button" data-index="4" aria-label="Go to photo 4"></button>
+          <button class="gallery-dot" type="button" data-index="5" aria-label="Go to photo 5"></button>
+          <button class="gallery-dot" type="button" data-index="6" aria-label="Go to photo 6"></button>
+          <button class="gallery-dot" type="button" data-index="7" aria-label="Go to photo 7"></button>
+          <button class="gallery-dot" type="button" data-index="8" aria-label="Go to photo 8"></button>
+          <button class="gallery-dot" type="button" data-index="9" aria-label="Go to photo 9"></button>
+          <button class="gallery-dot" type="button" data-index="10" aria-label="Go to photo 10"></button>
+          <button class="gallery-dot" type="button" data-index="11" aria-label="Go to photo 11"></button>
+          <button class="gallery-dot" type="button" data-index="12" aria-label="Go to photo 12"></button>
+          <button class="gallery-dot" type="button" data-index="13" aria-label="Go to photo 13"></button>
+          <button class="gallery-dot" type="button" data-index="14" aria-label="Go to photo 14"></button>
+        </div>
+        <button class="gallery-nav gallery-nav-next" type="button" aria-label="Next photo">›</button>
       </div>
-
-      <!-- SLOT 03: assets/images/events/pilot-programs/photo-03.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-03.jpg</div>
+    </div>
+    <div class="gallery-modal" aria-hidden="true">
+      <div class="gallery-modal-content">
+        <button class="gallery-modal-close" type="button" aria-label="Close gallery">×</button>
+        <img src="" alt="" />
+        <div class="gallery-modal-caption">
+          <span class="modal-caption-text"></span>
+          <span class="modal-caption-order"></span>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-modal-prev" type="button" aria-label="Previous photo">‹</button>
+          <button class="gallery-modal-next" type="button" aria-label="Next photo">›</button>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <!-- SLOT 04: assets/images/events/pilot-programs/photo-04.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-04.jpg</div>
+  <!-- MERCH -->
+  <section style="background: var(--black);">
+    <div class="merch-header">
+      <div>
+        <span class="section-label">Official Store</span>
+        <h2 class="section-title">Shop Pilot Programs</h2>
       </div>
-
-      <!-- SLOT 05: assets/images/events/pilot-programs/photo-05.jpg -->
-      <div class="event-gallery-item event-gallery-item--tall">
-        <div class="gallery-placeholder-slot">photo-05.jpg</div>
+      <a href="merch.html" class="btn-ghost">Shop All →</a>
+    </div>
+    <div class="merch-grid">
+      <a class="merch-card" href="merch.html#tees">
+        <div class="merch-img">
+          <div class="merch-img-bg bg-1">
+            <img src="assets/images/merch/pilot-programs/tee-black-front.png" alt="Pilot Programs Tee - Black front" data-hover-image data-front-src="assets/images/merch/pilot-programs/tee-black-front.png" data-back-src="assets/images/merch/pilot-programs/tee-black-back.png" data-front-alt="Pilot Programs Tee - Black front" data-back-alt="Pilot Programs Tee - Black back" />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name">Pilot Programs Tee - Black</div>
+          <div class="merch-price">$15</div>
+        </div>
+      </a>
+      <a class="merch-card" href="merch.html#tees">
+        <div class="merch-img">
+          <div class="merch-img-bg bg-2">
+            <img src="assets/images/merch/pilot-programs/tee-white-front.png" alt="Pilot Programs Tee - White front" data-hover-image data-front-src="assets/images/merch/pilot-programs/tee-white-front.png" data-back-src="assets/images/merch/pilot-programs/tee-white-back.png" data-front-alt="Pilot Programs Tee - White front" data-back-alt="Pilot Programs Tee - White back" />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name">Pilot Programs Tee - White</div>
+          <div class="merch-price">$15</div>
+        </div>
+      </a>
+      <div class="merch-card merch-card-static" data-keychain-card data-merch-link="merch.html#keychains">
+        <div class="merch-img">
+          <div class="merch-img-bg merch-keychain-clear" data-keychain-visual>
+            <img src="assets/images/merch/pilot-programs/keychain-clear.png" alt="Pilot Programs Keychain - Clear" data-keychain-image />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name" data-keychain-name>Pilot Programs Keychain - Clear</div>
+          <div class="merch-price">$5</div>
+          <div class="merch-variant-row">
+            <span class="merch-variant-label" data-keychain-label>Color: Clear</span>
+            <div class="merch-variant-options" aria-label="Pilot Programs keychain colors">
+              <button class="merch-variant-btn is-active" type="button" data-keychain-option data-color="Clear" data-class="merch-keychain-clear" data-image="assets/images/merch/pilot-programs/keychain-clear.png" aria-label="Show clear keychain"></button>
+              <button class="merch-variant-btn" type="button" data-keychain-option data-color="Black" data-class="merch-keychain-black" data-image="assets/images/merch/pilot-programs/keychain-black.png" aria-label="Show black keychain"></button>
+              <button class="merch-variant-btn" type="button" data-keychain-option data-color="Pearl" data-class="merch-keychain-pearl" data-image="assets/images/merch/pilot-programs/keychain-pearl.png" aria-label="Show pearl keychain"></button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- SLOT 06: assets/images/events/pilot-programs/photo-06.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-06.jpg</div>
+      <div class="merch-card merch-card-static" data-tote-card data-merch-link="merch.html#tote-bags">
+        <div class="merch-img">
+          <div class="merch-img-bg merch-tote-black" data-tote-visual>
+            <img src="assets/images/merch/pilot-programs/tote-black.png" alt="Pilot Programs Tote Bag - Black" data-tote-image />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name" data-tote-name>Pilot Programs Tote Bag - Black</div>
+          <div class="merch-price">$20</div>
+          <div class="merch-variant-row">
+            <span class="merch-variant-label" data-tote-label>Color: Black</span>
+            <div class="merch-variant-options" aria-label="Pilot Programs tote bag colors">
+              <button class="merch-variant-btn is-active" type="button" data-tote-option data-color="Black" data-class="merch-tote-black" data-image="assets/images/merch/pilot-programs/tote-black.png" aria-label="Show black tote bag"></button>
+              <button class="merch-variant-btn" type="button" data-tote-option data-color="Cream" data-class="merch-tote-cream" data-image="assets/images/merch/pilot-programs/tote-cream.png" aria-label="Show cream tote bag"></button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Add more slots as needed -->
     </div>
   </section>
 
@@ -437,5 +840,116 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var images = Array.prototype.slice.call(document.querySelectorAll('[data-hover-image]'));
+      images.forEach(function(image) {
+        var card = image.closest('.merch-card');
+        if (!card) return;
+
+        function showBack() {
+          image.src = image.getAttribute('data-back-src');
+          image.alt = image.getAttribute('data-back-alt');
+        }
+
+        function showFront() {
+          image.src = image.getAttribute('data-front-src');
+          image.alt = image.getAttribute('data-front-alt');
+        }
+
+        card.addEventListener('mouseenter', showBack);
+        card.addEventListener('mouseleave', showFront);
+        card.addEventListener('focusin', showBack);
+        card.addEventListener('focusout', showFront);
+      });
+    })();
+
+    (function() {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('[data-merch-link]'));
+      cards.forEach(function(card) {
+        card.addEventListener('click', function(event) {
+          if (event.target.closest('button')) return;
+          var href = card.getAttribute('data-merch-link');
+          if (!href) return;
+          window.location.href = href;
+        });
+
+        card.addEventListener('keydown', function(event) {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          var href = card.getAttribute('data-merch-link');
+          if (!href) return;
+          event.preventDefault();
+          window.location.href = href;
+        });
+
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'link');
+      });
+    })();
+
+    (function() {
+      var card = document.querySelector('[data-keychain-card]');
+      if (!card) return;
+
+      var visual = card.querySelector('[data-keychain-visual]');
+      var image = card.querySelector('[data-keychain-image]');
+      var name = card.querySelector('[data-keychain-name]');
+      var label = card.querySelector('[data-keychain-label]');
+      var options = Array.prototype.slice.call(card.querySelectorAll('[data-keychain-option]'));
+
+      options.forEach(function(option) {
+        option.addEventListener('click', function() {
+          var color = option.getAttribute('data-color');
+          var className = option.getAttribute('data-class');
+          var imageSrc = option.getAttribute('data-image');
+
+          options.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === option);
+          });
+
+          visual.classList.remove('merch-keychain-clear', 'merch-keychain-black', 'merch-keychain-pearl');
+          visual.classList.add(className);
+          if (image && imageSrc) {
+            image.src = imageSrc;
+            image.alt = 'Pilot Programs Keychain - ' + color;
+          }
+          name.textContent = 'Pilot Programs Keychain - ' + color;
+          label.textContent = 'Color: ' + color;
+        });
+      });
+    })();
+
+    (function() {
+      var card = document.querySelector('[data-tote-card]');
+      if (!card) return;
+
+      var visual = card.querySelector('[data-tote-visual]');
+      var image = card.querySelector('[data-tote-image]');
+      var name = card.querySelector('[data-tote-name]');
+      var label = card.querySelector('[data-tote-label]');
+      var options = Array.prototype.slice.call(card.querySelectorAll('[data-tote-option]'));
+
+      options.forEach(function(option) {
+        option.addEventListener('click', function() {
+          var color = option.getAttribute('data-color');
+          var className = option.getAttribute('data-class');
+          var imageSrc = option.getAttribute('data-image');
+
+          options.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === option);
+          });
+
+          visual.classList.remove('merch-tote-black', 'merch-tote-cream');
+          visual.classList.add(className);
+          if (image && imageSrc) {
+            image.src = imageSrc;
+            image.alt = 'Pilot Programs Tote Bag - ' + color;
+          }
+          name.textContent = 'Pilot Programs Tote Bag - ' + color;
+          label.textContent = 'Color: ' + color;
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

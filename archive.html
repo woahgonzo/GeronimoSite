@@ -138,12 +138,9 @@
       </div>
 
       <div class="archive-card archive-large">
-        <!--
-          POSTER IMAGE: Drop assets/images/posters/new-beginnings.jpg
-          Then replace the bg div with:
-          <img src="assets/images/posters/new-beginnings.jpg" alt="New Beginnings Poster" />
-        -->
-        <div class="archive-card-bg bg-4"></div>
+        <div class="archive-card-bg bg-4">
+          <img id="new-beginnings-archive-photo" src="assets/images/events/new-beginnings/photo-01.jpg" alt="New Beginnings photo 1" loading="lazy" />
+        </div>
         <div class="archive-always">
           <div class="archive-type-badge">Concert</div>
           <div class="archive-event-name">NEW BEGINNINGS</div>
@@ -163,12 +160,9 @@
     <div class="archive-grid">
 
       <div class="archive-card archive-large">
-        <!--
-          POSTER IMAGE: Drop assets/images/posters/phantom-frequencies.jpg
-          Then replace the bg div with:
-          <img src="assets/images/posters/phantom-frequencies.jpg" alt="Phantom Frequencies Poster" />
-        -->
-        <div class="archive-card-bg bg-2"></div>
+        <div class="archive-card-bg bg-2">
+          <img id="phantom-frequencies-archive-photo" src="assets/images/events/phantom-frequencies/photo-01.jpg" alt="Phantom Frequencies photo 1" loading="lazy" />
+        </div>
         <div class="archive-always">
           <div class="archive-type-badge">Concert</div>
           <div class="archive-event-name">PHANTOM FREQUENCIES</div>
@@ -182,12 +176,9 @@
       </div>
 
       <div class="archive-card">
-        <!--
-          POSTER IMAGE: Drop assets/images/posters/pilot-programs.jpg
-          Then replace the bg div with:
-          <img src="assets/images/posters/pilot-programs.jpg" alt="Pilot Programs Poster" />
-        -->
-        <div class="archive-card-bg bg-3"></div>
+        <div class="archive-card-bg bg-3">
+          <img id="pilot-programs-archive-photo" src="assets/images/events/pilot-programs/photo-01.jpg" alt="Pilot Programs photo 1" loading="lazy" />
+        </div>
         <div class="archive-always">
           <div class="archive-type-badge">Concert</div>
           <div class="archive-event-name">PILOT PROGRAMS</div>
@@ -225,6 +216,39 @@
       if (image) {
         image.src = 'assets/images/events/fashion-show/photo-' + photoNumber + '.jpg';
         image.alt = 'The Fashion Show photo ' + index;
+      }
+    })();
+
+    (function() {
+      var photoCount = 14;
+      var index = Math.floor(Math.random() * photoCount) + 1;
+      var photoNumber = String(index).padStart(2, '0');
+      var image = document.getElementById('new-beginnings-archive-photo');
+      if (image) {
+        image.src = 'assets/images/events/new-beginnings/photo-' + photoNumber + '.jpg';
+        image.alt = 'New Beginnings photo ' + index;
+      }
+    })();
+
+    (function() {
+      var photoCount = 14;
+      var index = Math.floor(Math.random() * photoCount) + 1;
+      var photoNumber = String(index).padStart(2, '0');
+      var image = document.getElementById('phantom-frequencies-archive-photo');
+      if (image) {
+        image.src = 'assets/images/events/phantom-frequencies/photo-' + photoNumber + '.jpg';
+        image.alt = 'Phantom Frequencies photo ' + index;
+      }
+    })();
+
+    (function() {
+      var photoCount = 14;
+      var index = Math.floor(Math.random() * photoCount) + 1;
+      var photoNumber = String(index).padStart(2, '0');
+      var image = document.getElementById('pilot-programs-archive-photo');
+      if (image) {
+        image.src = 'assets/images/events/pilot-programs/photo-' + photoNumber + '.jpg';
+        image.alt = 'Pilot Programs photo ' + index;
       }
     })();
   </script>

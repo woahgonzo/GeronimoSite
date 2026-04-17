@@ -8,17 +8,17 @@
 
 :root {
   /* Colors */
-  --black:      #080808;
-  --off-black:  #0f0f0f;
-  --dark:       #141414;
-  --card:       #1a1a1a;
-  --border:     rgba(255,255,255,0.08);
-  --white:      #f5f5f0;
-  --cream:      #e8e0d0;
-  --gold:       #c9a84c;
-  --gold-light: #e0c97a;
-  --red:        #c0392b;
-  --muted:      rgba(245,245,240,0.45);
+  --black:      #10274d;
+  --off-black:  #163769;
+  --dark:       #21529b;
+  --card:       #2c66b8;
+  --border:     rgba(255,255,255,0.12);
+  --white:      #f8fbff;
+  --cream:      #e7f0ff;
+  --gold:       #ed1c24;
+  --gold-light: #ff5a6a;
+  --red:        #ff4d5f;
+  --muted:      rgba(248,251,255,0.62);
 
   /* Typography */
   --font-display:   'Bebas Neue', sans-serif;
@@ -33,12 +33,110 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--black);
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(248,251,255,0.95) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 21% 34%, rgba(248,251,255,0.82) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 33% 18%, rgba(248,251,255,0.9) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 47% 42%, rgba(248,251,255,0.78) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 59% 14%, rgba(248,251,255,0.92) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 72% 31%, rgba(248,251,255,0.86) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 84% 16%, rgba(248,251,255,0.95) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 91% 44%, rgba(248,251,255,0.8) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 14% 63%, rgba(248,251,255,0.85) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 28% 78%, rgba(248,251,255,0.72) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 41% 61%, rgba(248,251,255,0.9) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 57% 74%, rgba(248,251,255,0.8) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 69% 58%, rgba(248,251,255,0.88) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 82% 71%, rgba(248,251,255,0.76) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 94% 86%, rgba(248,251,255,0.9) 0 2px, transparent 2.5px),
+    radial-gradient(circle at top left, rgba(237,28,36,0.18) 0%, transparent 32%),
+    radial-gradient(circle at top right, rgba(255,255,255,0.12) 0%, transparent 28%),
+    linear-gradient(180deg, #10284f 0%, #1a3f79 45%, #2d67bb 100%);
   color: var(--white);
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: no-repeat;
+}
+
+body::before {
+  background-image:
+    linear-gradient(135deg, rgba(248,251,255,0) 0%, rgba(248,251,255,0.98) 48%, rgba(248,251,255,0) 100%),
+    linear-gradient(135deg, rgba(248,251,255,0) 0%, rgba(248,251,255,0.85) 48%, rgba(248,251,255,0) 100%),
+    linear-gradient(135deg, rgba(248,251,255,0) 0%, rgba(248,251,255,0.92) 48%, rgba(248,251,255,0) 100%),
+    linear-gradient(135deg, rgba(248,251,255,0) 0%, rgba(248,251,255,0.8) 48%, rgba(248,251,255,0) 100%);
+  background-size: 180px 2px, 140px 2px, 220px 2px, 160px 2px;
+  background-position: -12% 18%, 36% -8%, 72% 12%, 104% 28%;
+  filter: drop-shadow(0 0 8px rgba(248,251,255,0.48));
+  animation: shootingStarsA 14s linear infinite;
+}
+
+body::after {
+  background-image:
+    linear-gradient(135deg, rgba(248,251,255,0) 0%, rgba(248,251,255,0.9) 48%, rgba(248,251,255,0) 100%),
+    linear-gradient(135deg, rgba(248,251,255,0) 0%, rgba(248,251,255,0.82) 48%, rgba(248,251,255,0) 100%),
+    linear-gradient(135deg, rgba(248,251,255,0) 0%, rgba(248,251,255,0.95) 48%, rgba(248,251,255,0) 100%),
+    linear-gradient(135deg, rgba(248,251,255,0) 0%, rgba(248,251,255,0.78) 48%, rgba(248,251,255,0) 100%);
+  background-size: 200px 2px, 150px 2px, 170px 2px, 230px 2px;
+  background-position: 8% 56%, 48% 42%, 82% 68%, 118% 54%;
+  filter: drop-shadow(0 0 10px rgba(248,251,255,0.42));
+  animation: shootingStarsB 18s linear infinite;
+}
+
+@keyframes shootingStarsA {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  10% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.9;
+    transform: translate3d(-20vw, 20vh, 0);
+  }
+  46%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-28vw, 28vh, 0);
+  }
+}
+
+@keyframes shootingStarsB {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  26% {
+    opacity: 1;
+  }
+  62% {
+    opacity: 0.88;
+    transform: translate3d(-24vw, 24vh, 0);
+  }
+  63%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-34vw, 34vh, 0);
+  }
 }
 
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -57,13 +155,13 @@ nav {
   justify-content: space-between;
   padding: 0 40px;
   height: 68px;
-  background: linear-gradient(to bottom, rgba(8,8,8,0.96) 0%, transparent 100%);
+  background: linear-gradient(to bottom, rgba(16,39,77,0.95) 0%, rgba(16,39,77,0.58) 58%, transparent 100%);
   backdrop-filter: blur(4px);
   transition: background 0.3s;
 }
 
 nav.scrolled {
-  background: rgba(8,8,8,0.97);
+  background: rgba(16,39,77,0.97);
 }
 
 .nav-logo {
@@ -97,8 +195,8 @@ nav.scrolled {
 .nav-links a.active { color: var(--white); }
 
 .nav-cta {
-  background: var(--gold) !important;
-  color: var(--black) !important;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%) !important;
+  color: var(--white) !important;
   padding: 8px 20px;
   border-radius: 2px;
   font-weight: 600 !important;
@@ -134,7 +232,7 @@ nav.scrolled {
   display: none;
   position: fixed;
   top: 68px; left: 0; right: 0; bottom: 0;
-  background: rgba(8,8,8,0.98);
+  background: rgba(7,16,31,0.98);
   z-index: 99;
   flex-direction: column;
   align-items: center;
@@ -185,8 +283,8 @@ section { padding: var(--section-pad); }
 
 /* ── BUTTONS ────────────────────────────────────────────────── */
 .btn-primary {
-  background: var(--gold);
-  color: var(--black);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--white);
   padding: 14px 32px;
   font-family: var(--font-body);
   font-size: 11px;
@@ -222,7 +320,7 @@ section { padding: var(--section-pad); }
 
 /* ── MARQUEE ────────────────────────────────────────────────── */
 .marquee-wrap {
-  background: var(--gold);
+  background: linear-gradient(90deg, #ed1c24 0%, #ff5a6a 50%, #ed1c24 100%);
   overflow: hidden;
   padding: 10px 0;
 }
@@ -237,7 +335,7 @@ section { padding: var(--section-pad); }
   font-family: var(--font-display);
   font-size: 13px;
   letter-spacing: 0.25em;
-  color: var(--black);
+  color: var(--white);
   padding: 0 40px;
 }
 
@@ -264,15 +362,15 @@ section { padding: var(--section-pad); }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, rgba(8,8,8,0.2) 0%, rgba(8,8,8,0.5) 50%, rgba(8,8,8,0.95) 100%);
+    linear-gradient(to bottom, rgba(7,16,31,0.15) 0%, rgba(7,16,31,0.45) 46%, rgba(7,16,31,0.94) 100%);
 }
 
 .hero-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(201,168,76,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(248,251,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237,28,36,0.1) 1px, transparent 1px);
   background-size: 80px 80px;
   animation: gridPan 20s linear infinite;
 }
@@ -304,7 +402,7 @@ section { padding: var(--section-pad); }
 }
 
 .hero-title .outline {
-  -webkit-text-stroke: 1px rgba(245,245,240,0.3);
+  -webkit-text-stroke: 1px rgba(248,251,255,0.32);
   color: transparent;
 }
 
@@ -475,17 +573,17 @@ section { padding: var(--section-pad); }
 .archive-card:hover .archive-card-bg { transform: scale(1.05); }
 
 /* Fallback gradient fills (swap out when real photos are added) */
-.bg-1 { background: linear-gradient(135deg, #1a0a0a 0%, #3d1515 40%, #0a0a1a 100%); }
-.bg-2 { background: linear-gradient(135deg, #0a1020 0%, #1a2a4a 50%, #0d0d0d 100%); }
-.bg-3 { background: linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 50%, #0a0a0a 100%); }
-.bg-4 { background: linear-gradient(135deg, #1a1a0a 0%, #3a3a0a 50%, #0d0d0d 100%); }
-.bg-5 { background: linear-gradient(135deg, #1a0a1a 0%, #3a0a3a 50%, #0d0d0d 100%); }
-.bg-6 { background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0d0d0d 100%); }
+.bg-1 { background: linear-gradient(135deg, #ed1c24 0%, #8e1322 42%, #0a1f4f 100%); }
+.bg-2 { background: linear-gradient(135deg, #10224a 0%, #1f4fa8 55%, #f8fbff 100%); }
+.bg-3 { background: linear-gradient(135deg, #07101f 0%, #153462 45%, #ed1c24 100%); }
+.bg-4 { background: linear-gradient(135deg, #f8fbff 0%, #b9cfff 35%, #19459f 100%); }
+.bg-5 { background: linear-gradient(135deg, #0b1730 0%, #ed1c24 50%, #ff8a96 100%); }
+.bg-6 { background: linear-gradient(135deg, #07101f 0%, #16305f 52%, #f8fbff 100%); }
 
 .archive-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(8,8,8,0.92) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(7,16,31,0.9) 0%, rgba(7,16,31,0.15) 58%, transparent 100%);
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -604,7 +702,7 @@ section { padding: var(--section-pad); }
   position: absolute;
   font-family: var(--font-display);
   font-size: clamp(120px, 20vw, 280px);
-  color: rgba(201,168,76,0.04);
+  color: rgba(237,28,36,0.09);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -627,7 +725,7 @@ section { padding: var(--section-pad); }
   font-family: var(--font-editorial);
   font-size: 20px;
   line-height: 1.8;
-  color: rgba(245,245,240,0.7);
+  color: rgba(248,251,255,0.76);
   margin-bottom: 20px;
 }
 
@@ -721,7 +819,7 @@ section { padding: var(--section-pad); }
 }
 
 .form-group select { background-color: #111; }
-.form-group select option { background: #1a1a1a; color: var(--white); }
+.form-group select option { background: #153462; color: var(--white); }
 
 .form-group input:focus,
 .form-group textarea:focus,
@@ -857,8 +955,8 @@ section { padding: var(--section-pad); }
   font-family: var(--font-display);
   font-size: 13px;
   letter-spacing: 0.25em;
-  color: rgba(201,168,76,0.2);
-  border: 1px dashed rgba(201,168,76,0.12);
+  color: rgba(237,28,36,0.26);
+  border: 1px dashed rgba(237,28,36,0.18);
 }
 
 /* ── SHOPIFY BUY BUTTON WRAPPER ─────────────────────────────── */

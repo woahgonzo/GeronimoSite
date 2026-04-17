@@ -129,31 +129,36 @@
       <div class="section-divider"></div>
       <div class="archive-grid">
         <a href="archive-fashion-show.html" class="archive-card archive-large" style="text-decoration:none; color:inherit;">
-          <!--
-            POSTER: assets/images/posters/fashion-show-2026.jpg
-            Replace bg div with: <img src="assets/images/posters/fashion-show-2026.jpg" alt="The Fashion Show" />
-          -->
-          <div class="archive-card-bg bg-1"></div>
+          <div class="archive-card-bg bg-1">
+            <img id="homepage-fashion-show-archive-photo" src="assets/images/events/fashion-show/photo-01.jpg" alt="The Fashion Show photo 1" loading="lazy" />
+          </div>
           <div class="archive-always">
             <div class="archive-event-name">THE FASHION SHOW</div>
             <div class="archive-event-date">February 2026 · The Alamo</div>
           </div>
         </a>
+        <a href="archive-new-beginnings.html" class="archive-card" style="text-decoration:none; color:inherit;">
+          <div class="archive-card-bg bg-4">
+            <img id="homepage-new-beginnings-archive-photo" src="assets/images/events/new-beginnings/photo-01.jpg" alt="New Beginnings photo 1" loading="lazy" />
+          </div>
+          <div class="archive-always">
+            <div class="archive-event-name">NEW BEGINNINGS</div>
+            <div class="archive-event-date">January 2026 · The Bottega Exchange</div>
+          </div>
+        </a>
         <a href="archive-phantom-frequencies.html" class="archive-card" style="text-decoration:none; color:inherit;">
-          <!--
-            POSTER: assets/images/posters/phantom-frequencies.jpg
-          -->
-          <div class="archive-card-bg bg-2"></div>
+          <div class="archive-card-bg bg-2">
+            <img id="homepage-phantom-frequencies-archive-photo" src="assets/images/events/phantom-frequencies/photo-01.jpg" alt="Phantom Frequencies photo 1" loading="lazy" />
+          </div>
           <div class="archive-always">
             <div class="archive-event-name">PHANTOM FREQUENCIES</div>
             <div class="archive-event-date">October 2025 · The Alamo</div>
           </div>
         </a>
         <a href="archive-pilot-programs.html" class="archive-card" style="text-decoration:none; color:inherit;">
-          <!--
-            POSTER: assets/images/posters/pilot-programs.jpg
-          -->
-          <div class="archive-card-bg bg-3"></div>
+          <div class="archive-card-bg bg-3">
+            <img id="homepage-pilot-programs-archive-photo" src="assets/images/events/pilot-programs/photo-01.jpg" alt="Pilot Programs photo 1" loading="lazy" />
+          </div>
           <div class="archive-always">
             <div class="archive-event-name">PILOT PROGRAMS</div>
             <div class="archive-event-date">August 2025 · The Alamo</div>
@@ -162,89 +167,6 @@
       </div>
       <div style="margin-top: 40px">
         <a href="archive.html" class="btn-ghost">Full Archive →</a>
-      </div>
-    </section>
-
-    <!-- PHOTO GALLERY -->
-    <section id="gallery" style="background: var(--black)">
-      <div class="gallery-header">
-        <div>
-          <span class="section-label">Captured Moments</span>
-          <h2 class="section-title">Gallery</h2>
-        </div>
-        <a href="archive.html" class="btn-ghost">Full Archive →</a>
-      </div>
-      <div class="section-divider"></div>
-
-      <!--
-        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        HOW TO ADD PHOTOS:
-
-        Folder structure:
-          assets/images/posters/              ← event flyers/posters
-          assets/images/events/fashion-show/  ← event photos
-          assets/images/events/phantom-frequencies/
-          assets/images/events/pilot-programs/
-          assets/images/events/new-beginnings/
-          assets/images/gallery/              ← general/highlight photos
-
-        Replace each placeholder div below with:
-          <div class="gallery-item">
-            <img src="assets/images/gallery/photo-01.jpg"
-                 alt="Description" loading="lazy" />
-          </div>
-
-        Use gallery-item--tall for portrait/vertical photos.
-        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      -->
-
-      <div class="gallery-grid">
-
-        <!-- SLOT 01: assets/images/gallery/photo-01.jpg -->
-        <div class="gallery-item gallery-item--tall">
-          <div class="gallery-placeholder">PHOTO 01</div>
-        </div>
-
-        <!-- SLOT 02: assets/images/gallery/photo-02.jpg -->
-        <div class="gallery-item">
-          <div class="gallery-placeholder">PHOTO 02</div>
-        </div>
-
-        <!-- SLOT 03: assets/images/gallery/photo-03.jpg -->
-        <div class="gallery-item">
-          <div class="gallery-placeholder">PHOTO 03</div>
-        </div>
-
-        <!-- SLOT 04: assets/images/gallery/photo-04.jpg -->
-        <div class="gallery-item">
-          <div class="gallery-placeholder">PHOTO 04</div>
-        </div>
-
-        <!-- SLOT 05: assets/images/gallery/photo-05.jpg -->
-        <div class="gallery-item gallery-item--tall">
-          <div class="gallery-placeholder">PHOTO 05</div>
-        </div>
-
-        <!-- SLOT 06: assets/images/gallery/photo-06.jpg -->
-        <div class="gallery-item">
-          <div class="gallery-placeholder">PHOTO 06</div>
-        </div>
-
-        <!-- SLOT 07: assets/images/gallery/photo-07.jpg -->
-        <div class="gallery-item">
-          <div class="gallery-placeholder">PHOTO 07</div>
-        </div>
-
-        <!-- SLOT 08: assets/images/gallery/photo-08.jpg -->
-        <div class="gallery-item">
-          <div class="gallery-placeholder">PHOTO 08</div>
-        </div>
-
-        <!-- SLOT 09: assets/images/gallery/photo-09.jpg -->
-        <div class="gallery-item">
-          <div class="gallery-placeholder">PHOTO 09</div>
-        </div>
-
       </div>
     </section>
 
@@ -258,49 +180,48 @@
         <a href="merch.html" class="btn-ghost">Shop All →</a>
       </div>
       <div class="merch-grid">
-        <a class="merch-card" href="merch.html">
+        <a class="merch-card" href="merch.html#tees">
           <div class="merch-img">
             <div class="merch-img-bg bg-1">
-              <div class="merch-label-large">GERI</div>
+              <img src="assets/images/merch/pilot-programs/tee-black-front.png" alt="Pilot Programs Tee - Black front" data-hover-image data-front-src="assets/images/merch/pilot-programs/tee-black-front.png" data-back-src="assets/images/merch/pilot-programs/tee-black-back.png" data-front-alt="Pilot Programs Tee - Black front" data-back-alt="Pilot Programs Tee - Black back" />
             </div>
           </div>
           <div class="merch-info">
-            <div class="merch-name">Classic Logo Tee — Black</div>
-            <div class="merch-price">$38</div>
+            <div class="merch-name">Pilot Programs Tee - Black</div>
+            <div class="merch-price">$15</div>
           </div>
         </a>
-        <a class="merch-card" href="merch.html">
+        <a class="merch-card" href="merch.html#tees">
           <div class="merch-img">
             <div class="merch-img-bg bg-2">
-              <div class="merch-label-large">REC</div>
+              <img src="assets/images/merch/new-beginnings/tee-blue-front.png" alt="New Beginnings Tee - Blue front" data-hover-image data-front-src="assets/images/merch/new-beginnings/tee-blue-front.png" data-back-src="assets/images/merch/new-beginnings/tee-blue-back.png" data-front-alt="New Beginnings Tee - Blue front" data-back-alt="New Beginnings Tee - Blue back" />
             </div>
           </div>
           <div class="merch-info">
-            <div class="merch-name">Desert Heavyweight Hoodie</div>
-            <div class="merch-price">$78</div>
+            <div class="merch-name">New Beginnings Tee - Blue</div>
+            <div class="merch-price">$15</div>
           </div>
         </a>
-        <a class="merch-card" href="merch.html">
+        <a class="merch-card" href="merch.html#tote-bags">
           <div class="merch-img">
             <div class="merch-img-bg bg-5">
-              <div class="merch-label-large">702</div>
+              <img src="assets/images/merch/new-beginnings/tote-blue.png" alt="New Beginnings Tote Bag - Blue" />
             </div>
           </div>
           <div class="merch-info">
-            <div class="merch-name">702 Crewneck</div>
-            <div class="merch-price">$62</div>
-            <div class="merch-sold-out">Low Stock</div>
+            <div class="merch-name">New Beginnings Tote Bag - Blue</div>
+            <div class="merch-price">$20</div>
           </div>
         </a>
-        <a class="merch-card" href="merch.html">
+        <a class="merch-card" href="merch.html#tote-bags">
           <div class="merch-img">
             <div class="merch-img-bg bg-3">
-              <div class="merch-label-large">LV</div>
+              <img src="assets/images/merch/phantom-frequencies/tote-black.png" alt="Phantom Frequencies Tote Bag - Black" />
             </div>
           </div>
           <div class="merch-info">
-            <div class="merch-name">Film Fest 2026 Tee</div>
-            <div class="merch-price">$42</div>
+            <div class="merch-name">Phantom Frequencies Tote Bag - Black</div>
+            <div class="merch-price">$20</div>
           </div>
         </a>
       </div>
@@ -320,6 +241,74 @@
       </ul>
     </footer>
 
+    <script>
+      (function() {
+        var images = Array.prototype.slice.call(document.querySelectorAll('[data-hover-image]'));
+        images.forEach(function(image) {
+          var card = image.closest('.merch-card');
+          if (!card) return;
+
+          function showBack() {
+            image.src = image.getAttribute('data-back-src');
+            image.alt = image.getAttribute('data-back-alt');
+          }
+
+          function showFront() {
+            image.src = image.getAttribute('data-front-src');
+            image.alt = image.getAttribute('data-front-alt');
+          }
+
+          card.addEventListener('mouseenter', showBack);
+          card.addEventListener('mouseleave', showFront);
+          card.addEventListener('focusin', showBack);
+          card.addEventListener('focusout', showFront);
+        });
+      })();
+
+      (function() {
+        var photoCount = 14;
+        var index = Math.floor(Math.random() * photoCount) + 1;
+        var photoNumber = String(index).padStart(2, '0');
+        var image = document.getElementById('homepage-fashion-show-archive-photo');
+        if (image) {
+          image.src = 'assets/images/events/fashion-show/photo-' + photoNumber + '.jpg';
+          image.alt = 'The Fashion Show photo ' + index;
+        }
+      })();
+
+      (function() {
+        var photoCount = 14;
+        var index = Math.floor(Math.random() * photoCount) + 1;
+        var photoNumber = String(index).padStart(2, '0');
+        var image = document.getElementById('homepage-new-beginnings-archive-photo');
+        if (image) {
+          image.src = 'assets/images/events/new-beginnings/photo-' + photoNumber + '.jpg';
+          image.alt = 'New Beginnings photo ' + index;
+        }
+      })();
+
+      (function() {
+        var photoCount = 14;
+        var index = Math.floor(Math.random() * photoCount) + 1;
+        var photoNumber = String(index).padStart(2, '0');
+        var image = document.getElementById('homepage-phantom-frequencies-archive-photo');
+        if (image) {
+          image.src = 'assets/images/events/phantom-frequencies/photo-' + photoNumber + '.jpg';
+          image.alt = 'Phantom Frequencies photo ' + index;
+        }
+      })();
+
+      (function() {
+        var photoCount = 14;
+        var index = Math.floor(Math.random() * photoCount) + 1;
+        var photoNumber = String(index).padStart(2, '0');
+        var image = document.getElementById('homepage-pilot-programs-archive-photo');
+        if (image) {
+          image.src = 'assets/images/events/pilot-programs/photo-' + photoNumber + '.jpg';
+          image.alt = 'Pilot Programs photo ' + index;
+        }
+      })();
+    </script>
     <script src="js/main.js"></script>
   </body>
 </html>

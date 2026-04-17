@@ -161,33 +161,6 @@
       letter-spacing: 0.05em;
     }
 
-    .event-gallery-grid {
-      columns: 3;
-      column-gap: 4px;
-      margin-top: 48px;
-    }
-
-    .event-gallery-item {
-      break-inside: avoid;
-      margin-bottom: 4px;
-      overflow: hidden;
-      background: var(--card);
-      cursor: pointer;
-    }
-
-    .event-gallery-item img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-
-    .event-gallery-item:hover img { transform: scale(1.04); }
-
-    .event-gallery-item--tall { aspect-ratio: 2/3; }
-    .event-gallery-item:not(.event-gallery-item--tall) { aspect-ratio: 4/3; }
-
     .gallery-placeholder-slot {
       width: 100%;
       height: 100%;
@@ -200,6 +173,227 @@
       letter-spacing: 0.2em;
       color: rgba(201,168,76,0.2);
       border: 1px dashed rgba(201,168,76,0.12);
+    }
+
+    .gallery-slider {
+      margin: 48px auto 0;
+      display: grid;
+      gap: 18px;
+      max-width: 1100px;
+    }
+
+    .gallery-slides {
+      position: relative;
+      min-height: 480px;
+      aspect-ratio: 16 / 10;
+      touch-action: pan-y;
+    }
+
+    .gallery-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #111;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-slide:hover img {
+      transform: scale(1.02);
+    }
+
+    .gallery-slide .gallery-placeholder-slot {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(201,168,76,0.4);
+      border: 1px dashed rgba(201,168,76,0.18);
+      text-align: center;
+      padding: 20px;
+      background: rgba(8, 8, 8, 0.55);
+    }
+
+    .gallery-slide.missing-image .gallery-placeholder-slot {
+      display: flex;
+    }
+
+    .gallery-slide.missing-image img {
+      display: none;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 16px 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8,8,8,0.72) 100%);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-nav {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8,8,8,0.8);
+      color: var(--gold);
+      font-size: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-nav:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    .gallery-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .gallery-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .gallery-dot.active {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0,0,0,0.92);
+    }
+
+    .gallery-modal.open {
+      display: flex;
+    }
+
+    .gallery-modal-content {
+      position: relative;
+      width: min(1080px, 100%);
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .gallery-modal-content img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 22px;
+      background: #111;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .gallery-modal-caption {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      gap: 12px;
+    }
+
+    .gallery-modal-close,
+    .gallery-modal-prev,
+    .gallery-modal-next {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-modal-close:hover,
+    .gallery-modal-prev:hover,
+    .gallery-modal-next:hover {
+      background: rgba(255,255,255,0.16);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .gallery-slides { min-height: 320px; }
+      .gallery-caption { padding: 14px 18px; font-size: 12px; }
+      .gallery-nav { width: 42px; height: 42px; }
+      .gallery-modal { padding: 16px; }
+      .gallery-modal-caption { font-size: 12px; }
+      .gallery-modal-close,
+      .gallery-modal-prev,
+      .gallery-modal-next { width: 42px; height: 42px; }
     }
 
     .back-link {
@@ -217,10 +411,69 @@
 
     .back-link:hover { color: var(--white); }
 
+    .merch-card-static {
+      cursor: default;
+    }
+
+    .merch-card-static:hover {
+      transform: none;
+    }
+
+    .merch-variant-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .merch-variant-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .merch-variant-options {
+      display: flex;
+      gap: 8px;
+    }
+
+    .merch-variant-btn {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.24);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .merch-variant-btn:hover,
+    .merch-variant-btn.is-active {
+      transform: scale(1.08);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(201,168,76,0.2);
+    }
+
+    .merch-variant-btn[data-color="Red"] { background: linear-gradient(135deg, #4a0d16 0%, #b81f33 100%); }
+    .merch-variant-btn[data-color="Black"] { background: linear-gradient(135deg, #050505 0%, #2a2a2a 100%); }
+    .merch-variant-btn[data-color="Pearl"] {
+      background: linear-gradient(135deg, #f2efe6 0%, #d7d1c2 55%, #b6b0a3 100%);
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    .merch-keychain-red { background: #080808; }
+    .merch-keychain-black { background: linear-gradient(135deg, #040404 0%, #171717 50%, #313131 100%); }
+    .merch-keychain-pearl { background: #080808; }
+
     @media (max-width: 900px) {
       .lineup-grid { grid-template-columns: 1fr 1fr; }
       .vendor-grid { grid-template-columns: 1fr 1fr; }
-      .event-gallery-grid { columns: 2; }
+      .gallery-slides { min-height: 280px; }
+      .gallery-caption { font-size: 12px; padding: 12px 16px; }
+      .gallery-controls { flex-wrap: wrap; gap: 10px; }
     }
   </style>
 </head>
@@ -255,18 +508,10 @@
     <span class="section-label">October 17, 2025 · The Alamo · Las Vegas</span>
     <h1 class="section-title">Phantom Frequencies</h1>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">Concert.</p>
+    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">Geronimo Productions presents their second concert.</p>
 
-    <!--
-      POSTER IMAGE:
-      Add the event flyer/poster: assets/images/posters/phantom-frequencies.jpg
-      Then replace the placeholder div below with:
-      <div class="event-poster">
-        <img src="assets/images/posters/phantom-frequencies.jpg" alt="Phantom Frequencies Poster" />
-      </div>
-    -->
     <div class="event-poster">
-      <div class="event-poster-placeholder">POSTER<br/>assets/images/posters/<br/>phantom-frequencies.jpg</div>
+      <img src="assets/images/posters/phantom frequencies.JPG" alt="Phantom Frequencies Poster" />
     </div>
   </div>
 
@@ -291,7 +536,7 @@
       </div>
     </div>
     <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.8; color:rgba(245,245,240,0.75); max-width:680px;">
-      Phantom Frequencies brought five artists together for a night of live music at The Alamo. Building on the energy of Pilot Programs, the collective continued to grow its presence in Las Vegas with another standout show.
+      Phantom Frequencies marked the next chapter for Geronimo Productions. Held at The Alamo, the night brought together five artists, live performances, and a stronger sense of momentum as the collective continued building its presence in Las Vegas.
     </p>
   </section>
 
@@ -359,43 +604,195 @@
         <div class="vendor-name">THEBRAVESTBRAND</div>
       </a>
 
+      <a href="https://www.instagram.com/theakcreationsco?igsh=MXAycW1sanFrcmYyYw==" class="vendor-card" target="_blank" rel="noopener">
+        <span class="vendor-label">Fashion &amp; Apparel</span>
+        <div class="vendor-name">A &amp; K CREATIONS CO</div>
+      </a>
+
     </div>
   </section>
 
   <!-- PHOTO GALLERY -->
   <section style="background: var(--black);">
     <span class="section-label">Captured Moments</span>
-    <h2 class="section-title">Photos</h2>
+    <h2 class="section-title">View Phantom Frequencies</h2>
     <div class="section-divider"></div>
     <p style="font-family:var(--font-editorial); font-size:16px; font-style:italic; color:var(--muted); margin-bottom:0;">
-      Drop event photos into <code style="font-style:normal; font-size:13px; color:var(--gold);">assets/images/events/phantom-frequencies/</code> and replace the placeholder slots below.
+      Take a look at some photos from our event Phantom Frequencies.
     </p>
 
-    <div class="event-gallery-grid">
-      <!-- SLOT 01: assets/images/events/phantom-frequencies/photo-01.jpg -->
-      <div class="event-gallery-item event-gallery-item--tall">
-        <div class="gallery-placeholder-slot">photo-01.jpg</div>
+    <div class="gallery-slider">
+      <div class="gallery-slides">
+        <div class="gallery-slide active" data-index="1" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-01.jpg" alt="Phantom Frequencies photo 1" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-01.jpg</div>
+          <div class="gallery-caption">1 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="2" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-02.jpg" alt="Phantom Frequencies photo 2" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-02.jpg</div>
+          <div class="gallery-caption">2 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="3" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-03.jpg" alt="Phantom Frequencies photo 3" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-03.jpg</div>
+          <div class="gallery-caption">3 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="4" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-04.jpg" alt="Phantom Frequencies photo 4" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-04.jpg</div>
+          <div class="gallery-caption">4 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="5" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-05.jpg" alt="Phantom Frequencies photo 5" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-05.jpg</div>
+          <div class="gallery-caption">5 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="6" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-06.jpg" alt="Phantom Frequencies photo 6" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-06.jpg</div>
+          <div class="gallery-caption">6 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="7" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-07.jpg" alt="Phantom Frequencies photo 7" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-07.jpg</div>
+          <div class="gallery-caption">7 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="8" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-08.jpg" alt="Phantom Frequencies photo 8" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-08.jpg</div>
+          <div class="gallery-caption">8 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="9" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-09.jpg" alt="Phantom Frequencies photo 9" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-09.jpg</div>
+          <div class="gallery-caption">9 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="10" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-10.jpg" alt="Phantom Frequencies photo 10" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-10.jpg</div>
+          <div class="gallery-caption">10 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="11" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-11.jpg" alt="Phantom Frequencies photo 11" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-11.jpg</div>
+          <div class="gallery-caption">11 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="12" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-12.jpg" alt="Phantom Frequencies photo 12" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-12.jpg</div>
+          <div class="gallery-caption">12 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="13" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-13.jpg" alt="Phantom Frequencies photo 13" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-13.jpg</div>
+          <div class="gallery-caption">13 / 14</div>
+        </div>
+        <div class="gallery-slide" data-index="14" role="button" tabindex="0">
+          <img src="assets/images/events/phantom-frequencies/photo-14.jpg" alt="Phantom Frequencies photo 14" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-14.jpg</div>
+          <div class="gallery-caption">14 / 14</div>
+        </div>
       </div>
-      <!-- SLOT 02: assets/images/events/phantom-frequencies/photo-02.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-02.jpg</div>
+      <div class="gallery-controls">
+        <button class="gallery-nav gallery-nav-prev" type="button" aria-label="Previous photo">‹</button>
+        <div class="gallery-dots">
+          <button class="gallery-dot active" type="button" data-index="1" aria-label="Go to photo 1"></button>
+          <button class="gallery-dot" type="button" data-index="2" aria-label="Go to photo 2"></button>
+          <button class="gallery-dot" type="button" data-index="3" aria-label="Go to photo 3"></button>
+          <button class="gallery-dot" type="button" data-index="4" aria-label="Go to photo 4"></button>
+          <button class="gallery-dot" type="button" data-index="5" aria-label="Go to photo 5"></button>
+          <button class="gallery-dot" type="button" data-index="6" aria-label="Go to photo 6"></button>
+          <button class="gallery-dot" type="button" data-index="7" aria-label="Go to photo 7"></button>
+          <button class="gallery-dot" type="button" data-index="8" aria-label="Go to photo 8"></button>
+          <button class="gallery-dot" type="button" data-index="9" aria-label="Go to photo 9"></button>
+          <button class="gallery-dot" type="button" data-index="10" aria-label="Go to photo 10"></button>
+          <button class="gallery-dot" type="button" data-index="11" aria-label="Go to photo 11"></button>
+          <button class="gallery-dot" type="button" data-index="12" aria-label="Go to photo 12"></button>
+          <button class="gallery-dot" type="button" data-index="13" aria-label="Go to photo 13"></button>
+          <button class="gallery-dot" type="button" data-index="14" aria-label="Go to photo 14"></button>
+        </div>
+        <button class="gallery-nav gallery-nav-next" type="button" aria-label="Next photo">›</button>
       </div>
-      <!-- SLOT 03: assets/images/events/phantom-frequencies/photo-03.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-03.jpg</div>
+    </div>
+    <div class="gallery-modal" aria-hidden="true">
+      <div class="gallery-modal-content">
+        <button class="gallery-modal-close" type="button" aria-label="Close gallery">×</button>
+        <img src="" alt="" />
+        <div class="gallery-modal-caption">
+          <span class="modal-caption-text"></span>
+          <span class="modal-caption-order"></span>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-modal-prev" type="button" aria-label="Previous photo">‹</button>
+          <button class="gallery-modal-next" type="button" aria-label="Next photo">›</button>
+        </div>
       </div>
-      <!-- SLOT 04: assets/images/events/phantom-frequencies/photo-04.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-04.jpg</div>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section style="background: var(--black);">
+    <div class="merch-header">
+      <div>
+        <span class="section-label">Official Store</span>
+        <h2 class="section-title">Shop Phantom Frequencies</h2>
       </div>
-      <!-- SLOT 05: assets/images/events/phantom-frequencies/photo-05.jpg -->
-      <div class="event-gallery-item event-gallery-item--tall">
-        <div class="gallery-placeholder-slot">photo-05.jpg</div>
+      <a href="merch.html" class="btn-ghost">Shop All →</a>
+    </div>
+    <div class="merch-grid">
+      <a class="merch-card" href="merch.html#tees">
+        <div class="merch-img">
+          <div class="merch-img-bg bg-1">
+            <img src="assets/images/merch/phantom-frequencies/tee-black-front.png" alt="Phantom Frequencies Tee - Black front" data-hover-image data-front-src="assets/images/merch/phantom-frequencies/tee-black-front.png" data-back-src="assets/images/merch/phantom-frequencies/tee-black-back.png" data-front-alt="Phantom Frequencies Tee - Black front" data-back-alt="Phantom Frequencies Tee - Black back" />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name">Phantom Frequencies Tee - Black</div>
+          <div class="merch-price">$15</div>
+        </div>
+      </a>
+      <a class="merch-card" href="merch.html#tees">
+        <div class="merch-img">
+          <div class="merch-img-bg bg-2">
+            <img src="assets/images/merch/phantom-frequencies/tee-white-front.png" alt="Phantom Frequencies Tee - White front" data-hover-image data-front-src="assets/images/merch/phantom-frequencies/tee-white-front.png" data-back-src="assets/images/merch/phantom-frequencies/tee-white-back.png" data-front-alt="Phantom Frequencies Tee - White front" data-back-alt="Phantom Frequencies Tee - White back" />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name">Phantom Frequencies Tee - White</div>
+          <div class="merch-price">$15</div>
+        </div>
+      </a>
+      <div class="merch-card merch-card-static" data-keychain-card data-merch-link="merch.html#keychains">
+        <div class="merch-img">
+          <div class="merch-img-bg merch-keychain-red" data-keychain-visual>
+            <img src="assets/images/merch/phantom-frequencies/keychain-red.png" alt="Phantom Frequencies Keychain - Red" data-keychain-image />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name" data-keychain-name>Phantom Frequencies Keychain - Red</div>
+          <div class="merch-price">$5</div>
+          <div class="merch-variant-row">
+            <span class="merch-variant-label" data-keychain-label>Color: Red</span>
+            <div class="merch-variant-options" aria-label="Phantom Frequencies keychain colors">
+              <button class="merch-variant-btn is-active" type="button" data-keychain-option data-color="Red" data-class="merch-keychain-red" data-image="assets/images/merch/phantom-frequencies/keychain-red.png" aria-label="Show red keychain"></button>
+              <button class="merch-variant-btn" type="button" data-keychain-option data-color="Black" data-class="merch-keychain-black" data-image="assets/images/merch/phantom-frequencies/keychain-black.png" aria-label="Show black keychain"></button>
+              <button class="merch-variant-btn" type="button" data-keychain-option data-color="Pearl" data-class="merch-keychain-pearl" data-image="assets/images/merch/phantom-frequencies/keychain-pearl-fixed.png" aria-label="Show pearl keychain"></button>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- SLOT 06: assets/images/events/phantom-frequencies/photo-06.jpg -->
-      <div class="event-gallery-item">
-        <div class="gallery-placeholder-slot">photo-06.jpg</div>
-      </div>
+      <a class="merch-card" href="merch.html#tote-bags">
+        <div class="merch-img">
+          <div class="merch-img-bg bg-3">
+            <img src="assets/images/merch/phantom-frequencies/tote-black.png" alt="Phantom Frequencies Tote Bag - Black" />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name">Phantom Frequencies Tote Bag - Black</div>
+          <div class="merch-price">$20</div>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -412,5 +809,84 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var images = Array.prototype.slice.call(document.querySelectorAll('[data-hover-image]'));
+      images.forEach(function(image) {
+        var card = image.closest('.merch-card');
+        if (!card) return;
+
+        function showBack() {
+          image.src = image.getAttribute('data-back-src');
+          image.alt = image.getAttribute('data-back-alt');
+        }
+
+        function showFront() {
+          image.src = image.getAttribute('data-front-src');
+          image.alt = image.getAttribute('data-front-alt');
+        }
+
+        card.addEventListener('mouseenter', showBack);
+        card.addEventListener('mouseleave', showFront);
+        card.addEventListener('focusin', showBack);
+        card.addEventListener('focusout', showFront);
+      });
+    })();
+
+    (function() {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('[data-merch-link]'));
+      cards.forEach(function(card) {
+        card.addEventListener('click', function(event) {
+          if (event.target.closest('button')) return;
+          var href = card.getAttribute('data-merch-link');
+          if (!href) return;
+          window.location.href = href;
+        });
+
+        card.addEventListener('keydown', function(event) {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          var href = card.getAttribute('data-merch-link');
+          if (!href) return;
+          event.preventDefault();
+          window.location.href = href;
+        });
+
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'link');
+      });
+    })();
+
+    (function() {
+      var card = document.querySelector('[data-keychain-card]');
+      if (!card) return;
+
+      var visual = card.querySelector('[data-keychain-visual]');
+      var image = card.querySelector('[data-keychain-image]');
+      var name = card.querySelector('[data-keychain-name]');
+      var label = card.querySelector('[data-keychain-label]');
+      var options = Array.prototype.slice.call(card.querySelectorAll('[data-keychain-option]'));
+
+      options.forEach(function(option) {
+        option.addEventListener('click', function() {
+          var color = option.getAttribute('data-color');
+          var className = option.getAttribute('data-class');
+          var imageSrc = option.getAttribute('data-image');
+
+          options.forEach(function(btn) {
+            btn.classList.toggle('is-active', btn === option);
+          });
+
+          visual.classList.remove('merch-keychain-red', 'merch-keychain-black', 'merch-keychain-pearl');
+          visual.classList.add(className);
+          if (image && imageSrc) {
+            image.src = imageSrc;
+            image.alt = 'Phantom Frequencies Keychain - ' + color;
+          }
+          name.textContent = 'Phantom Frequencies Keychain - ' + color;
+          label.textContent = 'Color: ' + color;
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
