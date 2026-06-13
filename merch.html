@@ -120,7 +120,7 @@
     .merch-variant-btn.is-active {
       transform: scale(1.08);
       border-color: var(--gold);
-      box-shadow: 0 0 0 2px rgba(201,168,76,0.2);
+      box-shadow: 0 0 0 2px rgba(237,28,36,0.2);
     }
 
     .merch-variant-btn[data-color="Clear"] {
@@ -128,7 +128,7 @@
       border-color: rgba(255,255,255,0.56);
     }
 
-    .merch-variant-btn[data-color="Blue"] { background: linear-gradient(135deg, #0b2f63 0%, #3170d4 100%); }
+    .merch-variant-btn[data-color="Blue"] { background: linear-gradient(135deg, #111111 0%, #ed1c24 100%); }
     .merch-variant-btn[data-color="Red"] { background: linear-gradient(135deg, #4a0d16 0%, #b81f33 100%); }
     .merch-variant-btn[data-color="Black"] { background: linear-gradient(135deg, #050505 0%, #2a2a2a 100%); }
 
@@ -143,12 +143,12 @@
     }
 
     .merch-keychain-clear { background: #080808; }
-    .merch-keychain-blue { background: linear-gradient(135deg, #071018 0%, #102f57 58%, #1f5aac 100%); }
+    .merch-keychain-blue { background: linear-gradient(135deg, #050505 0%, #1c1c1c 58%, #ed1c24 100%); }
     .merch-keychain-red { background: #080808; }
     .merch-keychain-black { background: linear-gradient(135deg, #040404 0%, #171717 50%, #313131 100%); }
     .merch-keychain-pearl { background: #080808; }
 
-    .merch-tote-blue { background: linear-gradient(135deg, #071018 0%, #102f57 58%, #1f5aac 100%); }
+    .merch-tote-blue { background: linear-gradient(135deg, #050505 0%, #1c1c1c 58%, #ed1c24 100%); }
     .merch-tote-black { background: linear-gradient(135deg, #050505 0%, #1b1b1b 52%, #303030 100%); }
     .merch-tote-cream { background: #080808; }
   </style>
@@ -157,7 +157,7 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
     <ul class="nav-links">
       <li><a href="events.html">Events</a></li>
       <li><a href="archive.html">Archive</a></li>
@@ -214,7 +214,7 @@
     STEP 5: Customize colors to match:
               Background:    #1a1a1a
               Text:          #f5f5f0
-              Button color:  #c9a84c
+              Button color:  #ed1c24
               Button text:   #080808
     STEP 6: Copy the generated <script> embed code
     STEP 7: Replace the placeholder div below with that script
@@ -291,11 +291,11 @@
             <div class="merch-sold-out">Low Stock</div>
           </div>
         </div>
-        <div class="merch-card" data-category="tees event-drops">
-          <div class="merch-img"><div class="merch-img-bg bg-3"><div class="merch-label-large">LV</div></div></div>
+        <div class="merch-card" id="geronimo-short-film-festival-2026-tee" data-category="tees event-drops">
+          <div class="merch-img"><div class="merch-img-bg bg-3"><img src="assets/images/merch/short-film-festival/tee-front.png" alt="Geronimo Short Film Festival 2026 Tee" /></div></div>
           <div class="merch-info">
-            <div class="merch-name">Film Fest 2026 Tee</div>
-            <div class="merch-price">$42</div>
+            <div class="merch-name">Geronimo Short Film Festival 2026 Tee</div>
+            <div class="merch-price">$20</div>
           </div>
         </div>
         <div class="merch-card" data-category="hats">
@@ -482,11 +482,16 @@
 
       function syncFromHash(scrollToPreview) {
         var hash = normalizeHash();
+        var targetCard = hash ? document.getElementById(hash) : null;
         var valid = tabs.some(function(tab) {
           return tab.getAttribute('data-filter') === hash;
         });
         var filter = valid ? hash : 'all';
         applyFilter(filter);
+        if (targetCard && targetCard.classList.contains('merch-card')) {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
         if (scrollToPreview && preview && valid) {
           preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }

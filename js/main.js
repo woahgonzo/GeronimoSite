@@ -159,6 +159,9 @@
     img.addEventListener('load', () => {
       slide.classList.remove('missing-image');
     });
+    if (img.complete) {
+      slide.classList.toggle('missing-image', !img.naturalWidth);
+    }
   });
 
   const addSwipe = (element, onSwipeLeft, onSwipeRight) => {

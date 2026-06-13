@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The First Annual Geronimo Short Film Festival - Geronimo Records Archive</title>
+  <meta name="description" content="The First Annual Geronimo Short Film Festival at West Charleston Library, May 6, 2026." />
+  <link rel="canonical" href="https://geronimorecords.net/archive-short-film-festival.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .event-poster {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 4/5;
+      background: #000;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .event-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .event-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 60px;
+    }
+
+    .meta-item-label {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .meta-item-value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .detail-card {
+      background: var(--card);
+      padding: 28px 24px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-card:hover {
+      background: #222;
+      border-color: var(--gold);
+    }
+
+    .detail-label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .detail-value {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+    }
+
+    .team-card-gold {
+      background: #d4af37;
+      color: #050505;
+      border-color: #d4af37;
+    }
+
+    .team-card-gold .detail-label,
+    .team-card-gold .detail-value {
+      color: #050505;
+    }
+
+    .team-card-silver {
+      background: #c8c8c8;
+      color: #050505;
+      border-color: #c8c8c8;
+    }
+
+    .team-card-silver .detail-label,
+    .team-card-silver .detail-value {
+      color: #050505;
+    }
+
+    .team-card-bronze {
+      background: #9a5a28;
+      color: var(--white);
+      border-color: #9a5a28;
+    }
+
+    .team-card-bronze .detail-label,
+    .team-card-bronze .detail-value {
+      color: var(--white);
+    }
+
+    .team-card-gold:hover,
+    .team-card-silver:hover,
+    .team-card-bronze:hover {
+      border-color: var(--white);
+    }
+
+    .host-card {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 24px;
+      align-items: center;
+      max-width: 620px;
+      margin-top: 48px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+
+    .host-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--dark);
+      border: 1px solid var(--border);
+    }
+
+    .host-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .host-label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .host-name {
+      font-family: var(--font-display);
+      font-size: 34px;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .host-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .host-links a {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .host-links a:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .gallery-slider {
+      margin: 48px auto 0;
+      display: grid;
+      gap: 18px;
+      max-width: 1100px;
+    }
+
+    .gallery-slides {
+      position: relative;
+      min-height: 480px;
+      aspect-ratio: 16 / 10;
+      touch-action: pan-y;
+    }
+
+    .gallery-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #111;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-slide:hover img {
+      transform: scale(1.02);
+    }
+
+    .gallery-slide .gallery-placeholder-slot {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(237,28,36,0.4);
+      border: 1px dashed rgba(237,28,36,0.18);
+      text-align: center;
+      padding: 20px;
+      background: rgba(8, 8, 8, 0.55);
+    }
+
+    .gallery-slide.missing-image .gallery-placeholder-slot {
+      display: flex;
+    }
+
+    .gallery-slide.missing-image img {
+      display: none;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 16px 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8,8,8,0.72) 100%);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-nav {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8,8,8,0.8);
+      color: var(--gold);
+      font-size: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-nav:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    .gallery-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .gallery-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .gallery-dot.active {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0,0,0,0.92);
+    }
+
+    .gallery-modal.open {
+      display: flex;
+    }
+
+    .gallery-modal-content {
+      position: relative;
+      width: min(1080px, 100%);
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .gallery-modal-content img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 22px;
+      background: #111;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .gallery-modal-caption {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      gap: 12px;
+    }
+
+    .gallery-modal-close,
+    .gallery-modal-prev,
+    .gallery-modal-next {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-modal-close:hover,
+    .gallery-modal-prev:hover,
+    .gallery-modal-next:hover {
+      background: rgba(255,255,255,0.16);
+      transform: translateY(-1px);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .media-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      min-height: 220px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-decoration: none;
+      color: var(--white);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .media-card:hover {
+      background: #222;
+      border-color: var(--gold);
+    }
+
+    .media-placeholder {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border: 1px dashed rgba(237,28,36,0.22);
+      color: rgba(237,28,36,0.42);
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .media-label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .media-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .showcase-card {
+      background: var(--card);
+      padding: 40px 32px;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: var(--white);
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-card:hover { background: #222; }
+
+    .showcase-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.4s;
+    }
+
+    .showcase-card:hover::after { width: 100%; }
+
+    .showcase-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .showcase-name {
+      font-family: var(--font-display);
+      font-size: 32px;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .showcase-handle {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      .detail-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-slides { min-height: 320px; }
+      .gallery-caption { padding: 14px 18px; font-size: 12px; }
+      .gallery-nav { width: 42px; height: 42px; }
+      .gallery-modal { padding: 16px; }
+      .gallery-modal-caption { font-size: 12px; }
+      .gallery-modal-close,
+      .gallery-modal-prev,
+      .gallery-modal-next { width: 42px; height: 42px; }
+      .media-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .detail-grid { grid-template-columns: 1fr; }
+      .host-card { grid-template-columns: 1fr; }
+      .media-grid { grid-template-columns: 1fr; }
+      .showcase-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
+    <ul class="nav-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="archive.html" class="active">Archive</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="collective.html">Collective</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="events.html">Events</a>
+    <a href="archive.html">Archive</a>
+    <a href="merch.html">Merch</a>
+    <a href="collective.html">Collective</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <a href="archive.html" class="back-link">&larr; Back to Archive</a>
+    <span class="section-label">May 6, 2026 - West Charleston Library - Las Vegas</span>
+    <h1 class="section-title">The First Annual Geronimo Short Film Festival</h1>
+    <div class="section-divider"></div>
+    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:560px; margin-top:16px;">A short film competition built around teams, audience voting, and a winner-takes-all cash prize.</p>
+
+    <div class="event-poster" aria-label="The First Annual Geronimo Short Film Festival flyer">
+      <img src="assets/images/events/short-film-festival/1.png" alt="The First Annual Geronimo Short Film Festival flyer" />
+    </div>
+  </div>
+
+  <!-- EVENT META -->
+  <section style="background: var(--dark);">
+    <div class="event-meta-bar">
+      <div>
+        <span class="meta-item-label">Date</span>
+        <div class="meta-item-value">May 6, 2026</div>
+      </div>
+      <div>
+        <span class="meta-item-label">Venue</span>
+        <div class="meta-item-value">West Charleston Library</div>
+      </div>
+      <div>
+        <span class="meta-item-label">City</span>
+        <div class="meta-item-value">Las Vegas, NV</div>
+      </div>
+      <div>
+        <span class="meta-item-label">Type</span>
+        <div class="meta-item-value">Film Festival</div>
+      </div>
+    </div>
+    <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.8; color:rgba(245,245,240,0.75); max-width:760px;">
+      The First Annual Geronimo Short Film Festival gave local teams a chance to create, compete, and screen their work for an audience. The night centered on independent filmmaking, community participation, and a cash-prize audience vote.
+    </p>
+  </section>
+
+  <!-- FESTIVAL FORMAT -->
+  <section style="background: var(--black);">
+    <span class="section-label">Rules</span>
+    <h2 class="section-title">Festival Format</h2>
+    <div class="section-divider"></div>
+
+    <div class="detail-grid">
+      <div class="detail-card">
+        <span class="detail-label">Runtime</span>
+        <div class="detail-value">6 Minute Short Films</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team Slots</span>
+        <div class="detail-value">15 Teams Maximum</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team Size</span>
+        <div class="detail-value">4 People Per Team</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Entry Fee</span>
+        <div class="detail-value">$40 Per Team</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Audience Tickets</span>
+        <div class="detail-value">Sold Separately</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Voting</span>
+        <div class="detail-value">Audience Vote</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Prize</span>
+        <div class="detail-value">Cash Prize</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOST -->
+  <section style="background: var(--off-black);">
+    <span class="section-label">With</span>
+    <h2 class="section-title">Host</h2>
+    <div class="section-divider"></div>
+
+    <div class="host-card">
+      <div class="host-photo">
+        <img src="assets/images/community/JCG pfp.JPEG" alt="JCG" loading="lazy" />
+      </div>
+      <div>
+        <span class="host-label">Host</span>
+        <div class="host-name">JCG</div>
+        <p style="font-family:var(--font-editorial); font-size:18px; line-height:1.7; color:var(--muted); max-width:420px;">
+          Film Festival Host.
+        </p>
+        <div class="host-links" aria-label="JCG links">
+          <a href="https://www.instagram.com/realjcg/" target="_blank" rel="noopener">@realjcg</a>
+          <a href="https://music.apple.com/us/artist/jcg/1558262741" target="_blank" rel="noopener">Apple Music</a>
+          <a href="https://open.spotify.com/artist/67vdtDFw84lDPEOPp3urU1?si=WhBXp98VRMidrmRb_JcuuQ" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAMS -->
+  <section style="background: var(--black);">
+    <span class="section-label">Competing</span>
+    <h2 class="section-title">Teams</h2>
+    <div class="section-divider"></div>
+
+    <div class="detail-grid">
+      <div class="detail-card team-card-gold">
+        <span class="detail-label">1st Place</span>
+        <div class="detail-value">Team 01</div>
+      </div>
+      <div class="detail-card team-card-silver">
+        <span class="detail-label">2nd Place</span>
+        <div class="detail-value">Team 02</div>
+      </div>
+      <div class="detail-card team-card-bronze">
+        <span class="detail-label">3rd Place</span>
+        <div class="detail-value">Team 03</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team</span>
+        <div class="detail-value">Team 04</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team</span>
+        <div class="detail-value">Team 05</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team</span>
+        <div class="detail-value">Team 06</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team</span>
+        <div class="detail-value">Team 07</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team</span>
+        <div class="detail-value">Team 08</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section style="background: var(--off-black);">
+    <span class="section-label">Captured Moments</span>
+    <h2 class="section-title">View "The First Annual Geronimo Short Film Festival"</h2>
+    <div class="section-divider"></div>
+    <p style="font-family:var(--font-editorial); font-size:16px; font-style:italic; color:var(--muted); margin-bottom:0;">
+      Take a look at photos from The First Annual Geronimo Short Film Festival.
+    </p>
+
+    <div class="gallery-slider">
+      <div class="gallery-slides">
+        <div class="gallery-slide active" data-index="1" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-01.jpg" alt="Short Film Festival photo 1" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-01.jpg</div>
+          <div class="gallery-caption">1 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="2" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-02.jpg" alt="Short Film Festival photo 2" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-02.jpg</div>
+          <div class="gallery-caption">2 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="3" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-03.jpg" alt="Short Film Festival photo 3" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-03.jpg</div>
+          <div class="gallery-caption">3 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="4" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-04.jpg" alt="Short Film Festival photo 4" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-04.jpg</div>
+          <div class="gallery-caption">4 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="5" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-05.jpg" alt="Short Film Festival photo 5" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-05.jpg</div>
+          <div class="gallery-caption">5 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="6" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-06.jpg" alt="Short Film Festival photo 6" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-06.jpg</div>
+          <div class="gallery-caption">6 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="7" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-07.jpg" alt="Short Film Festival photo 7" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-07.jpg</div>
+          <div class="gallery-caption">7 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="8" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-08.jpg" alt="Short Film Festival photo 8" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-08.jpg</div>
+          <div class="gallery-caption">8 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="9" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-09.jpg" alt="Short Film Festival photo 9" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-09.jpg</div>
+          <div class="gallery-caption">9 / 10</div>
+        </div>
+        <div class="gallery-slide" data-index="10" role="button" tabindex="0">
+          <img src="assets/images/events/short-film-festival/photo-10.jpg" alt="Short Film Festival photo 10" loading="lazy" />
+          <div class="gallery-placeholder-slot">photo-10.jpg</div>
+          <div class="gallery-caption">10 / 10</div>
+        </div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-nav gallery-nav-prev" type="button" aria-label="Previous photo">‹</button>
+        <div class="gallery-dots">
+          <button class="gallery-dot active" type="button" data-index="1" aria-label="Go to photo 1"></button>
+          <button class="gallery-dot" type="button" data-index="2" aria-label="Go to photo 2"></button>
+          <button class="gallery-dot" type="button" data-index="3" aria-label="Go to photo 3"></button>
+          <button class="gallery-dot" type="button" data-index="4" aria-label="Go to photo 4"></button>
+          <button class="gallery-dot" type="button" data-index="5" aria-label="Go to photo 5"></button>
+          <button class="gallery-dot" type="button" data-index="6" aria-label="Go to photo 6"></button>
+          <button class="gallery-dot" type="button" data-index="7" aria-label="Go to photo 7"></button>
+          <button class="gallery-dot" type="button" data-index="8" aria-label="Go to photo 8"></button>
+          <button class="gallery-dot" type="button" data-index="9" aria-label="Go to photo 9"></button>
+          <button class="gallery-dot" type="button" data-index="10" aria-label="Go to photo 10"></button>
+        </div>
+        <button class="gallery-nav gallery-nav-next" type="button" aria-label="Next photo">›</button>
+      </div>
+    </div>
+    <div class="gallery-modal" aria-hidden="true">
+      <div class="gallery-modal-content">
+        <button class="gallery-modal-close" type="button" aria-label="Close gallery">×</button>
+        <img src="" alt="" />
+        <div class="gallery-modal-caption">
+          <span class="modal-caption-text"></span>
+          <span class="modal-caption-order"></span>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-modal-prev" type="button" aria-label="Previous photo">‹</button>
+          <button class="gallery-modal-next" type="button" aria-label="Next photo">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO LINKS -->
+  <section style="background: var(--black);">
+    <span class="section-label">Video</span>
+    <h2 class="section-title">Watch "The First Annual Geronimo Short Film Festival"</h2>
+    <div class="section-divider"></div>
+    <p style="font-family:var(--font-editorial); font-size:16px; color:rgba(245,245,240,0.85); max-width:620px;">
+      Watch videos related to The First Annual Geronimo Short Film Festival.
+    </p>
+
+    <div class="showcase-grid" style="max-width:860px; margin-top:24px;">
+      <a href="https://youtu.be/J3UzE3o5Nr8?si=fM1XLASgQNTisfj8" class="showcase-card" target="_blank" rel="noopener" style="max-width:420px;">
+        <div style="border-radius:16px; overflow:hidden; background:#111; margin-bottom:18px; aspect-ratio:16/9;">
+          <img src="https://i.ytimg.com/vi/J3UzE3o5Nr8/hqdefault.jpg" alt="The First Annual Geronimo Short Film Festival - A Geronimo Records Production thumbnail" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <span class="showcase-label">YouTube</span>
+        <div class="showcase-name">The First Annual Geronimo Short Film Festival - A Geronimo Records Production</div>
+        <div class="showcase-handle">Geronimo Records</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section style="background: var(--off-black);">
+    <div class="merch-header">
+      <div>
+        <span class="section-label">Official Store</span>
+        <h2 class="section-title">Shop Film Festival</h2>
+      </div>
+      <a href="merch.html" class="btn-ghost">Shop All →</a>
+    </div>
+    <div class="merch-grid">
+      <a class="merch-card" href="merch.html#geronimo-short-film-festival-2026-tee">
+        <div class="merch-img">
+          <div class="merch-img-bg bg-3">
+            <img src="assets/images/merch/short-film-festival/tee-front.png" alt="Geronimo Short Film Festival 2026 Tee" />
+          </div>
+        </div>
+        <div class="merch-info">
+          <div class="merch-name">Geronimo Short Film Festival 2026 Tee</div>
+          <div class="merch-price">$20</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
+    <ul class="footer-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Store</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

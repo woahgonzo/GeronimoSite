@@ -79,13 +79,34 @@
       height: 100%;
       object-fit: cover;
     }
+
+    .archive-card-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 56px);
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .archive-card-placeholder span {
+      color: var(--gold);
+      display: block;
+    }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>REC.</span></a>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
     <ul class="nav-links">
       <li><a href="events.html">Events</a></li>
       <li><a href="archive.html" class="active">Archive</a></li>
@@ -120,6 +141,22 @@
     <!-- ── 2026 ── -->
     <span class="archive-year-label">— 2026</span>
     <div class="archive-grid">
+
+      <div class="archive-card archive-large">
+        <div class="archive-card-bg bg-5">
+          <img id="short-film-festival-archive-photo" src="assets/images/events/short-film-festival/photo-01.jpg" alt="The First Annual Geronimo Short Film Festival photo 1" loading="lazy" />
+        </div>
+        <div class="archive-always">
+          <div class="archive-type-badge">Film Festival</div>
+          <div class="archive-event-name">THE FIRST ANNUAL GERONIMO SHORT FILM FESTIVAL</div>
+          <div class="archive-event-date">May 6, 2026 · West Charleston Library</div>
+        </div>
+        <div class="archive-caption">
+          <p>A short film competition with teams, audience voting, and a winner-takes-all cash prize.</p>
+          <a href="archive-short-film-festival.html">View Event →</a>
+        </div>
+        <a href="archive-short-film-festival.html" class="archive-card-link" aria-label="View The First Annual Geronimo Short Film Festival"></a>
+      </div>
 
       <div class="archive-card">
         <div class="archive-card-bg bg-1">
@@ -208,6 +245,17 @@
   </footer>
 
   <script>
+    (function() {
+      var photoCount = 10;
+      var index = Math.floor(Math.random() * photoCount) + 1;
+      var photoNumber = String(index).padStart(2, '0');
+      var image = document.getElementById('short-film-festival-archive-photo');
+      if (image) {
+        image.src = 'assets/images/events/short-film-festival/photo-' + photoNumber + '.jpg';
+        image.alt = 'The First Annual Geronimo Short Film Festival photo ' + index;
+      }
+    })();
+
     (function() {
       var photoCount = 14;
       var index = Math.floor(Math.random() * photoCount) + 1;
