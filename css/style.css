@@ -165,6 +165,7 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   gap: 40px;
+  overflow-y: auto;
 }
 
 .nav-mobile.open { display: flex; }
@@ -179,6 +180,25 @@ nav.scrolled {
 }
 
 .nav-mobile a:hover { color: var(--white); }
+
+.nav-mobile a.nav-mobile-cta {
+  background: var(--gold) !important;
+  color: var(--white) !important;
+  border: 1px solid var(--gold) !important;
+  padding: 14px 22px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.nav-mobile a.nav-mobile-cta:hover {
+  background: var(--gold-light) !important;
+  border-color: var(--gold-light) !important;
+  color: var(--white) !important;
+}
 
 /* ── SECTION BASICS ─────────────────────────────────────────── */
 section { padding: var(--section-pad); }
@@ -924,13 +944,27 @@ footer {
   :root { --section-pad: var(--section-pad-mobile); }
 
   nav { padding: 0 24px; }
+  .nav-logo { font-size: 16px; letter-spacing: 0.12em; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-mobile {
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 52px 24px 40px;
+  }
+  .nav-mobile a {
+    font-size: clamp(28px, 9vw, 40px);
+    line-height: 1;
+  }
 
-  .hero { padding: 0 24px 60px; }
+  .hero { min-height: 580px; padding: 0 24px 60px; }
+  .hero-title { font-size: clamp(56px, 18vw, 86px); }
+  .hero-actions { flex-wrap: wrap; gap: 12px; }
+  .btn-primary, .btn-ghost { padding: 13px 20px; max-width: 100%; }
   .hero-scroll { display: none; }
 
   .page-hero { padding: 130px 24px 60px; }
+  .section-title { font-size: clamp(38px, 13vw, 64px); overflow-wrap: anywhere; }
 
   .events-header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .event-row { grid-template-columns: 1fr auto; gap: 16px; padding: 20px 16px; }
@@ -939,9 +973,13 @@ footer {
   .archive-grid { grid-template-columns: 1fr 1fr; }
   #archive .archive-grid { grid-template-columns: 1fr 1fr; }
   .archive-large { grid-column: span 1; min-height: 240px; }
+  .archive-always { left: 14px; right: 14px; bottom: 14px; }
+  .archive-event-name { font-size: clamp(15px, 4.8vw, 20px); overflow-wrap: anywhere; }
+  .archive-event-date { font-size: 9px; letter-spacing: 0.12em; }
 
   .merch-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .merch-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .merch-name { font-size: 16px; overflow-wrap: anywhere; }
 
   .collective-grid { grid-template-columns: 1fr; gap: 40px; }
   .collective-people { grid-template-columns: 1fr 1fr; }
