@@ -419,6 +419,111 @@
 
     .back-link:hover { color: var(--white); }
 
+    /* PILOT PROGRAMS PAGE PALETTE */
+    body.pilot-programs {
+      min-height: 100vh;
+      background-color: #050505;
+      background-image: linear-gradient(rgba(5,5,5,0.35), rgba(5,5,5,0.62)), url("assets/images/posters/new background.png");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #f7f7f4;
+    }
+    body.pilot-programs nav {
+      background: linear-gradient(to bottom, rgba(8, 8, 8, 0.96) 0%, rgba(8, 8, 8, 0.72) 60%, transparent 100%);
+    }
+    body.pilot-programs .nav-logo span { color: rgb(255,87,87); }
+    body.pilot-programs .nav-links a { color: rgba(247,247,244,0.7); }
+    body.pilot-programs .nav-links a:hover,
+    body.pilot-programs .nav-links a.active { color: #f7f7f4; }
+    body.pilot-programs .nav-cta {
+      background: linear-gradient(135deg, rgb(255,87,87) 0%, rgb(255,87,87) 100%) !important;
+      color: #f7f7f4 !important;
+    }
+    body.pilot-programs .nav-cta:hover { background: rgba(255,87,87,0.95) !important; }
+    body.pilot-programs .page-hero {
+      background: linear-gradient(90deg, rgba(255,87,87,0.92) 0%, rgba(255,87,87,0.92) 2%, rgba(5,5,5,0.9) 2%, rgba(5,5,5,0.9) 98%, rgba(255,87,87,0.92) 98%, rgba(255,87,87,0.92) 100%);
+      border-bottom: none;
+      color: #f7f7f4;
+    }
+    body.pilot-programs .page-hero .back-link,
+    body.pilot-programs .page-hero .section-label,
+    body.pilot-programs .page-hero p {
+      color: rgba(247,247,244,0.82);
+    }
+    body.pilot-programs .page-hero .section-title {
+      color: #f7f7f4;
+    }
+    body.pilot-programs .page-hero .section-divider {
+      background: rgb(255,87,87);
+    }
+    body.pilot-programs section {
+      background: rgba(5,5,5,0.75);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 120px 60px;
+    }
+    body.pilot-programs .section-label { color: rgb(255,87,87); }
+    body.pilot-programs .section-title { color: #f7f7f4; }
+    body.pilot-programs .section-divider { background: rgb(255,87,87); }
+    body.pilot-programs .event-poster { background: #0b0b0d; border-color: rgba(255,87,87,0.18); }
+    body.pilot-programs .event-poster-placeholder { color: rgba(255,87,87,0.35); border-color: rgba(255,87,87,0.16); }
+    body.pilot-programs .event-meta-bar { border-color: rgba(255,87,87,0.16); }
+    body.pilot-programs .meta-item-label { color: rgb(255,87,87); }
+    body.pilot-programs .meta-item-value { color: #f7f7f4; }
+    body.pilot-programs .artist-card,
+    body.pilot-programs .vendor-card,
+    body.pilot-programs .gallery-slide,
+    body.pilot-programs .gallery-modal-content {
+      background: #0b0b0d;
+      border: 1px solid rgba(255,87,87,0.16);
+    }
+    body.pilot-programs .artist-card:hover,
+    body.pilot-programs .vendor-card:hover {
+      background: #141414;
+    }
+    body.pilot-programs .artist-card::after { background: rgb(255,87,87); }
+    body.pilot-programs .artist-photo { background: #111; border-color: rgba(255,87,87,0.16); }
+    body.pilot-programs .artist-photo span,
+    body.pilot-programs .artist-handle,
+    body.pilot-programs .vendor-label {
+      color: rgb(81,112,255);
+    }
+    body.pilot-programs .artist-handle:hover { color: rgb(255,87,87); }
+    body.pilot-programs .artist-name,
+    body.pilot-programs .vendor-name,
+    body.pilot-programs .gallery-caption,
+    body.pilot-programs .gallery-modal-caption {
+      color: #f7f7f4;
+    }
+    body.pilot-programs .gallery-slide .gallery-placeholder-slot {
+      color: rgba(255,87,87,0.42);
+      border-color: rgba(255,87,87,0.18);
+      background: rgba(8,8,8,0.65);
+    }
+    body.pilot-programs .gallery-nav,
+    body.pilot-programs .gallery-modal-close,
+    body.pilot-programs .gallery-modal-prev,
+    body.pilot-programs .gallery-modal-next {
+      border-color: rgba(255,87,87,0.18);
+      background: rgba(8,8,8,0.8);
+      color: rgb(81,112,255);
+    }
+    body.pilot-programs .gallery-nav:hover,
+    body.pilot-programs .gallery-modal-close:hover,
+    body.pilot-programs .gallery-modal-prev:hover,
+    body.pilot-programs .gallery-modal-next:hover {
+      background: rgba(255,87,87,0.18);
+    }
+    body.pilot-programs .gallery-dot.active { background: rgb(255,87,87); }
+    body.pilot-programs .gallery-caption { background: linear-gradient(180deg, transparent 0%, rgba(8,8,8,0.8) 100%); }
+    body.pilot-programs .back-link { color: rgba(247,247,244,0.82); }
+    body.pilot-programs .back-link:hover { color: #ffffff; }
+
+    @media (max-width: 900px) {
+      body.pilot-programs section { padding: 80px 24px; }
+    }
+
     .merch-card-static {
       cursor: default;
     }
@@ -497,6 +602,60 @@
       opacity: 0.12;
     }
 
+    /* PILOT PROGRAMS FLYER PALETTE */
+    .page-hero {
+      background: linear-gradient(90deg, rgb(255,87,87) 0%, rgb(255,87,87) 2%, #111111 2%, #111111 98%, rgb(255,87,87) 98%, rgb(255,87,87) 100%);
+      border-bottom: none;
+    }
+    .page-hero .section-label,
+    .page-hero p,
+    .page-hero .back-link {
+      color: rgba(247,247,244,0.88);
+    }
+    .page-hero .section-title {
+      color: rgb(81,112,255);
+    }
+    .page-hero .section-divider {
+      background: rgb(255,87,87);
+    }
+    .back-link:hover {
+      color: #ffffff;
+    }
+    .section-label {
+      color: rgb(255,87,87);
+    }
+    .section-title {
+      color: #f7f7f4;
+    }
+    .section-divider {
+      background: rgb(255,87,87);
+    }
+    .meta-item-label {
+      color: rgb(255,87,87);
+    }
+    .meta-item-value {
+      color: #f7f7f4;
+    }
+    .artist-card {
+      background: #141414;
+      border: 1px solid rgba(255,87,87,0.14);
+    }
+    .artist-card:hover {
+      background: #1d1d1d;
+    }
+    .artist-name,
+    .artist-handle,
+    .vendor-label,
+    .vendor-name {
+      color: #f7f7f4;
+    }
+    .artist-handle:hover {
+      color: rgb(81,112,255);
+    }
+    .vendor-card {
+      border-color: rgba(255,87,87,0.2);
+    }
+
     @media (max-width: 900px) {
       .lineup-grid { grid-template-columns: 1fr 1fr; }
       .vendor-grid { grid-template-columns: 1fr 1fr; }
@@ -506,7 +665,7 @@
     }
   </style>
 </head>
-<body>
+<body class="pilot-programs">
 
   <!-- NAV -->
   <nav>
@@ -517,7 +676,7 @@
       <li><a href="merch.html">Merch</a></li>
       <li><a href="collective.html">Collective</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+      <li><a href="https://geronimorecordstickets.netlify.app" class="nav-cta">Get Tickets</a></li>
     </ul>
     <button class="nav-hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -545,7 +704,7 @@
   </div>
 
   <!-- EVENT META -->
-  <section style="background: var(--dark);">
+  <section>
     <div class="event-meta-bar">
       <div>
         <span class="meta-item-label">Date</span>
@@ -570,7 +729,7 @@
   </section>
 
   <!-- ARTIST LINEUP -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">On the Bill</span>
     <h2 class="section-title">Lineup</h2>
     <div class="section-divider"></div>
@@ -616,7 +775,7 @@
   </section>
 
   <!-- VENDORS -->
-  <section style="background: var(--off-black);">
+  <section>
     <span class="section-label">At the Show</span>
     <h2 class="section-title">Vendors</h2>
     <div class="section-divider"></div>
@@ -637,7 +796,7 @@
   </section>
 
   <!-- PHOTO GALLERY -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">Captured Moments</span>
     <h2 class="section-title">View Pilot Programs</h2>
     <div class="section-divider"></div>
@@ -756,7 +915,7 @@
   </section>
 
   <!-- MERCH -->
-  <section style="background: var(--black);">
+  <section>
     <div class="merch-header">
       <div>
         <span class="section-label">Official Store</span>
@@ -773,7 +932,7 @@
         </div>
         <div class="merch-info">
           <div class="merch-name">Pilot Programs Tee - Black</div>
-          <div class="merch-price">$15</div>
+          <div class="merch-price">$20</div>
         </div>
       </a>
       <a class="merch-card" href="merch.html#tees">
@@ -784,7 +943,7 @@
         </div>
         <div class="merch-info">
           <div class="merch-name">Pilot Programs Tee - White</div>
-          <div class="merch-price">$15</div>
+          <div class="merch-price">$20</div>
         </div>
       </a>
       <div class="merch-card merch-card-static" data-keychain-card data-merch-link="merch.html#keychains">
@@ -814,7 +973,7 @@
         </div>
         <div class="merch-info">
           <div class="merch-name" data-tote-name>Pilot Programs Tote Bag - Black</div>
-          <div class="merch-price">$20</div>
+          <div class="merch-price">$15</div>
           <div class="merch-variant-row">
             <span class="merch-variant-label" data-tote-label>Color: Black</span>
             <div class="merch-variant-options" aria-label="Pilot Programs tote bag colors">
@@ -829,7 +988,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
     <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
     <ul class="footer-links">
       <li><a href="events.html">Events</a></li>

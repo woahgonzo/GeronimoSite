@@ -424,6 +424,147 @@
 
     .back-link:hover { color: var(--white); }
 
+    body.fashion-show {
+      min-height: 100vh;
+      background-color: #0b0b0d;
+      background-image: linear-gradient(rgba(5,5,5,0.44), rgba(5,5,5,0.68)), url("assets/images/posters/fs background.JPEG");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #f7f3ec;
+    }
+
+    body.fashion-show nav {
+      background: linear-gradient(to bottom, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.72) 60%, transparent 100%);
+    }
+
+    body.fashion-show .nav-logo { color: #f7f3ec; }
+    body.fashion-show .nav-logo span { color: #ff4f7a; }
+    body.fashion-show .nav-links a,
+    body.fashion-show .nav-mobile a,
+    body.fashion-show .back-link,
+    body.fashion-show .gallery-caption,
+    body.fashion-show .gallery-modal-caption,
+    body.fashion-show .footer-copy,
+    body.fashion-show .footer-links a {
+      color: rgba(247,243,236,0.84);
+    }
+
+    body.fashion-show .nav-links a:hover,
+    body.fashion-show .nav-links a.active,
+    body.fashion-show .back-link:hover,
+    body.fashion-show .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    body.fashion-show .nav-cta,
+    body.fashion-show .btn-primary {
+      background: #ff4f7a !important;
+      color: #ffffff !important;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    body.fashion-show .nav-cta:hover,
+    body.fashion-show .btn-primary:hover {
+      background: #ef3f6c !important;
+    }
+
+    body.fashion-show .page-hero {
+      background: rgba(8,8,10,0.76);
+      border-bottom: none;
+      color: #f7f3ec;
+      padding-top: 120px;
+    }
+
+    body.fashion-show section {
+      background: rgba(8,8,10,0.76);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 120px 60px;
+    }
+
+    body.fashion-show .section-label,
+    body.fashion-show .meta-item-label,
+    body.fashion-show .artist-handle,
+    body.fashion-show .showcase-label,
+    body.fashion-show .showcase-handle {
+      color: #ff4f7a;
+    }
+
+    body.fashion-show .section-title,
+    body.fashion-show .meta-item-value,
+    body.fashion-show .artist-name,
+    body.fashion-show .showcase-name,
+    body.fashion-show .footer-logo {
+      color: #f7f3ec;
+    }
+
+    body.fashion-show .section-divider,
+    body.fashion-show .gallery-dot.active {
+      background: #ff4f7a;
+    }
+
+    body.fashion-show .event-poster,
+    body.fashion-show .artist-photo,
+    body.fashion-show .event-meta-bar,
+    body.fashion-show .artist-card,
+    body.fashion-show .showcase-card,
+    body.fashion-show .gallery-slide,
+    body.fashion-show footer {
+      background: rgba(10,18,28,0.92);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    body.fashion-show .artist-card:hover,
+    body.fashion-show .showcase-card:hover,
+    body.fashion-show .gallery-nav:hover,
+    body.fashion-show .gallery-modal-close:hover,
+    body.fashion-show .gallery-modal-prev:hover,
+    body.fashion-show .gallery-modal-next:hover {
+      background: rgba(72,139,190,0.34);
+    }
+
+    body.fashion-show .gallery-nav,
+    body.fashion-show .gallery-modal-close,
+    body.fashion-show .gallery-modal-prev,
+    body.fashion-show .gallery-modal-next {
+      color: #f7f3ec;
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(10,18,28,0.82);
+    }
+
+    body.fashion-show .gallery-dot {
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.16);
+    }
+
+    body.fashion-show .gallery-dot.active {
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    body.fashion-show .gallery-caption {
+      background: linear-gradient(180deg, transparent 0%, rgba(10,18,28,0.88) 100%);
+    }
+
+    body.fashion-show .hero-subtitle,
+    body.fashion-show .section-copy {
+      font-family: var(--font-editorial);
+      color: rgba(247,243,236,0.82);
+      max-width: 680px;
+      line-height: 1.8;
+    }
+
+    body.fashion-show .hero-subtitle {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 16px;
+      max-width: 500px;
+    }
+
+    @media (max-width: 900px) {
+      body.fashion-show section { padding: 80px 24px; }
+    }
+
     @media (max-width: 900px) {
       .lineup-grid { grid-template-columns: 1fr 1fr; }
       .showcase-grid { grid-template-columns: 1fr; }
@@ -433,7 +574,7 @@
     }
   </style>
 </head>
-<body>
+<body class="fashion-show">
 
   <!-- NAV -->
   <nav>
@@ -444,7 +585,7 @@
       <li><a href="merch.html">Merch</a></li>
       <li><a href="collective.html">Collective</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+      <li><a href="https://geronimorecordstickets.netlify.app" class="nav-cta">Get Tickets</a></li>
     </ul>
     <button class="nav-hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -464,7 +605,7 @@
     <span class="section-label">February 28, 2026 · The Alamo · Las Vegas</span>
     <h1 class="section-title">"The Fashion Show"</h1>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">Presented by Quinn Anthony. Fashion Show.</p>
+    <p class="hero-subtitle">Presented by Quinn Anthony. Fashion Show.</p>
 
     <!--
       POSTER IMAGE:
@@ -476,7 +617,7 @@
   </div>
 
   <!-- EVENT META -->
-  <section style="background: var(--dark);">
+  <section>
     <div class="event-meta-bar">
       <div>
         <span class="meta-item-label">Date</span>
@@ -495,13 +636,13 @@
         <div class="meta-item-value">Fashion Show</div>
       </div>
     </div>
-    <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.8; color:rgba(245,245,240,0.75); max-width:680px;">
+    <p class="section-copy">
       Art, clothes, models, prints, and live music. All from the heart of Las Vegas. Presented by Quinn Anthony, The Fashion Show brought together the best of Las Vegas creative culture on one stage at The Alamo.
     </p>
   </section>
 
   <!-- SHOWCASE -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">Showcasing</span>
     <h2 class="section-title">Designers</h2>
     <div class="section-divider"></div>
@@ -518,7 +659,7 @@
   </section>
 
   <!-- MUSIC -->
-  <section style="background: var(--off-black);">
+  <section>
     <span class="section-label">Live Music</span>
     <h2 class="section-title">Performing</h2>
     <div class="section-divider"></div>
@@ -535,11 +676,11 @@
   </section>
 
   <!-- PHOTO GALLERY -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">Captured Moments</span>
     <h2 class="section-title">View "The Fashion Show"</h2>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:16px; font-style:italic; color:var(--muted); margin-bottom:0;">
+    <p class="section-copy">
       Take a look at some photos from our event "The Fashion Show" presented by Quinn Anthony.
     </p>
 
@@ -654,11 +795,11 @@
   </section>
 
   <!-- VIDEO LINKS -->
-  <section style="background: var(--off-black);">
+  <section>
     <span class="section-label">Video</span>
     <h2 class="section-title">Watch "The Fashion Show"</h2>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:16px; color:rgba(245,245,240,0.85); max-width:620px;">
+    <p class="section-copy">
       Watch any and all videos related to "The Fashion Show".
     </p>
     <div class="showcase-grid" style="max-width:860px; margin-top:24px;">
@@ -683,7 +824,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
     <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
     <ul class="footer-links">
       <li><a href="events.html">Events</a></li>

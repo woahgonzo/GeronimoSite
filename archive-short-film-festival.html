@@ -90,43 +90,28 @@
       line-height: 1.1;
     }
 
-    .team-card-gold {
-      background: #d4af37;
+    .detail-members {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .detail-card-winner .winner-banner {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--gold);
       color: #050505;
-      border-color: #d4af37;
-    }
-
-    .team-card-gold .detail-label,
-    .team-card-gold .detail-value {
-      color: #050505;
-    }
-
-    .team-card-silver {
-      background: #c8c8c8;
-      color: #050505;
-      border-color: #c8c8c8;
-    }
-
-    .team-card-silver .detail-label,
-    .team-card-silver .detail-value {
-      color: #050505;
-    }
-
-    .team-card-bronze {
-      background: #9a5a28;
-      color: var(--white);
-      border-color: #9a5a28;
-    }
-
-    .team-card-bronze .detail-label,
-    .team-card-bronze .detail-value {
-      color: var(--white);
-    }
-
-    .team-card-gold:hover,
-    .team-card-silver:hover,
-    .team-card-bronze:hover {
-      border-color: var(--white);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      z-index: 2;
     }
 
     .host-card {
@@ -530,6 +515,181 @@
 
     .back-link:hover { color: var(--white); }
 
+    body.short-film-festival {
+      min-height: 100vh;
+      background-color: #d8d0c1;
+      background-image: linear-gradient(rgba(216,208,193,0.22), rgba(22,26,33,0.62)), url("assets/images/posters/ff background.png");
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #f5efe3;
+    }
+
+    body.short-film-festival nav {
+      background: linear-gradient(to bottom, rgba(22,26,33,0.96) 0%, rgba(22,26,33,0.72) 60%, transparent 100%);
+    }
+
+    body.short-film-festival .nav-logo { color: #f5efe3; }
+    body.short-film-festival .nav-logo span { color: #e4ae00; }
+    body.short-film-festival .nav-links a,
+    body.short-film-festival .nav-mobile a,
+    body.short-film-festival .back-link,
+    body.short-film-festival .gallery-caption,
+    body.short-film-festival .gallery-modal-caption,
+    body.short-film-festival .footer-copy,
+    body.short-film-festival .footer-links a,
+    body.short-film-festival .merch-variant-label {
+      color: rgba(245,239,227,0.84);
+    }
+
+    body.short-film-festival .nav-links a:hover,
+    body.short-film-festival .nav-links a.active,
+    body.short-film-festival .back-link:hover,
+    body.short-film-festival .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    body.short-film-festival .nav-cta,
+    body.short-film-festival .btn-primary {
+      background: #e4ae00 !important;
+      color: #161a21 !important;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    body.short-film-festival .nav-cta:hover,
+    body.short-film-festival .btn-primary:hover {
+      background: #f0c128 !important;
+    }
+
+    body.short-film-festival .page-hero {
+      background: rgba(22,26,33,0.76);
+      border-bottom: none;
+      color: #f5efe3;
+      padding-top: 120px;
+    }
+
+    body.short-film-festival section {
+      background: rgba(22,26,33,0.76);
+      border: 1px solid rgba(245,239,227,0.12);
+      padding: 120px 60px;
+    }
+
+    body.short-film-festival .section-label,
+    body.short-film-festival .meta-item-label,
+    body.short-film-festival .detail-label,
+    body.short-film-festival .host-label,
+    body.short-film-festival .media-label,
+    body.short-film-festival .showcase-label,
+    body.short-film-festival .showcase-handle,
+    body.short-film-festival .merch-price {
+      color: #e4ae00;
+    }
+
+    body.short-film-festival .section-title,
+    body.short-film-festival .meta-item-value,
+    body.short-film-festival .detail-value,
+    body.short-film-festival .host-name,
+    body.short-film-festival .media-title,
+    body.short-film-festival .showcase-name,
+    body.short-film-festival .merch-name,
+    body.short-film-festival .footer-logo {
+      color: #f5efe3;
+    }
+
+    body.short-film-festival .section-divider,
+    body.short-film-festival .gallery-dot.active,
+    body.short-film-festival .showcase-card::after {
+      background: #e4ae00;
+    }
+
+    body.short-film-festival .event-poster,
+    body.short-film-festival .event-meta-bar,
+    body.short-film-festival .detail-card,
+    body.short-film-festival .host-card,
+    body.short-film-festival .host-photo,
+    body.short-film-festival .media-card,
+    body.short-film-festival .showcase-card,
+    body.short-film-festival .gallery-slide,
+    body.short-film-festival .merch-card,
+    body.short-film-festival footer {
+      background: rgba(52,60,73,0.9);
+      border-color: rgba(245,239,227,0.16);
+    }
+
+    body.short-film-festival .detail-card-winner,
+    body.short-film-festival .winner-banner {
+      border-color: rgba(228,174,0,0.4);
+    }
+
+    body.short-film-festival .winner-banner {
+      background: #e4ae00;
+      color: #161a21;
+    }
+
+    body.short-film-festival .media-placeholder {
+      color: rgba(228,174,0,0.58);
+      border-color: rgba(228,174,0,0.28);
+      background: rgba(22,26,33,0.32);
+    }
+
+    body.short-film-festival .host-links a {
+      color: #e4ae00;
+      border-color: rgba(228,174,0,0.24);
+    }
+
+    body.short-film-festival .host-links a:hover,
+    body.short-film-festival .detail-card:hover,
+    body.short-film-festival .media-card:hover,
+    body.short-film-festival .showcase-card:hover,
+    body.short-film-festival .gallery-nav:hover,
+    body.short-film-festival .gallery-modal-close:hover,
+    body.short-film-festival .gallery-modal-prev:hover,
+    body.short-film-festival .gallery-modal-next:hover {
+      background: rgba(216,208,193,0.16);
+    }
+
+    body.short-film-festival .gallery-nav,
+    body.short-film-festival .gallery-modal-close,
+    body.short-film-festival .gallery-modal-prev,
+    body.short-film-festival .gallery-modal-next {
+      color: #f5efe3;
+      border-color: rgba(245,239,227,0.18);
+      background: rgba(22,26,33,0.82);
+    }
+
+    body.short-film-festival .gallery-dot {
+      border-color: rgba(245,239,227,0.18);
+      background: rgba(245,239,227,0.16);
+    }
+
+    body.short-film-festival .gallery-dot.active {
+      border-color: rgba(245,239,227,0.22);
+    }
+
+    body.short-film-festival .gallery-caption {
+      background: linear-gradient(180deg, transparent 0%, rgba(22,26,33,0.88) 100%);
+    }
+
+    body.short-film-festival .hero-subtitle,
+    body.short-film-festival .section-copy {
+      font-family: var(--font-editorial);
+      color: rgba(245,239,227,0.82);
+      max-width: 760px;
+      line-height: 1.8;
+    }
+
+    body.short-film-festival .hero-subtitle {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 16px;
+      max-width: 560px;
+    }
+
+    @media (max-width: 900px) {
+      body.short-film-festival section { padding: 80px 24px; }
+    }
+
     @media (max-width: 900px) {
       .detail-grid { grid-template-columns: 1fr 1fr; }
       .gallery-slides { min-height: 320px; }
@@ -551,7 +711,7 @@
     }
   </style>
 </head>
-<body>
+<body class="short-film-festival">
 
   <!-- NAV -->
   <nav>
@@ -562,7 +722,7 @@
       <li><a href="merch.html">Merch</a></li>
       <li><a href="collective.html">Collective</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+      <li><a href="https://geronimorecordstickets.netlify.app" class="nav-cta">Get Tickets</a></li>
     </ul>
     <button class="nav-hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -582,7 +742,7 @@
     <span class="section-label">May 6, 2026 - West Charleston Library - Las Vegas</span>
     <h1 class="section-title">The First Annual Geronimo Short Film Festival</h1>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:560px; margin-top:16px;">A short film competition built around teams, audience voting, and a winner-takes-all cash prize.</p>
+    <p class="hero-subtitle">A short film competition built around teams, audience voting, and a winner-takes-all cash prize.</p>
 
     <div class="event-poster" aria-label="The First Annual Geronimo Short Film Festival flyer">
       <img src="assets/images/events/short-film-festival/1.png" alt="The First Annual Geronimo Short Film Festival flyer" />
@@ -590,7 +750,7 @@
   </div>
 
   <!-- EVENT META -->
-  <section style="background: var(--dark);">
+  <section>
     <div class="event-meta-bar">
       <div>
         <span class="meta-item-label">Date</span>
@@ -609,13 +769,13 @@
         <div class="meta-item-value">Film Festival</div>
       </div>
     </div>
-    <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.8; color:rgba(245,245,240,0.75); max-width:760px;">
+    <p class="section-copy">
       The First Annual Geronimo Short Film Festival gave local teams a chance to create, compete, and screen their work for an audience. The night centered on independent filmmaking, community participation, and a cash-prize audience vote.
     </p>
   </section>
 
   <!-- FESTIVAL FORMAT -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">Rules</span>
     <h2 class="section-title">Festival Format</h2>
     <div class="section-divider"></div>
@@ -653,7 +813,7 @@
   </section>
 
   <!-- HOST -->
-  <section style="background: var(--off-black);">
+  <section>
     <span class="section-label">With</span>
     <h2 class="section-title">Host</h2>
     <div class="section-divider"></div>
@@ -665,7 +825,7 @@
       <div>
         <span class="host-label">Host</span>
         <div class="host-name">JCG</div>
-        <p style="font-family:var(--font-editorial); font-size:18px; line-height:1.7; color:var(--muted); max-width:420px;">
+        <p class="section-copy" style="max-width:420px;">
           Film Festival Host.
         </p>
         <div class="host-links" aria-label="JCG links">
@@ -678,53 +838,62 @@
   </section>
 
   <!-- TEAMS -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">Competing</span>
     <h2 class="section-title">Teams</h2>
     <div class="section-divider"></div>
 
     <div class="detail-grid">
-      <div class="detail-card team-card-gold">
-        <span class="detail-label">1st Place</span>
-        <div class="detail-value">Team 01</div>
-      </div>
-      <div class="detail-card team-card-silver">
-        <span class="detail-label">2nd Place</span>
-        <div class="detail-value">Team 02</div>
-      </div>
-      <div class="detail-card team-card-bronze">
-        <span class="detail-label">3rd Place</span>
-        <div class="detail-value">Team 03</div>
+      <div class="detail-card detail-card-winner">
+        <div class="winner-banner">Winner</div>
+        <span class="detail-label">Team</span>
+        <div class="detail-value">NINETYSE7EN</div>
+        <div class="detail-members">Members: Jorge A., Jazmin P., Mia R., Christian D.</div>
       </div>
       <div class="detail-card">
         <span class="detail-label">Team</span>
-        <div class="detail-value">Team 04</div>
+        <div class="detail-value">All Out Of Bubble Gum</div>
+        <div class="detail-members">Members: Quentin B., Jasper H., Mario P.</div>
       </div>
       <div class="detail-card">
         <span class="detail-label">Team</span>
-        <div class="detail-value">Team 05</div>
+        <div class="detail-value">Creative Levels</div>
+        <div class="detail-members">Members: Ryan R., Gilbert C., Jailon W.</div>
       </div>
       <div class="detail-card">
         <span class="detail-label">Team</span>
-        <div class="detail-value">Team 06</div>
+        <div class="detail-value">NEAL/NEAL</div>
+        <div class="detail-members">Members: Lily A., Nevaeh J., Asia P., Ella P.</div>
       </div>
       <div class="detail-card">
         <span class="detail-label">Team</span>
-        <div class="detail-value">Team 07</div>
+        <div class="detail-value">Fidelio</div>
+        <div class="detail-members">Members: David C., Fernanda A., Will</div>
       </div>
       <div class="detail-card">
         <span class="detail-label">Team</span>
-        <div class="detail-value">Team 08</div>
+        <div class="detail-value">Take 4</div>
+        <div class="detail-members">Members: Amelia M., Evan M., Olivia M., Mackenzie-Rose G.</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team</span>
+        <div class="detail-value">Heinreich Films</div>
+        <div class="detail-members">Members: Dillion H. and Powlo F.</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Team</span>
+        <div class="detail-value">Trail Mix</div>
+        <div class="detail-members">Members: Adam O., Juan V., Xander Robert L.D., Edson A.</div>
       </div>
     </div>
   </section>
 
   <!-- PHOTO GALLERY -->
-  <section style="background: var(--off-black);">
+  <section>
     <span class="section-label">Captured Moments</span>
     <h2 class="section-title">View "The First Annual Geronimo Short Film Festival"</h2>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:16px; font-style:italic; color:var(--muted); margin-bottom:0;">
+    <p class="section-copy">
       Take a look at photos from The First Annual Geronimo Short Film Festival.
     </p>
 
@@ -815,11 +984,11 @@
   </section>
 
   <!-- VIDEO LINKS -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">Video</span>
     <h2 class="section-title">Watch "The First Annual Geronimo Short Film Festival"</h2>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:16px; color:rgba(245,245,240,0.85); max-width:620px;">
+    <p class="section-copy" style="max-width:620px;">
       Watch videos related to The First Annual Geronimo Short Film Festival.
     </p>
 
@@ -836,7 +1005,7 @@
   </section>
 
   <!-- MERCH -->
-  <section style="background: var(--off-black);">
+  <section>
     <div class="merch-header">
       <div>
         <span class="section-label">Official Store</span>
@@ -861,7 +1030,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
     <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
     <ul class="footer-links">
       <li><a href="events.html">Events</a></li>

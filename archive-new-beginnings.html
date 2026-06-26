@@ -494,6 +494,154 @@
 
     .back-link:hover { color: var(--white); }
 
+    body.new-beginnings {
+      min-height: 100vh;
+      background-color: #071d4a;
+      background-image: linear-gradient(rgba(4,20,54,0.35), rgba(4,20,54,0.62)), url("assets/images/posters/nb background.png");
+      background-size: 100% 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #f7f7f4;
+    }
+
+    body.new-beginnings nav {
+      background: linear-gradient(to bottom, rgba(4,20,54,0.96) 0%, rgba(4,20,54,0.74) 60%, transparent 100%);
+    }
+
+    body.new-beginnings .nav-logo { color: #f7f7f4; }
+    body.new-beginnings .nav-logo span { color: #ff443f; }
+    body.new-beginnings .nav-links a,
+    body.new-beginnings .nav-mobile a,
+    body.new-beginnings .back-link,
+    body.new-beginnings .merch-variant-label,
+    body.new-beginnings .gallery-caption,
+    body.new-beginnings .gallery-modal-caption,
+    body.new-beginnings .footer-copy,
+    body.new-beginnings .footer-links a {
+      color: rgba(247,247,244,0.84);
+    }
+
+    body.new-beginnings .nav-links a:hover,
+    body.new-beginnings .nav-links a.active,
+    body.new-beginnings .back-link:hover,
+    body.new-beginnings .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    body.new-beginnings .nav-cta,
+    body.new-beginnings .btn-primary {
+      background: #ff443f !important;
+      color: #ffffff !important;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    body.new-beginnings .nav-cta:hover,
+    body.new-beginnings .btn-primary:hover {
+      background: #e93635 !important;
+    }
+
+    body.new-beginnings .page-hero {
+      background: rgba(6,29,80,0.78);
+      border-bottom: none;
+      color: #f7f7f4;
+      padding-top: 120px;
+    }
+
+    body.new-beginnings section {
+      background: rgba(6,29,80,0.76);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 120px 60px;
+    }
+
+    body.new-beginnings .section-label,
+    body.new-beginnings .meta-item-label,
+    body.new-beginnings .artist-handle,
+    body.new-beginnings .vendor-label,
+    body.new-beginnings .showcase-label,
+    body.new-beginnings .showcase-handle {
+      color: #ff443f;
+    }
+
+    body.new-beginnings .section-title,
+    body.new-beginnings .meta-item-value,
+    body.new-beginnings .artist-name,
+    body.new-beginnings .vendor-name,
+    body.new-beginnings .showcase-name,
+    body.new-beginnings .merch-name,
+    body.new-beginnings .footer-logo {
+      color: #f7f7f4;
+    }
+
+    body.new-beginnings .section-divider,
+    body.new-beginnings .gallery-dot.active {
+      background: #ff443f;
+    }
+
+    body.new-beginnings .event-poster,
+    body.new-beginnings .artist-photo,
+    body.new-beginnings .event-meta-bar,
+    body.new-beginnings .artist-card,
+    body.new-beginnings .vendor-card,
+    body.new-beginnings .showcase-card,
+    body.new-beginnings .gallery-slide,
+    body.new-beginnings .merch-card,
+    body.new-beginnings footer {
+      background: rgba(4,20,54,0.92);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    body.new-beginnings .artist-card:hover,
+    body.new-beginnings .vendor-card:hover,
+    body.new-beginnings .showcase-card:hover,
+    body.new-beginnings .gallery-nav:hover,
+    body.new-beginnings .gallery-modal-close:hover,
+    body.new-beginnings .gallery-modal-prev:hover,
+    body.new-beginnings .gallery-modal-next:hover {
+      background: rgba(14,55,136,0.88);
+    }
+
+    body.new-beginnings .gallery-nav,
+    body.new-beginnings .gallery-modal-close,
+    body.new-beginnings .gallery-modal-prev,
+    body.new-beginnings .gallery-modal-next {
+      color: #f7f7f4;
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(4,20,54,0.82);
+    }
+
+    body.new-beginnings .gallery-dot {
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.16);
+    }
+
+    body.new-beginnings .gallery-dot.active {
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    body.new-beginnings .gallery-caption {
+      background: linear-gradient(180deg, transparent 0%, rgba(4,20,54,0.88) 100%);
+    }
+
+    body.new-beginnings .hero-subtitle,
+    body.new-beginnings .section-copy {
+      font-family: var(--font-editorial);
+      color: rgba(247,247,244,0.82);
+      max-width: 680px;
+      line-height: 1.8;
+    }
+
+    body.new-beginnings .hero-subtitle {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 16px;
+      max-width: 500px;
+    }
+
+    @media (max-width: 900px) {
+      body.new-beginnings section { padding: 80px 24px; }
+    }
+
     .merch-variant-row {
       display: flex;
       align-items: center;
@@ -561,7 +709,7 @@
     }
   </style>
 </head>
-<body>
+<body class="new-beginnings">
 
   <!-- NAV -->
   <nav>
@@ -572,7 +720,7 @@
       <li><a href="merch.html">Merch</a></li>
       <li><a href="collective.html">Collective</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+      <li><a href="https://geronimorecordstickets.netlify.app" class="nav-cta">Get Tickets</a></li>
     </ul>
     <button class="nav-hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -592,7 +740,7 @@
     <span class="section-label">January 23, 2026 · The Bottega Exchange · Las Vegas</span>
     <h1 class="section-title">New Beginnings</h1>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:18px; font-style:italic; color:var(--muted); max-width:500px; margin-top:16px;">Geronimo Productions presents their third concert.</p>
+    <p class="hero-subtitle">Geronimo Productions presents their third concert.</p>
 
     <!--
       POSTER IMAGE:
@@ -608,7 +756,7 @@
   </div>
 
   <!-- EVENT META -->
-  <section style="background: var(--dark);">
+  <section>
     <div class="event-meta-bar">
       <div>
         <span class="meta-item-label">Date</span>
@@ -627,13 +775,13 @@
         <div class="meta-item-value">Concert</div>
       </div>
     </div>
-    <p style="font-family:var(--font-editorial); font-size:20px; line-height:1.8; color:rgba(245,245,240,0.75); max-width:680px;">
+    <p class="section-copy">
       A new year, a new venue, and a new chapter for Geronimo Records. New Beginnings at The Bottega Exchange was the collective's first event of 2026, setting the tone for everything that would follow.
     </p>
   </section>
 
   <!-- ARTIST LINEUP -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">On the Bill</span>
     <h2 class="section-title">Lineup</h2>
     <div class="section-divider"></div>
@@ -674,7 +822,7 @@
   </section>
 
   <!-- VENDORS -->
-  <section style="background: var(--off-black);">
+  <section>
     <span class="section-label">At the Show</span>
     <h2 class="section-title">Vendors</h2>
     <div class="section-divider"></div>
@@ -705,11 +853,11 @@
   </section>
 
   <!-- PHOTO GALLERY -->
-  <section style="background: var(--black);">
+  <section>
     <span class="section-label">Captured Moments</span>
     <h2 class="section-title">View New Beginnings</h2>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:16px; font-style:italic; color:var(--muted); margin-bottom:0;">
+    <p class="section-copy">
       Take a look at some photos from our event New Beginnings.
     </p>
 
@@ -824,11 +972,11 @@
   </section>
 
   <!-- VIDEO LINKS -->
-  <section style="background: var(--off-black);">
+  <section>
     <span class="section-label">Video</span>
     <h2 class="section-title">Watch New Beginnings</h2>
     <div class="section-divider"></div>
-    <p style="font-family:var(--font-editorial); font-size:16px; color:rgba(245,245,240,0.85); max-width:620px;">
+    <p class="section-copy">
       Watch any and all videos related to New Beginnings.
     </p>
     <div class="showcase-grid" style="max-width:1320px; margin-top:24px; grid-template-columns:repeat(3, minmax(0, 1fr));">
@@ -860,7 +1008,7 @@
   </section>
 
   <!-- MERCH -->
-  <section style="background: var(--black);">
+  <section>
     <div class="merch-header">
       <div>
         <span class="section-label">Official Store</span>
@@ -877,7 +1025,7 @@
         </div>
         <div class="merch-info">
           <div class="merch-name">New Beginnings Tee - Blue</div>
-          <div class="merch-price">$15</div>
+          <div class="merch-price">$20</div>
         </div>
       </a>
       <a class="merch-card" href="merch.html#tees">
@@ -888,7 +1036,7 @@
         </div>
         <div class="merch-info">
           <div class="merch-name">New Beginnings Tee - White</div>
-          <div class="merch-price">$15</div>
+          <div class="merch-price">$20</div>
         </div>
       </a>
       <div class="merch-card merch-card-static" data-keychain-card data-merch-link="merch.html#keychains">
@@ -918,7 +1066,7 @@
         </div>
         <div class="merch-info">
           <div class="merch-name" data-tote-name>New Beginnings Tote Bag - Blue</div>
-          <div class="merch-price">$20</div>
+          <div class="merch-price">$15</div>
           <div class="merch-variant-row">
             <span class="merch-variant-label" data-tote-label>Color: Blue</span>
             <div class="merch-variant-options" aria-label="New Beginnings tote bag colors">
@@ -933,7 +1081,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>RECORDS</span></a>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
     <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
     <ul class="footer-links">
       <li><a href="events.html">Events</a></li>

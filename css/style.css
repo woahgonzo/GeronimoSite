@@ -43,6 +43,26 @@ body {
   overflow-x: hidden;
 }
 
+body.home-page section {
+  border-bottom: 2px solid var(--gold);
+}
+
+body.events-page .page-hero,
+body.events-page section {
+  border-bottom: 2px solid var(--gold);
+}
+
+body.archive-page .page-hero,
+body.archive-page section,
+body.merch-page .page-hero,
+body.merch-page section,
+body.collective-page .page-hero,
+body.collective-page section,
+body.contact-page .page-hero,
+body.contact-page section {
+  border-bottom: 2px solid var(--gold);
+}
+
 body > * {
   position: relative;
   z-index: 1;
@@ -62,6 +82,7 @@ nav {
   padding: 0 40px;
   height: 68px;
   background: linear-gradient(to bottom, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.66) 58%, transparent 100%);
+  border-bottom: 1px solid rgba(237,28,36,0.55);
   backdrop-filter: blur(4px);
   transition: background 0.3s;
 }
@@ -226,30 +247,8 @@ section { padding: var(--section-pad); }
 
 /* ── MARQUEE ────────────────────────────────────────────────── */
 .marquee-wrap {
-  background: linear-gradient(90deg, #ed1c24 0%, #ff4f5a 50%, #ed1c24 100%);
-  overflow: hidden;
-  padding: 10px 0;
-}
-
-.marquee-track {
-  display: flex;
-  animation: marqueeScroll 18s linear infinite;
-  white-space: nowrap;
-}
-
-.marquee-track span {
-  font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.25em;
-  color: var(--white);
-  padding: 0 40px;
-}
-
-.marquee-dot { color: rgba(0,0,0,0.4); }
-
-@keyframes marqueeScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  height: 20px;
+  background: #ed1c24;
 }
 
 /* ── HERO ───────────────────────────────────────────────────── */
@@ -332,29 +331,15 @@ section { padding: var(--section-pad); }
   position: absolute;
   bottom: 40px;
   right: 60px;
-  writing-mode: vertical-rl;
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: block;
+  width: 96px;
+  height: 2px;
+  background: var(--gold);
   z-index: 1;
 }
 
 .hero-scroll::before {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--gold));
-  animation: scrollLine 1.5s ease-in-out infinite;
-}
-
-@keyframes scrollLine {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 1; }
+  content: none;
 }
 
 /* ── PAGE HERO (inner pages) ────────────────────────────────── */
@@ -521,6 +506,16 @@ section { padding: var(--section-pad); }
   grid-column: span 2;
   aspect-ratio: auto;
   min-height: 400px;
+}
+
+#archive .archive-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#archive .archive-grid .archive-large {
+  grid-column: span 1;
+  min-height: 0;
+  aspect-ratio: 3 / 4;
 }
 
 /* ── MERCH GRID ─────────────────────────────────────────────── */
@@ -791,6 +786,12 @@ section { padding: var(--section-pad); }
 
 .social-link:hover { border-color: var(--gold); color: var(--gold); }
 
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 /* ── TICKET TAILOR EMBED WRAPPER ────────────────────────────── */
 .tickettailor-embed {
   width: 100%;
@@ -866,6 +867,9 @@ section { padding: var(--section-pad); }
 .shopify-embed-wrapper {
   width: 100%;
   min-height: 200px;
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
   /* Shopify Buy Button injects its iframe here */
 }
 
@@ -933,6 +937,7 @@ footer {
   .event-num, .event-date { display: none; }
 
   .archive-grid { grid-template-columns: 1fr 1fr; }
+  #archive .archive-grid { grid-template-columns: 1fr 1fr; }
   .archive-large { grid-column: span 1; min-height: 240px; }
 
   .merch-header { flex-direction: column; align-items: flex-start; gap: 16px; }

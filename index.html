@@ -18,7 +18,7 @@
     <link rel="canonical" href="https://geronimorecords.net" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body class="home-page">
     <!-- NAV -->
     <nav>
       <a class="nav-logo" href="index.html"
@@ -30,7 +30,7 @@
         <li><a href="merch.html">Merch</a></li>
         <li><a href="collective.html">Collective</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+        <li><a href="https://geronimorecordstickets.netlify.app" class="nav-cta">Get Tickets</a></li>
       </ul>
       <button class="nav-hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -62,27 +62,7 @@
         <a href="events.html" class="btn-primary">Upcoming Events</a>
         <a href="archive.html" class="btn-ghost">View Archive</a>
       </div>
-      <div class="hero-scroll">Scroll</div>
     </section>
-
-    <!-- MARQUEE -->
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <span>CONCERTS</span><span class="marquee-dot">✦</span>
-        <span>FASHION SHOWS</span><span class="marquee-dot">✦</span>
-        <span>FILM FESTIVAL</span><span class="marquee-dot">✦</span>
-        <span>LAS VEGAS</span><span class="marquee-dot">✦</span>
-        <span>LIVE MUSIC</span><span class="marquee-dot">✦</span>
-        <span>COMMUNITY</span><span class="marquee-dot">✦</span>
-        <!-- Duplicate for seamless loop -->
-        <span>CONCERTS</span><span class="marquee-dot">✦</span>
-        <span>FASHION SHOWS</span><span class="marquee-dot">✦</span>
-        <span>FILM FESTIVAL</span><span class="marquee-dot">✦</span>
-        <span>LAS VEGAS</span><span class="marquee-dot">✦</span>
-        <span>LIVE MUSIC</span><span class="marquee-dot">✦</span>
-        <span>COMMUNITY</span><span class="marquee-dot">✦</span>
-      </div>
-    </div>
 
     <!-- UPCOMING EVENTS (preview) -->
     <section id="events" style="background: var(--off-black)">
@@ -112,13 +92,22 @@
       <h2 class="section-title">The Archive</h2>
       <div class="section-divider"></div>
       <div class="archive-grid">
-        <a href="archive-fashion-show.html" class="archive-card archive-large" style="text-decoration:none; color:inherit;">
+        <a href="archive-short-film-festival.html" class="archive-card" style="text-decoration:none; color:inherit;">
+          <div class="archive-card-bg bg-5">
+            <img id="homepage-short-film-festival-archive-photo" src="assets/images/events/short-film-festival/photo-01.jpg" alt="The First Annual Geronimo Short Film Festival photo 1" loading="lazy" />
+          </div>
+          <div class="archive-always">
+            <div class="archive-event-name">THE FIRST ANNUAL GERONIMO SHORT FILM FESTIVAL</div>
+            <div class="archive-event-date">May 6, 2026 · West Charleston Library</div>
+          </div>
+        </a>
+        <a href="archive-fashion-show.html" class="archive-card" style="text-decoration:none; color:inherit;">
           <div class="archive-card-bg bg-1">
             <img id="homepage-fashion-show-archive-photo" src="assets/images/events/fashion-show/photo-01.jpg" alt="The Fashion Show photo 1" loading="lazy" />
           </div>
           <div class="archive-always">
             <div class="archive-event-name">THE FASHION SHOW</div>
-            <div class="archive-event-date">February 2026 · The Alamo</div>
+            <div class="archive-event-date">February 28, 2026 · The Alamo</div>
           </div>
         </a>
         <a href="archive-new-beginnings.html" class="archive-card" style="text-decoration:none; color:inherit;">
@@ -127,7 +116,7 @@
           </div>
           <div class="archive-always">
             <div class="archive-event-name">NEW BEGINNINGS</div>
-            <div class="archive-event-date">January 2026 · The Bottega Exchange</div>
+            <div class="archive-event-date">January 23, 2026 · The Bottega Exchange</div>
           </div>
         </a>
         <a href="archive-phantom-frequencies.html" class="archive-card" style="text-decoration:none; color:inherit;">
@@ -136,16 +125,7 @@
           </div>
           <div class="archive-always">
             <div class="archive-event-name">PHANTOM FREQUENCIES</div>
-            <div class="archive-event-date">October 2025 · The Alamo</div>
-          </div>
-        </a>
-        <a href="archive-pilot-programs.html" class="archive-card" style="text-decoration:none; color:inherit;">
-          <div class="archive-card-bg bg-3">
-            <img id="homepage-pilot-programs-archive-photo" src="assets/images/events/pilot-programs/photo-01.jpg" alt="Pilot Programs photo 1" loading="lazy" />
-          </div>
-          <div class="archive-always">
-            <div class="archive-event-name">PILOT PROGRAMS</div>
-            <div class="archive-event-date">August 2025 · The Alamo</div>
+            <div class="archive-event-date">October 17, 2025 · The Alamo</div>
           </div>
         </a>
       </div>
@@ -283,13 +263,13 @@
       })();
 
       (function() {
-        var photoCount = 14;
+        var photoCount = 10;
         var index = Math.floor(Math.random() * photoCount) + 1;
         var photoNumber = String(index).padStart(2, '0');
-        var image = document.getElementById('homepage-pilot-programs-archive-photo');
+        var image = document.getElementById('homepage-short-film-festival-archive-photo');
         if (image) {
-          image.src = 'assets/images/events/pilot-programs/photo-' + photoNumber + '.jpg';
-          image.alt = 'Pilot Programs photo ' + index;
+          image.src = 'assets/images/events/short-film-festival/photo-' + photoNumber + '.jpg';
+          image.alt = 'Short Film Festival photo ' + index;
         }
       })();
     </script>
