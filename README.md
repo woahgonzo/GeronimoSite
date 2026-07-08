@@ -9,7 +9,6 @@ Plain HTML / CSS / JS — Open any `.html` file in a browser to preview locally.
 | Layer       | Service                         |
 |-------------|----------------------------------|
 | Hosting     | Netlify (free) via GitHub repo   |
-| Ticketing   | Ticket Tailor                    |
 | Merch Store | Shopify Buy Button               |
 | Contact Form| Formspree → USER EMAIL           |
 | Domain      | geronimorecords.net              |
@@ -21,7 +20,7 @@ Plain HTML / CSS / JS — Open any `.html` file in a browser to preview locally.
 ```
 geronimo-records/
 ├── index.html          → Homepage
-├── events.html         → Upcoming events + Ticket Tailor embeds
+├── events.html         → Upcoming events
 ├── archive.html        → Past shows gallery
 ├── merch.html          → Merch store + Shopify Buy Button embed
 ├── collective.html     → Team + community
@@ -52,13 +51,7 @@ geronimo-records/
 - [ ] Copy your form ID (8 characters, e.g. `xyzabcde`)
 - [ ] In `contact.html`, replace `YOUR_FORMSPREE_ID` with your actual ID
 
-### 3. Ticket Tailor (Events)
-- [ ] Go to [tickettailor.com](https://tickettailor.com) → Create account
-- [ ] Create each event (New Beginnings, Phantom Frequencies, Fashion Show, etc)
-- [ ] For each event: Dashboard → Embed → Buy Button → copy `<script>` tag
-- [ ] In `events.html`, find the matching `<!-- PASTE TICKET TAILOR EMBED -->` comment and replace it
-
-### 4. Shopify Buy Button (Merch)
+### 3. Shopify Buy Button (Merch)
 - [ ] Go to [shopify.com](https://shopify.com) → Start free trial
 - [ ] Add your products with photos, prices, variants
 - [ ] In Shopify Admin: Sales Channels → Buy Button Channel
@@ -67,7 +60,7 @@ geronimo-records/
 - [ ] In `merch.html`, replace the `<!-- PLACEHOLDER -->` block with the script
 - [ ] Once live, delete the preview `.merch-grid` below the embed
 
-### 5. Add Real Photos
+### 4. Add Real Photos
 - [ ] Drop event/product photos into `assets/images/`
 - [ ] In `archive.html`, replace `<div class="archive-card-bg bg-X">` with:
   ```html
@@ -77,7 +70,7 @@ geronimo-records/
   ```
 - [ ] In `merch.html`, replace `.merch-img-bg` placeholder divs with actual product images
 
-### 7. Update Content
+### 5. Update Content
 - [ ] `collective.html` → Fill in real team names, roles, bios
 - [ ] `collective.html` → Fill in partner/community names
 - [ ] All pages → Update social links in the contact info and footer
