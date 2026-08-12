@@ -76,21 +76,23 @@
       </div>
       <div class="events-grid">
         <a href="events.html" class="event-card event-featured">
-          <div class="event-poster">
-            <img src="assets/images/posters/sounds-of-summer.png" alt="Sounds of Summer event poster" loading="lazy" />
+          <div class="event-poster" aria-label="TBD event poster">
+            <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--card); border:1px dashed var(--border); font-family:var(--font-display); font-size:clamp(48px, 8vw, 96px); color:var(--gold); letter-spacing:0.08em;">
+              TBD
+            </div>
           </div>
           <div class="event-card-info">
-            <div class="event-num">01</div>
+            <div class="event-num">TBD</div>
             <div>
-              <div class="event-title-text">SOUNDS OF SUMMER</div>
-              <div class="event-meta">Live music · Art booths · Show merch</div>
+              <div class="event-title-text">TBD</div>
+              <div class="event-meta">TBD</div>
             </div>
             <div class="event-card-details">
-              <span>August 8, 2026</span>
-              <span>7:00 PM</span>
-              <span>The Alamo · Las Vegas</span>
+              <span>TBD</span>
+              <span>TBD</span>
+              <span>TBD</span>
             </div>
-            <span class="event-ticket">View Event</span>
+            <span class="event-ticket">TBD</span>
           </div>
         </a>
       </div>
@@ -102,6 +104,15 @@
       <h2 class="section-title">The Archive</h2>
       <div class="section-divider"></div>
       <div class="archive-grid">
+        <a href="archive-sounds-of-summer.html" class="archive-card" style="text-decoration:none; color:inherit;">
+          <div class="archive-card-bg bg-5">
+            <img id="homepage-sounds-of-summer-archive-photo" src="assets/images/IMG_6978.jpg" alt="Sounds of Summer photo 1" loading="lazy" />
+          </div>
+          <div class="archive-always">
+            <div class="archive-event-name">SOUNDS OF SUMMER</div>
+            <div class="archive-event-date">August 8, 2026 · Arts District</div>
+          </div>
+        </a>
         <a href="archive-short-film-festival.html" class="archive-card" style="text-decoration:none; color:inherit;">
           <div class="archive-card-bg bg-5">
             <img id="homepage-short-film-festival-archive-photo" src="assets/images/events/short-film-festival/photo-01.jpg" alt="The First Annual Geronimo Short Film Festival photo 1" loading="lazy" />
@@ -127,15 +138,6 @@
           <div class="archive-always">
             <div class="archive-event-name">NEW BEGINNINGS</div>
             <div class="archive-event-date">January 23, 2026 · The Bottega Exchange</div>
-          </div>
-        </a>
-        <a href="archive-phantom-frequencies.html" class="archive-card" style="text-decoration:none; color:inherit;">
-          <div class="archive-card-bg bg-2">
-            <img id="homepage-phantom-frequencies-archive-photo" src="assets/images/events/phantom-frequencies/photo-01.jpg" alt="Phantom Frequencies photo 1" loading="lazy" />
-          </div>
-          <div class="archive-always">
-            <div class="archive-event-name">PHANTOM FREQUENCIES</div>
-            <div class="archive-event-date">October 17, 2025 · The Alamo</div>
           </div>
         </a>
       </div>
@@ -240,6 +242,32 @@
       })();
 
       (function() {
+        var photos = [
+          'IMG_6978.jpg',
+          'IMG_6979.jpg',
+          'IMG_6981.jpg',
+          'IMG_6982.jpg',
+          'IMG_6983.jpg',
+          'IMG_6984.jpg',
+          'IMG_6985.jpg',
+          'IMG_6986.jpg',
+          'IMG_6987.jpg',
+          'IMG_6988.jpg',
+          'IMG_6989.jpg',
+          'IMG_6990.jpg',
+          'IMG_6991.jpg',
+          'IMG_6992.jpg',
+          'IMG_6993.jpg'
+        ];
+        var index = Math.floor(Math.random() * photos.length);
+        var image = document.getElementById('homepage-sounds-of-summer-archive-photo');
+        if (image) {
+          image.src = 'assets/images/' + photos[index];
+          image.alt = 'Sounds of Summer photo ' + (index + 1);
+        }
+      })();
+
+      (function() {
         var photoCount = 14;
         var index = Math.floor(Math.random() * photoCount) + 1;
         var photoNumber = String(index).padStart(2, '0');
@@ -258,17 +286,6 @@
         if (image) {
           image.src = 'assets/images/events/new-beginnings/photo-' + photoNumber + '.jpg';
           image.alt = 'New Beginnings photo ' + index;
-        }
-      })();
-
-      (function() {
-        var photoCount = 14;
-        var index = Math.floor(Math.random() * photoCount) + 1;
-        var photoNumber = String(index).padStart(2, '0');
-        var image = document.getElementById('homepage-phantom-frequencies-archive-photo');
-        if (image) {
-          image.src = 'assets/images/events/phantom-frequencies/photo-' + photoNumber + '.jpg';
-          image.alt = 'Phantom Frequencies photo ' + index;
         }
       })();
 

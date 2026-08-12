@@ -151,6 +151,22 @@
 
       <div class="archive-card archive-large">
         <div class="archive-card-bg bg-5">
+          <img id="sounds-of-summer-archive-photo" src="assets/images/IMG_6978.jpg" alt="Sounds of Summer photo 1" loading="lazy" />
+        </div>
+        <div class="archive-always">
+          <div class="archive-type-badge">Concert</div>
+          <div class="archive-event-name">SOUNDS OF SUMMER</div>
+          <div class="archive-event-date">August 8, 2026 · Arts District</div>
+        </div>
+        <div class="archive-caption">
+          <p>Live music, art booths, and show merch in the Las Vegas summer.</p>
+          <a href="archive-sounds-of-summer.html">View Event →</a>
+        </div>
+        <a href="archive-sounds-of-summer.html" class="archive-card-link" aria-label="View Sounds of Summer"></a>
+      </div>
+
+      <div class="archive-card archive-large">
+        <div class="archive-card-bg bg-5">
           <img id="short-film-festival-archive-photo" src="assets/images/events/short-film-festival/photo-01.jpg" alt="The First Annual Geronimo Short Film Festival photo 1" loading="lazy" />
         </div>
         <div class="archive-always">
@@ -252,6 +268,32 @@
   </footer>
 
   <script>
+    (function() {
+      var photos = [
+        'IMG_6978.jpg',
+        'IMG_6979.jpg',
+        'IMG_6981.jpg',
+        'IMG_6982.jpg',
+        'IMG_6983.jpg',
+        'IMG_6984.jpg',
+        'IMG_6985.jpg',
+        'IMG_6986.jpg',
+        'IMG_6987.jpg',
+        'IMG_6988.jpg',
+        'IMG_6989.jpg',
+        'IMG_6990.jpg',
+        'IMG_6991.jpg',
+        'IMG_6992.jpg',
+        'IMG_6993.jpg'
+      ];
+      var index = Math.floor(Math.random() * photos.length);
+      var image = document.getElementById('sounds-of-summer-archive-photo');
+      if (image) {
+        image.src = 'assets/images/' + photos[index];
+        image.alt = 'Sounds of Summer photo ' + (index + 1);
+      }
+    })();
+
     (function() {
       var photoCount = 10;
       var index = Math.floor(Math.random() * photoCount) + 1;

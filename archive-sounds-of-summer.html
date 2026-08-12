@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sounds of Summer — Geronimo Records Archive</title>
+  <meta name="description" content="Sounds of Summer — Geronimo Records concert, August 8, 2026 in Las Vegas." />
+  <link rel="canonical" href="https://geronimorecords.net/archive-sounds-of-summer.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .event-poster {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 3/4;
+      background: var(--card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .event-poster img { width: 100%; height: 100%; object-fit: cover; }
+
+    .event-poster-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 18px;
+      letter-spacing: 0.3em;
+      color: rgba(237,28,36,0.3);
+      border: 1px dashed rgba(237,28,36,0.2);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .event-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 60px;
+    }
+
+    .meta-item-label {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .meta-item-value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .lineup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .artist-card {
+      background: var(--card);
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .artist-card:hover { background: #222; }
+
+    .artist-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.4s;
+    }
+
+    .artist-card:hover::after { width: 100%; }
+
+    .artist-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .artist-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+    .artist-photo span {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--gold);
+    }
+
+    .artist-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .artist-handle {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .artist-handle:hover { color: var(--gold-light); }
+
+    .vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .vendor-card {
+      background: var(--card);
+      padding: 28px 24px;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: var(--white);
+      display: block;
+    }
+
+    .vendor-card:hover { background: #222; }
+
+    .vendor-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .vendor-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .showcase-card {
+      background: var(--card);
+      padding: 40px 32px;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: var(--white);
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-card:hover { background: #222; }
+
+    .showcase-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.4s;
+    }
+
+    .showcase-card:hover::after { width: 100%; }
+
+    .showcase-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .showcase-name {
+      font-family: var(--font-display);
+      font-size: 32px;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .showcase-handle {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .gallery-placeholder-slot {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(237,28,36,0.2);
+      border: 1px dashed rgba(237,28,36,0.12);
+    }
+
+    .gallery-slider {
+      margin: 48px auto 0;
+      display: grid;
+      gap: 18px;
+      max-width: 1100px;
+    }
+
+    .gallery-slides {
+      position: relative;
+      min-height: 480px;
+      aspect-ratio: 16 / 10;
+      touch-action: pan-y;
+    }
+
+    .gallery-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #111;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-slide:hover img {
+      transform: scale(1.02);
+    }
+
+    .gallery-slide .gallery-placeholder-slot {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(237,28,36,0.4);
+      border: 1px dashed rgba(237,28,36,0.18);
+      text-align: center;
+      padding: 20px;
+      background: rgba(8, 8, 8, 0.55);
+    }
+
+    .gallery-slide.missing-image .gallery-placeholder-slot {
+      display: flex;
+    }
+
+    .gallery-slide.missing-image img {
+      display: none;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 16px 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8,8,8,0.72) 100%);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gallery-nav {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8,8,8,0.8);
+      color: var(--gold);
+      font-size: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-nav:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    .gallery-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .gallery-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .gallery-dot.active {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0,0,0,0.92);
+    }
+
+    .gallery-modal.open {
+      display: flex;
+    }
+
+    .gallery-modal-content {
+      position: relative;
+      width: min(1080px, 100%);
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .gallery-modal-content img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 22px;
+      background: #111;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .gallery-modal-caption {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      gap: 12px;
+    }
+
+    .gallery-modal-close,
+    .gallery-modal-prev,
+    .gallery-modal-next {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-modal-close:hover,
+    .gallery-modal-prev:hover,
+    .gallery-modal-next:hover {
+      background: rgba(255,255,255,0.16);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .gallery-slides { min-height: 320px; }
+      .gallery-caption { padding: 14px 18px; font-size: 12px; }
+      .gallery-nav { width: 42px; height: 42px; }
+      .gallery-modal { padding: 16px; }
+      .gallery-modal-caption { font-size: 12px; }
+      .gallery-modal-close,
+      .gallery-modal-prev,
+      .gallery-modal-next { width: 42px; height: 42px; }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--white); }
+
+    .merch-card-static {
+      cursor: default;
+    }
+
+    .merch-card-static:hover {
+      transform: none;
+    }
+
+    body.sounds-of-summer {
+      min-height: 100vh;
+      background-color: #082b2d;
+      background-image:
+        linear-gradient(rgba(5,18,20,0.28), rgba(5,18,20,0.66)),
+        url("geronimo productions presents (8).png");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff8ef;
+    }
+
+    body.sounds-of-summer nav {
+      background: linear-gradient(to bottom, rgba(5, 18, 20, 0.96) 0%, rgba(7, 42, 45, 0.72) 60%, transparent 100%);
+    }
+
+    body.sounds-of-summer .nav-logo { color: #fff8ef; }
+    body.sounds-of-summer .nav-logo span { color: #f6b16f; }
+
+    body.sounds-of-summer .nav-links a,
+    body.sounds-of-summer .nav-mobile a,
+    body.sounds-of-summer .back-link,
+    body.sounds-of-summer .gallery-caption,
+    body.sounds-of-summer .gallery-modal-caption,
+    body.sounds-of-summer .footer-copy,
+    body.sounds-of-summer .footer-links a {
+      color: rgba(255,248,239,0.82);
+    }
+
+    body.sounds-of-summer .section-label,
+    body.sounds-of-summer .section-divider,
+    body.sounds-of-summer .artist-handle,
+    body.sounds-of-summer .vendor-label,
+    body.sounds-of-summer .showcase-label,
+    body.sounds-of-summer .showcase-handle,
+    body.sounds-of-summer .gallery-nav,
+    body.sounds-of-summer .gallery-dot.active,
+    body.sounds-of-summer .btn-primary,
+    body.sounds-of-summer .gallery-modal-close,
+    body.sounds-of-summer .gallery-modal-prev,
+    body.sounds-of-summer .gallery-modal-next {
+      color: #f6b16f;
+      border-color: rgba(246,177,111,0.28);
+    }
+
+    body.sounds-of-summer .section-title,
+    body.sounds-of-summer .artist-name,
+    body.sounds-of-summer .vendor-name,
+    body.sounds-of-summer .showcase-name,
+    body.sounds-of-summer .merch-name,
+    body.sounds-of-summer .gallery-dot.active {
+      color: #fff8ef;
+    }
+
+    body.sounds-of-summer .page-hero {
+      background: rgba(5,18,20,0.72);
+      border-bottom: 1px solid rgba(246,177,111,0.16);
+      color: #fff8ef;
+      padding-top: 120px;
+    }
+
+    body.sounds-of-summer .page-hero .section-label,
+    body.sounds-of-summer .page-hero p,
+    body.sounds-of-summer .page-hero .back-link {
+      color: rgba(255,248,239,0.86);
+    }
+
+    body.sounds-of-summer .event-poster { border-color: rgba(246,177,111,0.32); }
+    body.sounds-of-summer .event-meta-bar,
+    body.sounds-of-summer .lineup-grid .artist-card,
+    body.sounds-of-summer .vendor-grid .vendor-card,
+    body.sounds-of-summer .showcase-card,
+    body.sounds-of-summer .gallery-slide,
+    body.sounds-of-summer .merch-card,
+    body.sounds-of-summer footer {
+      background: rgba(5,28,31,0.92);
+      border-color: rgba(246,177,111,0.18);
+    }
+
+    body.sounds-of-summer .artist-card:hover,
+    body.sounds-of-summer .vendor-card:hover,
+    body.sounds-of-summer .showcase-card:hover,
+    body.sounds-of-summer .gallery-nav:hover,
+    body.sounds-of-summer .gallery-modal-close:hover,
+    body.sounds-of-summer .gallery-modal-prev:hover,
+    body.sounds-of-summer .gallery-modal-next:hover {
+      background: rgba(188,53,35,0.36);
+      color: #f6b16f;
+    }
+
+    body.sounds-of-summer .btn-primary {
+      background: #d94f2f;
+      color: #fff8ef;
+      border: 1px solid rgba(246,177,111,0.32);
+    }
+
+    body.sounds-of-summer .btn-primary:hover { background: #f06c3f; }
+
+    body.sounds-of-summer .merch-price,
+    body.sounds-of-summer .meta-item-value,
+    body.sounds-of-summer .gallery-caption,
+    body.sounds-of-summer .gallery-modal-caption {
+      color: rgba(255,248,239,0.94);
+    }
+
+    body.sounds-of-summer .gallery-slide .gallery-caption {
+      background: linear-gradient(180deg, transparent 0%, rgba(5,18,20,0.9) 100%);
+    }
+
+    body.sounds-of-summer .section-title { text-shadow: 0 0 16px rgba(5,18,20,0.55); }
+
+    body.sounds-of-summer .footer-logo { color: #fff8ef; }
+    body.sounds-of-summer .footer-links a:hover { color: #f6b16f; }
+
+    body.sounds-of-summer section {
+      background: rgba(5,18,20,0.74);
+      border: 1px solid rgba(246,177,111,0.14);
+      padding: 120px 60px;
+    }
+
+    body.sounds-of-summer .section-label {
+      color: #f6b16f;
+    }
+
+    body.sounds-of-summer .section-title { color: #fff8ef; }
+
+    body.sounds-of-summer .hero-subtitle,
+    body.sounds-of-summer .section-copy {
+      font-family: var(--font-editorial);
+      color: rgba(255,248,239,0.82);
+      max-width: 680px;
+      line-height: 1.8;
+    }
+
+    body.sounds-of-summer .hero-subtitle {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 16px;
+      max-width: 500px;
+    }
+
+    body.sounds-of-summer .event-meta-bar,
+    body.sounds-of-summer .lineup-grid .artist-card,
+    body.sounds-of-summer .vendor-grid .vendor-card,
+    body.sounds-of-summer .showcase-card,
+    body.sounds-of-summer .gallery-slide,
+    body.sounds-of-summer .merch-card,
+    body.sounds-of-summer footer {
+      background: rgba(5,28,31,0.92);
+      border: 1px solid rgba(246,177,111,0.18);
+    }
+
+    body.sounds-of-summer .artist-card:hover,
+    body.sounds-of-summer .vendor-card:hover,
+    body.sounds-of-summer .showcase-card:hover,
+    body.sounds-of-summer .gallery-nav:hover,
+    body.sounds-of-summer .gallery-modal-close:hover,
+    body.sounds-of-summer .gallery-modal-prev:hover,
+    body.sounds-of-summer .gallery-modal-next:hover {
+      background: rgba(188,53,35,0.38);
+      color: #f6b16f;
+    }
+    body.sounds-of-summer .back-link {
+      color: rgba(255,248,239,0.82);
+    }
+
+    body.sounds-of-summer .back-link:hover {
+      color: #f6b16f;
+    }
+
+    body.sounds-of-summer .gallery-dot {
+      border-color: rgba(246,177,111,0.22);
+      background: rgba(255,248,239,0.12);
+    }
+
+    body.sounds-of-summer .gallery-dot.active {
+      background: #d94f2f;
+      border-color: rgba(246,177,111,0.36);
+    }
+
+    body.sounds-of-summer .gallery-caption,
+    body.sounds-of-summer .gallery-modal-caption,
+    body.sounds-of-summer .meta-item-value,
+    body.sounds-of-summer .merch-price,
+    body.sounds-of-summer .footer-copy,
+    body.sounds-of-summer .footer-links a {
+      color: rgba(255,248,239,0.92);
+    }
+
+    body.sounds-of-summer .page-hero {
+      background: rgba(5,18,20,0.72);
+      border-bottom: 1px solid rgba(246,177,111,0.16);
+      color: #fff8ef;
+      padding-top: 120px;
+    }
+
+    @media (max-width: 900px) {
+      body.sounds-of-summer section { padding: 80px 24px; }
+    }
+
+    body.sounds-of-summer .event-poster { border-color: rgba(246,177,111,0.32); }
+
+    body.sounds-of-summer .section-divider {
+      background: #d94f2f;
+    }
+
+    @media (max-width: 900px) {
+      .lineup-grid { grid-template-columns: 1fr 1fr; }
+      .vendor-grid { grid-template-columns: 1fr 1fr; }
+      .showcase-grid { grid-template-columns: 1fr; }
+      .gallery-slides { min-height: 280px; }
+      .gallery-caption { font-size: 12px; padding: 12px 16px; }
+      .gallery-controls { flex-wrap: wrap; gap: 10px; }
+    }
+  </style>
+</head>
+<body class="sounds-of-summer">
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
+    <ul class="nav-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="archive.html" class="active">Archive</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="collective.html">Collective</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="events.html" class="nav-cta">Get Tickets</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile">
+    <a href="events.html">Events</a>
+    <a href="archive.html">Archive</a>
+    <a href="merch.html">Merch</a>
+    <a href="collective.html">Collective</a>
+    <a href="contact.html">Contact</a>
+    <a href="events.html" class="nav-mobile-cta">Get Tickets</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <a href="archive.html" class="back-link">← Back to Archive</a>
+    <span class="section-label">August 8, 2026 · 7:00 PM · Las Vegas</span>
+    <h1 class="section-title">Sounds of Summer</h1>
+    <div class="section-divider"></div>
+    <p class="hero-subtitle">Live music, art booths, and show merch in the Arts District.</p>
+
+    <div class="event-poster">
+      <img src="assets/images/posters/sounds-of-summer.png" alt="Sounds of Summer Poster" />
+    </div>
+  </div>
+
+  <!-- EVENT META -->
+  <section>
+    <div class="event-meta-bar">
+      <div>
+        <span class="meta-item-label">Date</span>
+        <div class="meta-item-value">August 8, 2026</div>
+      </div>
+      <div>
+        <span class="meta-item-label">Time</span>
+        <div class="meta-item-value">7:00 PM</div>
+      </div>
+      <div>
+        <span class="meta-item-label">Area</span>
+        <div class="meta-item-value">Arts District</div>
+      </div>
+      <div>
+        <span class="meta-item-label">Type</span>
+        <div class="meta-item-value">Concert</div>
+      </div>
+    </div>
+    <p class="section-copy">
+      Sounds of Summer brought Geronimo Productions into the Las Vegas summer with live music, art booths, show merch, and a five-artist bill built for the Arts District.
+    </p>
+  </section>
+
+  <!-- ARTIST LINEUP -->
+  <section>
+    <span class="section-label">On the Bill</span>
+    <h2 class="section-title">Lineup</h2>
+    <div class="section-divider"></div>
+
+    <div class="lineup-grid">
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>JCG</span></div>
+        <div class="artist-name">JCG</div>
+        <a href="https://www.instagram.com/realjcg/" class="artist-handle" target="_blank" rel="noopener">@realjcg</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>N</span></div>
+        <div class="artist-name">NAZARETH</div>
+        <a href="https://www.instagram.com/ughnazareth/" class="artist-handle" target="_blank" rel="noopener">@ughnazareth</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>M</span></div>
+        <div class="artist-name">MERCYYY</div>
+        <a href="https://www.instagram.com/030mercyyy/" class="artist-handle" target="_blank" rel="noopener">@030mercyyy</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>3J</span></div>
+        <div class="artist-name">3JAYSLUMP</div>
+        <a href="https://www.instagram.com/3jayslump/" class="artist-handle" target="_blank" rel="noopener">@3jayslump</a>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-photo"><span>W</span></div>
+        <div class="artist-name">WYNN</div>
+        <a href="https://www.instagram.com/officialwynnxo/" class="artist-handle" target="_blank" rel="noopener">@officialwynnxo</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VENDORS -->
+  <section>
+    <span class="section-label">At the Show</span>
+    <h2 class="section-title">Vendors</h2>
+    <div class="section-divider"></div>
+
+    <div class="vendor-grid">
+
+      <a href="https://quinnanthony.shop/" class="vendor-card" target="_blank" rel="noopener">
+        <span class="vendor-label">Fashion &amp; Apparel</span>
+        <div class="vendor-name">QUINN ANTHONY</div>
+      </a>
+
+      <a href="https://mfumeapparel.co/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaAQ75wpleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAachS0lrEmdiPV5GLejVnOkBWLB7NlSVc3FO_kH6mlS0XgQJ6EusAcYsAUl7fw_aem_aCoXlyMjauRDaLHVq-2WCw" class="vendor-card" target="_blank" rel="noopener">
+        <span class="vendor-label">Fashion &amp; Apparel</span>
+        <div class="vendor-name">MFUME</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section>
+    <span class="section-label">Captured Moments</span>
+    <h2 class="section-title">View Sounds of Summer</h2>
+    <div class="section-divider"></div>
+    <p class="section-copy">
+      Take a look at some photos from our event Sounds of Summer.
+    </p>
+
+    <div class="gallery-slider">
+      <div class="gallery-slides">
+        <div class="gallery-slide active" data-index="1" role="button" tabindex="0">
+          <img src="assets/images/IMG_6978.jpg" alt="Sounds of Summer photo 1" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6978.jpg</div>
+          <div class="gallery-caption">1 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="2" role="button" tabindex="0">
+          <img src="assets/images/IMG_6979.jpg" alt="Sounds of Summer photo 2" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6979.jpg</div>
+          <div class="gallery-caption">2 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="3" role="button" tabindex="0">
+          <img src="assets/images/IMG_6981.jpg" alt="Sounds of Summer photo 3" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6981.jpg</div>
+          <div class="gallery-caption">3 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="4" role="button" tabindex="0">
+          <img src="assets/images/IMG_6982.jpg" alt="Sounds of Summer photo 4" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6982.jpg</div>
+          <div class="gallery-caption">4 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="5" role="button" tabindex="0">
+          <img src="assets/images/IMG_6983.jpg" alt="Sounds of Summer photo 5" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6983.jpg</div>
+          <div class="gallery-caption">5 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="6" role="button" tabindex="0">
+          <img src="assets/images/IMG_6984.jpg" alt="Sounds of Summer photo 6" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6984.jpg</div>
+          <div class="gallery-caption">6 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="7" role="button" tabindex="0">
+          <img src="assets/images/IMG_6985.jpg" alt="Sounds of Summer photo 7" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6985.jpg</div>
+          <div class="gallery-caption">7 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="8" role="button" tabindex="0">
+          <img src="assets/images/IMG_6986.jpg" alt="Sounds of Summer photo 8" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6986.jpg</div>
+          <div class="gallery-caption">8 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="9" role="button" tabindex="0">
+          <img src="assets/images/IMG_6987.jpg" alt="Sounds of Summer photo 9" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6987.jpg</div>
+          <div class="gallery-caption">9 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="10" role="button" tabindex="0">
+          <img src="assets/images/IMG_6988.jpg" alt="Sounds of Summer photo 10" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6988.jpg</div>
+          <div class="gallery-caption">10 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="11" role="button" tabindex="0">
+          <img src="assets/images/IMG_6989.jpg" alt="Sounds of Summer photo 11" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6989.jpg</div>
+          <div class="gallery-caption">11 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="12" role="button" tabindex="0">
+          <img src="assets/images/IMG_6990.jpg" alt="Sounds of Summer photo 12" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6990.jpg</div>
+          <div class="gallery-caption">12 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="13" role="button" tabindex="0">
+          <img src="assets/images/IMG_6991.jpg" alt="Sounds of Summer photo 13" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6991.jpg</div>
+          <div class="gallery-caption">13 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="14" role="button" tabindex="0">
+          <img src="assets/images/IMG_6992.jpg" alt="Sounds of Summer photo 14" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6992.jpg</div>
+          <div class="gallery-caption">14 / 15</div>
+        </div>
+        <div class="gallery-slide" data-index="15" role="button" tabindex="0">
+          <img src="assets/images/IMG_6993.jpg" alt="Sounds of Summer photo 15" loading="lazy" />
+          <div class="gallery-placeholder-slot">IMG_6993.jpg</div>
+          <div class="gallery-caption">15 / 15</div>
+        </div>
+      </div>
+      <div class="gallery-controls">
+        <button class="gallery-nav gallery-nav-prev" type="button" aria-label="Previous photo">‹</button>
+        <div class="gallery-dots">
+          <button class="gallery-dot active" type="button" data-index="1" aria-label="Go to photo 1"></button>
+          <button class="gallery-dot" type="button" data-index="2" aria-label="Go to photo 2"></button>
+          <button class="gallery-dot" type="button" data-index="3" aria-label="Go to photo 3"></button>
+          <button class="gallery-dot" type="button" data-index="4" aria-label="Go to photo 4"></button>
+          <button class="gallery-dot" type="button" data-index="5" aria-label="Go to photo 5"></button>
+          <button class="gallery-dot" type="button" data-index="6" aria-label="Go to photo 6"></button>
+          <button class="gallery-dot" type="button" data-index="7" aria-label="Go to photo 7"></button>
+          <button class="gallery-dot" type="button" data-index="8" aria-label="Go to photo 8"></button>
+          <button class="gallery-dot" type="button" data-index="9" aria-label="Go to photo 9"></button>
+          <button class="gallery-dot" type="button" data-index="10" aria-label="Go to photo 10"></button>
+          <button class="gallery-dot" type="button" data-index="11" aria-label="Go to photo 11"></button>
+          <button class="gallery-dot" type="button" data-index="12" aria-label="Go to photo 12"></button>
+          <button class="gallery-dot" type="button" data-index="13" aria-label="Go to photo 13"></button>
+          <button class="gallery-dot" type="button" data-index="14" aria-label="Go to photo 14"></button>
+          <button class="gallery-dot" type="button" data-index="15" aria-label="Go to photo 15"></button>
+        </div>
+        <button class="gallery-nav gallery-nav-next" type="button" aria-label="Next photo">›</button>
+      </div>
+    </div>
+    <div class="gallery-modal" aria-hidden="true">
+      <div class="gallery-modal-content">
+        <button class="gallery-modal-close" type="button" aria-label="Close gallery">×</button>
+        <img src="" alt="" />
+        <div class="gallery-modal-caption">
+          <span class="modal-caption-text"></span>
+          <span class="modal-caption-order"></span>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-modal-prev" type="button" aria-label="Previous photo">‹</button>
+          <button class="gallery-modal-next" type="button" aria-label="Next photo">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO LINKS -->
+  <section>
+    <span class="section-label">Video</span>
+    <h2 class="section-title">Watch Sounds of Summer</h2>
+    <div class="section-divider"></div>
+    <p class="section-copy">
+      Watch videos related to Sounds of Summer.
+    </p>
+    <div class="showcase-grid" style="max-width:860px; margin-top:24px;">
+      <a href="https://www.youtube.com/watch?v=kA9WEkMxKGo" class="showcase-card" target="_blank" rel="noopener" style="max-width:420px;">
+        <div style="border-radius:16px; overflow:hidden; background:#111; margin-bottom:18px; aspect-ratio:16/9;">
+          <img src="https://i.ytimg.com/vi/kA9WEkMxKGo/hqdefault.jpg" alt="Sounds of Summer video thumbnail" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
+        <span class="showcase-label">YouTube</span>
+        <div class="showcase-name">Sounds of Summer - A Geronimo Records Production</div>
+        <div class="showcase-handle">Geronimo Records</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="index.html"><span>G</span>ERONIMO <span>R</span>ECORDS</a>
+    <p class="footer-copy">© 2026 Geronimo Records. Las Vegas, NV.</p>
+    <ul class="footer-links">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="merch.html">Store</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
