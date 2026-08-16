@@ -85,9 +85,80 @@
       color: var(--white);
     }
 
+    .festival-breakdown {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+    }
+
+    .festival-breakdown-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .festival-breakdown-copy {
+      max-width: 540px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .festival-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+
+    .festival-breakdown-item {
+      min-height: 190px;
+      padding: 28px 22px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--off-black);
+    }
+
+    .festival-breakdown-value {
+      display: block;
+      margin-bottom: 14px;
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: 0.9;
+      color: var(--gold);
+    }
+
+    .festival-breakdown-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
     @media (max-width: 900px) {
       .archive-preview-grid {
         grid-template-columns: 1fr;
+      }
+
+      .festival-breakdown-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .festival-breakdown-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .festival-breakdown-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .festival-breakdown-item {
+        min-height: 145px;
       }
     }
   </style>
@@ -128,28 +199,60 @@
   <section style="background: var(--off-black); padding-top: 60px;">
     <div class="events-grid">
 
-      <!-- TBD -->
+      <!-- THE GERONIMO RECORDS HALLOWEEN SHORT FILM FESTIVAL -->
       <div class="event-card event-featured" style="cursor:default;">
-        <div class="event-poster" aria-label="TBD event poster">
-          <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--card); border:1px dashed var(--border); font-family:var(--font-display); font-size:clamp(48px, 8vw, 96px); color:var(--gold); letter-spacing:0.08em;">
-            TBD
-          </div>
+        <div class="event-poster">
+          <img src="The Geronimo Records Halloween Short Film Festival Flyer.png" alt="The Geronimo Records Halloween Short Film Festival flyer" loading="lazy" />
         </div>
         <div class="event-card-info">
-          <div class="event-num">TBD</div>
+          <div class="event-num">01</div>
           <div>
-            <div class="event-title-text">TBD</div>
-            <div class="event-meta">TBD</div>
+            <div class="event-title-text">THE GERONIMO RECORDS HALLOWEEN SHORT FILM FESTIVAL</div>
+            <div class="event-meta">Short films · Halloween · Community showcase</div>
           </div>
           <div class="event-card-details">
-            <span>TBD</span>
-            <span>TBD</span>
-            <span>TBD</span>
+            <span>October 16th, 2026</span>
+            <span>6:00 PM–9:30 PM</span>
+            <span>West Charleston Library · Las Vegas</span>
           </div>
-          <span class="event-ticket" aria-disabled="true">TBD</span>
+          <a class="event-ticket" href="https://www.tickettailor.com/events/geronimorecords/2363242" target="_blank" rel="noopener noreferrer">Buy Tickets!</a>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- FESTIVAL BREAKDOWN -->
+  <section class="festival-breakdown">
+    <div class="festival-breakdown-header">
+      <div>
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Festival<br>Breakdown</h2>
+      </div>
+      <p class="festival-breakdown-copy">Fifteen teams will bring their short films to the big screen for a chance to take home the festival's $500 cash prize. Each film must be no longer than eight minutes, including a 10-second title card and a 30-second credit roll. After purchasing a team entry, you will receive an email with more information, including the prompts and guidelines to follow in your film.</p>
+    </div>
+
+    <div class="festival-breakdown-grid" aria-label="Halloween Short Film Festival details">
+      <div class="festival-breakdown-item">
+        <span class="festival-breakdown-value">15</span>
+        <span class="festival-breakdown-label">Teams</span>
+      </div>
+      <div class="festival-breakdown-item">
+        <span class="festival-breakdown-value">5</span>
+        <span class="festival-breakdown-label">People Per Team</span>
+      </div>
+      <div class="festival-breakdown-item">
+        <span class="festival-breakdown-value">$50</span>
+        <span class="festival-breakdown-label">Entry Per Team</span>
+      </div>
+      <div class="festival-breakdown-item">
+        <span class="festival-breakdown-value">$500</span>
+        <span class="festival-breakdown-label">Cash Prize</span>
+      </div>
+      <div class="festival-breakdown-item">
+        <span class="festival-breakdown-value">$13</span>
+        <span class="festival-breakdown-label">Regular Tickets</span>
+      </div>
     </div>
   </section>
 
